@@ -11,7 +11,7 @@
  Target Server Version : 50640
  File Encoding         : 65001
 
- Date: 30/01/2019 14:52:23
+ Date: 30/01/2019 23:07:53
 */
 
 SET NAMES utf8mb4;
@@ -22,8 +22,8 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP TABLE IF EXISTS `business`;
 CREATE TABLE `business`  (
-  `business_id` int(255) NOT NULL,
-  `user_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `business_id` int(255) NOT NULL COMMENT '商家id',
+  `user_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '用户id（外键）',
   PRIMARY KEY (`business_id`) USING BTREE,
   INDEX `business_user_id`(`user_id`) USING BTREE,
   CONSTRAINT `business_user_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE
@@ -45,25 +45,25 @@ CREATE TABLE `good`  (
   PRIMARY KEY (`good_id`) USING BTREE,
   INDEX `good_id`(`good_id`) USING BTREE,
   INDEX `detail_id`(`detail_id`) USING BTREE,
-  CONSTRAINT `detail_id` FOREIGN KEY (`detail_id`) REFERENCES `good_detials` (`detial_id`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `detail_id` FOREIGN KEY (`detail_id`) REFERENCES `good_details` (`detail_id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
--- Table structure for good_detials
+-- Table structure for good_details
 -- ----------------------------
-DROP TABLE IF EXISTS `good_detials`;
-CREATE TABLE `good_detials`  (
-  `detial_id` int(255) NOT NULL COMMENT '商品详情id',
+DROP TABLE IF EXISTS `good_details`;
+CREATE TABLE `good_details`  (
+  `detail_id` int(255) NOT NULL COMMENT '商品详情id',
   `img_url` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '商品图片路径',
   `date_time` date NULL DEFAULT NULL COMMENT '上架时间',
   `Intro` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '简介',
   `type_id` int(11) NULL DEFAULT NULL COMMENT '类型id（外键）',
   `business_id` int(255) NULL DEFAULT NULL COMMENT '商家id（外键）',
-  PRIMARY KEY (`detial_id`) USING BTREE,
+  PRIMARY KEY (`detail_id`) USING BTREE,
   INDEX `type_id`(`type_id`) USING BTREE,
   INDEX `business_id`(`business_id`) USING BTREE,
-  CONSTRAINT `type_id` FOREIGN KEY (`type_id`) REFERENCES `type` (`type_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `business_id` FOREIGN KEY (`business_id`) REFERENCES `business` (`business_id`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `business_id` FOREIGN KEY (`business_id`) REFERENCES `business` (`business_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `type_id` FOREIGN KEY (`type_id`) REFERENCES `type` (`type_id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
@@ -114,7 +114,8 @@ CREATE TABLE `user`  (
   `user_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '用户ID',
   `user_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '用户名称',
   `password` varchar(16) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '密码，长度为16位',
-  `sex` int(3) NULL DEFAULT NULL COMMENT '年龄',
+  `age` int(3) NULL DEFAULT NULL COMMENT '年龄',
+  `sex` int(3) NULL DEFAULT NULL COMMENT '性别',
   `profession` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '职业',
   `regtime` datetime(0) NULL DEFAULT NULL COMMENT '注册时间',
   `address` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '地址',
