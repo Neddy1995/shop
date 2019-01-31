@@ -3,11 +3,12 @@
 <mapper namespace="com.xc.shop.dao.OrderDetailsMapper" >
   <resultMap id="BaseResultMap" type="com.xc.shop.bean.OrderDetails" >
     <id column="detail_id" property="detailId" jdbcType="INTEGER" />
+    <result column="number" property="number" jdbcType="INTEGER" />
     <result column="order_id" property="orderId" jdbcType="INTEGER" />
     <result column="good_id" property="goodId" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Base_Column_List" >
-    detail_id, order_id, good_id
+    detail_id, number, order_id, good_id
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -20,16 +21,19 @@
     where detail_id = #{detailId,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.xc.shop.bean.OrderDetails" >
-    insert into order_details (detail_id, order_id, good_id
-      )
-    values (#{detailId,jdbcType=INTEGER}, #{orderId,jdbcType=INTEGER}, #{goodId,jdbcType=INTEGER}
-      )
+    insert into order_details (detail_id, number, order_id, 
+      good_id)
+    values (#{detailId,jdbcType=INTEGER}, #{number,jdbcType=INTEGER}, #{orderId,jdbcType=INTEGER}, 
+      #{goodId,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.xc.shop.bean.OrderDetails" >
     insert into order_details
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="detailId != null" >
         detail_id,
+      </if>
+      <if test="number != null" >
+        number,
       </if>
       <if test="orderId != null" >
         order_id,
@@ -42,6 +46,9 @@
       <if test="detailId != null" >
         #{detailId,jdbcType=INTEGER},
       </if>
+      <if test="number != null" >
+        #{number,jdbcType=INTEGER},
+      </if>
       <if test="orderId != null" >
         #{orderId,jdbcType=INTEGER},
       </if>
@@ -53,6 +60,9 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.xc.shop.bean.OrderDetails" >
     update order_details
     <set >
+      <if test="number != null" >
+        number = #{number,jdbcType=INTEGER},
+      </if>
       <if test="orderId != null" >
         order_id = #{orderId,jdbcType=INTEGER},
       </if>
@@ -64,7 +74,8 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.xc.shop.bean.OrderDetails" >
     update order_details
-    set order_id = #{orderId,jdbcType=INTEGER},
+    set number = #{number,jdbcType=INTEGER},
+      order_id = #{orderId,jdbcType=INTEGER},
       good_id = #{goodId,jdbcType=INTEGER}
     where detail_id = #{detailId,jdbcType=INTEGER}
   </update>

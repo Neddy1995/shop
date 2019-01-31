@@ -1,11 +1,13 @@
 package com.xc.shop.bean;
 
 public class OrderDetails {
-    private Integer detailId;//订单详情id
+    private Integer detailId;
 
-    private Integer orderId;//订单id
+    private Integer number;
 
-    private Integer goodId;//商品id
+    private Integer orderId;
+
+    private Integer goodId;
 
     public Integer getDetailId() {
         return detailId;
@@ -13,6 +15,14 @@ public class OrderDetails {
 
     public void setDetailId(Integer detailId) {
         this.detailId = detailId;
+    }
+
+    public Integer getNumber() {
+        return number;
+    }
+
+    public void setNumber(Integer number) {
+        this.number = number;
     }
 
     public Integer getOrderId() {

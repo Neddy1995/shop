@@ -13,10 +13,13 @@ spring:
       driver-class-name: com.mysql.jdbc.Driver
       #charaterEncoding设置编码格式
       #serverTimezone设置时区
-      url: jdbc:mysql://localhost:3306/shop?useUnicode=true&charaterEncoding=UTF-8&useSSL=false&serverTimezone=UTC
+      url: jdbc:mysql://localhost:3306/shop?useUnicode=true&characterEncoding=UTF-8
       username: root
       password: 123456
 
 mybatis:
-#mybatis扫描配置
+    #mybatis扫描配置
     mapper-locations: classpath:mapper/*.xml
+    #开启sql日志
+    configuration:
+      log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

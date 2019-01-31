@@ -53,6 +53,7 @@ public class UserContrroller {
         if (i){
             return "login";
         }
+        System.out.printf("已存在该用户");
         return "register";
     }
 

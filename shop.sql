@@ -11,7 +11,7 @@
  Target Server Version : 50640
  File Encoding         : 65001
 
- Date: 31/01/2019 22:03:16
+ Date: 01/02/2019 00:12:58
 */
 
 SET NAMES utf8mb4;
@@ -95,9 +95,12 @@ CREATE TABLE `order`  (
   `end_time` date NULL DEFAULT NULL COMMENT '结束时间',
   `state` int(2) NULL DEFAULT NULL COMMENT '订单状态（0：失败订单，1：成功完成订单，2：未支付，3：未发货，4：发货中，5：已收货）',
   `user_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '用户id（外键）',
+  `address_id` int(255) NOT NULL COMMENT '地址id',
   PRIMARY KEY (`order_id`) USING BTREE,
   INDEX `user_id`(`user_id`) USING BTREE,
-  CONSTRAINT `user_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE
+  INDEX `address_id`(`address_id`) USING BTREE,
+  CONSTRAINT `user_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `address_id` FOREIGN KEY (`address_id`) REFERENCES `address` (`address_id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
@@ -106,6 +109,7 @@ CREATE TABLE `order`  (
 DROP TABLE IF EXISTS `order_details`;
 CREATE TABLE `order_details`  (
   `detail_id` int(255) NOT NULL COMMENT '订单详情id',
+  `number` int(10) NULL DEFAULT NULL COMMENT '购买数量',
   `order_id` int(255) NULL DEFAULT NULL COMMENT '订单id（外键）',
   `good_id` int(255) NULL DEFAULT NULL COMMENT '商品id（外键）',
   PRIMARY KEY (`detail_id`) USING BTREE,

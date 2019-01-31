@@ -43,6 +43,7 @@ public class UserService {
         User haveUser = userMapper.selectUserByName(user.getUserName());
         if(haveUser == null){
 //            自动生成注册时间，权限
+            System.out.printf(user.getUserName());
             user.setRegtime(new Date());
             user.setPower(1);
 //            插入用户

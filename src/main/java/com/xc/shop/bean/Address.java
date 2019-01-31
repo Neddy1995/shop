@@ -1,23 +1,23 @@
 package com.xc.shop.bean;
 
 public class Address {
-    private Integer addressId;
+    private Integer addressId;//
 
-    private String addressName;
+    private String addressName;//
 
-    private String addressPhone;
+    private String addressPhone;//
 
-    private String addressProv;
+    private String addressProv;//
 
-    private String addressCity;
+    private String addressCity;//
 
-    private String addressArea;
+    private String addressArea;//
 
-    private String addressStreet;
+    private String addressStreet;//
 
-    private String addressInfo;
+    private String addressInfo;//
 
-    private String userId;
+    private String userId;//
 
     public Integer getAddressId() {
         return addressId;

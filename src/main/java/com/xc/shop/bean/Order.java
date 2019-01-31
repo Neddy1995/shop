@@ -3,15 +3,17 @@ package com.xc.shop.bean;
 import java.util.Date;
 
 public class Order {
-    private Integer orderId;//订单id
+    private Integer orderId;
 
-    private Date beginTime;//下单时间
+    private Date beginTime;
 
-    private Date endTime;//结束时间
+    private Date endTime;
 
-    private Integer state;//订单状态（0：失败订单，1：成功完成订单，2：未支付，3：未发货，4：发货中，5：已收货）
+    private Integer state;
 
-    private String userId;//用户id
+    private String userId;
+
+    private Integer addressId;
 
     public Integer getOrderId() {
         return orderId;
@@ -51,5 +53,13 @@ public class Order {
 
     public void setUserId(String userId) {
         this.userId = userId == null ? null : userId.trim();
+    }
+
+    public Integer getAddressId() {
+        return addressId;
+    }
+
+    public void setAddressId(Integer addressId) {
+        this.addressId = addressId;
     }
 }
