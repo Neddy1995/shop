@@ -11,11 +11,30 @@
  Target Server Version : 50640
  File Encoding         : 65001
 
- Date: 30/01/2019 23:07:53
+ Date: 31/01/2019 22:03:16
 */
 
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
+
+-- ----------------------------
+-- Table structure for address
+-- ----------------------------
+DROP TABLE IF EXISTS `address`;
+CREATE TABLE `address`  (
+  `address_id` int(255) NOT NULL COMMENT '地址id',
+  `address_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '地址人名',
+  `address_phone` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '地址电话',
+  `address_prov` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '地址省份',
+  `address_city` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '地址城市',
+  `address_area` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '地址区域',
+  `address_street` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '地址街道',
+  `address_info` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '地址详细门牌号',
+  `user_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '用户id',
+  PRIMARY KEY (`address_id`) USING BTREE,
+  INDEX `address_user_id`(`user_id`) USING BTREE,
+  CONSTRAINT `address_user_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for business
@@ -118,7 +137,6 @@ CREATE TABLE `user`  (
   `sex` int(3) NULL DEFAULT NULL COMMENT '性别',
   `profession` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '职业',
   `regtime` datetime(0) NULL DEFAULT NULL COMMENT '注册时间',
-  `address` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '地址',
   `power` int(2) NULL DEFAULT NULL COMMENT '权限(区分用户，1：购物者，2：商家，3：管理者)',
   PRIMARY KEY (`user_id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;

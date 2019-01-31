@@ -9,11 +9,10 @@
     <result column="sex" property="sex" jdbcType="INTEGER" />
     <result column="profession" property="profession" jdbcType="VARCHAR" />
     <result column="regtime" property="regtime" jdbcType="TIMESTAMP" />
-    <result column="address" property="address" jdbcType="VARCHAR" />
     <result column="power" property="power" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Base_Column_List" >
-    user_id, user_name, password, age, sex, profession, regtime, address, power
+    user_id, user_name, password, age, sex, profession, regtime, power
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
@@ -31,12 +30,10 @@
     </selectKey>
     insert into user (user_id, user_name, password, 
       age, sex, profession, 
-      regtime, address, power
-      )
+      regtime, power)
     values (#{userId,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
       #{age,jdbcType=INTEGER}, #{sex,jdbcType=INTEGER}, #{profession,jdbcType=VARCHAR}, 
-      #{regtime,jdbcType=TIMESTAMP}, #{address,jdbcType=VARCHAR}, #{power,jdbcType=INTEGER}
-      )
+      #{regtime,jdbcType=TIMESTAMP}, #{power,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.xc.shop.bean.User" >
     <selectKey resultType="java.lang.String" keyProperty="userId" order="BEFORE" >
@@ -63,9 +60,6 @@
       <if test="regtime != null" >
         regtime,
       </if>
-      <if test="address != null" >
-        address,
-      </if>
       <if test="power != null" >
         power,
       </if>
@@ -89,9 +83,6 @@
       </if>
       <if test="regtime != null" >
         #{regtime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="address != null" >
-        #{address,jdbcType=VARCHAR},
       </if>
       <if test="power != null" >
         #{power,jdbcType=INTEGER},
@@ -119,9 +110,6 @@
       <if test="regtime != null" >
         regtime = #{regtime,jdbcType=TIMESTAMP},
       </if>
-      <if test="address != null" >
-        address = #{address,jdbcType=VARCHAR},
-      </if>
       <if test="power != null" >
         power = #{power,jdbcType=INTEGER},
       </if>
@@ -136,8 +124,21 @@
       sex = #{sex,jdbcType=INTEGER},
       profession = #{profession,jdbcType=VARCHAR},
       regtime = #{regtime,jdbcType=TIMESTAMP},
-      address = #{address,jdbcType=VARCHAR},
       power = #{power,jdbcType=INTEGER}
     where user_id = #{userId,jdbcType=VARCHAR}
   </update>
+
+  <select id="login" parameterType="com.xc.shop.bean.User" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from user
+    where user_name = #{userName,jdbcType=VARCHAR} and password = #{password,jdbcType=VARCHAR}
+  </select>
+
+  <select id="selectUserByName" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from user
+    where user_name = #{userName,jdbcType=VARCHAR}
+  </select>
 </mapper>

@@ -3,6 +3,7 @@ package com.xc.shop.bean;
 import java.util.Date;
 
 public class User {
+
     private String userId;//用户id
 
     private String userName;//用户名称
@@ -16,8 +17,6 @@ public class User {
     private String profession;//职业
 
     private Date regtime;//注册时间
-
-    private String address;//地址
 
     private Integer power;//权限(区分用户，1：购物者，2：商家，3：管理者)
 
@@ -77,19 +76,25 @@ public class User {
         this.regtime = regtime;
     }
 
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address == null ? null : address.trim();
-    }
-
     public Integer getPower() {
         return power;
     }
 
     public void setPower(Integer power) {
         this.power = power;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "userId='" + userId + '\'' +
+                ", userName='" + userName + '\'' +
+                ", password='" + password + '\'' +
+                ", age=" + age +
+                ", sex=" + sex +
+                ", profession='" + profession + '\'' +
+                ", regtime=" + regtime +
+                ", power=" + power +
+                '}';
     }
 }

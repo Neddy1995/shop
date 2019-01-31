@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xc.shop.dao.AddressMapper" >
+  <resultMap id="BaseResultMap" type="com.xc.shop.bean.Address" >
+    <id column="address_id" property="addressId" jdbcType="INTEGER" />
+    <result column="address_name" property="addressName" jdbcType="VARCHAR" />
+    <result column="address_phone" property="addressPhone" jdbcType="VARCHAR" />
+    <result column="address_prov" property="addressProv" jdbcType="VARCHAR" />
+    <result column="address_city" property="addressCity" jdbcType="VARCHAR" />
+    <result column="address_area" property="addressArea" jdbcType="VARCHAR" />
+    <result column="address_street" property="addressStreet" jdbcType="VARCHAR" />
+    <result column="address_info" property="addressInfo" jdbcType="VARCHAR" />
+    <result column="user_id" property="userId" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    address_id, address_name, address_phone, address_prov, address_city, address_area, 
+    address_street, address_info, user_id
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from address
+    where address_id = #{addressId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from address
+    where address_id = #{addressId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.xc.shop.bean.Address" >
+    insert into address (address_id, address_name, address_phone, 
+      address_prov, address_city, address_area, 
+      address_street, address_info, user_id
+      )
+    values (#{addressId,jdbcType=INTEGER}, #{addressName,jdbcType=VARCHAR}, #{addressPhone,jdbcType=VARCHAR}, 
+      #{addressProv,jdbcType=VARCHAR}, #{addressCity,jdbcType=VARCHAR}, #{addressArea,jdbcType=VARCHAR}, 
+      #{addressStreet,jdbcType=VARCHAR}, #{addressInfo,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.xc.shop.bean.Address" >
+    insert into address
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="addressId != null" >
+        address_id,
+      </if>
+      <if test="addressName != null" >
+        address_name,
+      </if>
+      <if test="addressPhone != null" >
+        address_phone,
+      </if>
+      <if test="addressProv != null" >
+        address_prov,
+      </if>
+      <if test="addressCity != null" >
+        address_city,
+      </if>
+      <if test="addressArea != null" >
+        address_area,
+      </if>
+      <if test="addressStreet != null" >
+        address_street,
+      </if>
+      <if test="addressInfo != null" >
+        address_info,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="addressId != null" >
+        #{addressId,jdbcType=INTEGER},
+      </if>
+      <if test="addressName != null" >
+        #{addressName,jdbcType=VARCHAR},
+      </if>
+      <if test="addressPhone != null" >
+        #{addressPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="addressProv != null" >
+        #{addressProv,jdbcType=VARCHAR},
+      </if>
+      <if test="addressCity != null" >
+        #{addressCity,jdbcType=VARCHAR},
+      </if>
+      <if test="addressArea != null" >
+        #{addressArea,jdbcType=VARCHAR},
+      </if>
+      <if test="addressStreet != null" >
+        #{addressStreet,jdbcType=VARCHAR},
+      </if>
+      <if test="addressInfo != null" >
+        #{addressInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xc.shop.bean.Address" >
+    update address
+    <set >
+      <if test="addressName != null" >
+        address_name = #{addressName,jdbcType=VARCHAR},
+      </if>
+      <if test="addressPhone != null" >
+        address_phone = #{addressPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="addressProv != null" >
+        address_prov = #{addressProv,jdbcType=VARCHAR},
+      </if>
+      <if test="addressCity != null" >
+        address_city = #{addressCity,jdbcType=VARCHAR},
+      </if>
+      <if test="addressArea != null" >
+        address_area = #{addressArea,jdbcType=VARCHAR},
+      </if>
+      <if test="addressStreet != null" >
+        address_street = #{addressStreet,jdbcType=VARCHAR},
+      </if>
+      <if test="addressInfo != null" >
+        address_info = #{addressInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where address_id = #{addressId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xc.shop.bean.Address" >
+    update address
+    set address_name = #{addressName,jdbcType=VARCHAR},
+      address_phone = #{addressPhone,jdbcType=VARCHAR},
+      address_prov = #{addressProv,jdbcType=VARCHAR},
+      address_city = #{addressCity,jdbcType=VARCHAR},
+      address_area = #{addressArea,jdbcType=VARCHAR},
+      address_street = #{addressStreet,jdbcType=VARCHAR},
+      address_info = #{addressInfo,jdbcType=VARCHAR},
+      user_id = #{userId,jdbcType=VARCHAR}
+    where address_id = #{addressId,jdbcType=INTEGER}
+  </update>
+</mapper>
