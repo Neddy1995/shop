@@ -3,7 +3,7 @@ package com.xc.shop.bean;
 import java.util.Date;
 
 public class Order {
-    private Integer orderId;
+    private String orderId;
 
     private Date beginTime;
 
@@ -13,14 +13,14 @@ public class Order {
 
     private String userId;
 
-    private Integer addressId;
+    private String addressId;
 
-    public Integer getOrderId() {
+    public String getOrderId() {
         return orderId;
     }
 
-    public void setOrderId(Integer orderId) {
-        this.orderId = orderId;
+    public void setOrderId(String orderId) {
+        this.orderId = orderId == null ? null : orderId.trim();
     }
 
     public Date getBeginTime() {
@@ -55,11 +55,11 @@ public class Order {
         this.userId = userId == null ? null : userId.trim();
     }
 
-    public Integer getAddressId() {
+    public String getAddressId() {
         return addressId;
     }
 
-    public void setAddressId(Integer addressId) {
-        this.addressId = addressId;
+    public void setAddressId(String addressId) {
+        this.addressId = addressId == null ? null : addressId.trim();
     }
 }

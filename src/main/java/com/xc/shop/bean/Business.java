@@ -1,16 +1,16 @@
 package com.xc.shop.bean;
 
 public class Business {
-    private Integer businessId;//商家id
+    private String businessId;
 
-    private String userId;//关联的用户表信息
+    private String userId;
 
-    public Integer getBusinessId() {
+    public String getBusinessId() {
         return businessId;
     }
 
-    public void setBusinessId(Integer businessId) {
-        this.businessId = businessId;
+    public void setBusinessId(String businessId) {
+        this.businessId = businessId == null ? null : businessId.trim();
     }
 
     public String getUserId() {

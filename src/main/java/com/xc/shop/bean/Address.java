@@ -1,30 +1,30 @@
 package com.xc.shop.bean;
 
 public class Address {
-    private Integer addressId;//
+    private String addressId;
 
-    private String addressName;//
+    private String addressName;
 
-    private String addressPhone;//
+    private String addressPhone;
 
-    private String addressProv;//
+    private String addressProv;
 
-    private String addressCity;//
+    private String addressCity;
 
-    private String addressArea;//
+    private String addressArea;
 
-    private String addressStreet;//
+    private String addressStreet;
 
-    private String addressInfo;//
+    private String addressInfo;
 
-    private String userId;//
+    private String userId;
 
-    public Integer getAddressId() {
+    public String getAddressId() {
         return addressId;
     }
 
-    public void setAddressId(Integer addressId) {
-        this.addressId = addressId;
+    public void setAddressId(String addressId) {
+        this.addressId = addressId == null ? null : addressId.trim();
     }
 
     public String getAddressName() {

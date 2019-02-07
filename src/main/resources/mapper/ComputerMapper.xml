@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xc.shop.dao.ComputerMapper" >
+  <resultMap id="BaseResultMap" type="com.xc.shop.bean.Computer" >
+    <id column="computer_id" property="computerId" jdbcType="VARCHAR" />
+    <result column="computer_name" property="computerName" jdbcType="VARCHAR" />
+    <result column="computer_version" property="computerVersion" jdbcType="VARCHAR" />
+    <result column="computer_colour" property="computerColour" jdbcType="VARCHAR" />
+    <result column="computer_stork_num" property="computerStorkNum" jdbcType="INTEGER" />
+    <result column="computer_sold_num" property="computerSoldNum" jdbcType="INTEGER" />
+    <result column="computer_img_url" property="computerImgUrl" jdbcType="VARCHAR" />
+    <result column="computer_CPU" property="computerCpu" jdbcType="VARCHAR" />
+    <result column="computer_GPU" property="computerGpu" jdbcType="VARCHAR" />
+    <result column="computer_ROM" property="computerRom" jdbcType="VARCHAR" />
+    <result column="computer_RAM" property="computerRam" jdbcType="VARCHAR" />
+    <result column="computer_screen_size" property="computerScreenSize" jdbcType="VARCHAR" />
+    <result column="computer_screen_resolution" property="computerScreenResolution" jdbcType="VARCHAR" />
+    <result column="computer_screen_refresh" property="computerScreenRefresh" jdbcType="INTEGER" />
+    <result column="material" property="material" jdbcType="VARCHAR" />
+    <result column="system" property="system" jdbcType="VARCHAR" />
+    <result column="weight" property="weight" jdbcType="DOUBLE" />
+    <result column="good_id" property="goodId" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    computer_id, computer_name, computer_version, computer_colour, computer_stork_num,
+    computer_sold_num, computer_img_url, computer_CPU, computer_GPU, computer_ROM, computer_RAM,
+    computer_screen_size, computer_screen_resolution, computer_screen_refresh, material,
+    system, weight, good_id
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    from computer
+    where computer_id = #{computerId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from computer
+    where computer_id = #{computerId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.xc.shop.bean.Computer" >
+    insert into computer (computer_id, computer_name, computer_version,
+      computer_colour, computer_stork_num, computer_sold_num,
+      computer_img_url, computer_CPU, computer_GPU,
+      computer_ROM, computer_RAM, computer_screen_size,
+      computer_screen_resolution, computer_screen_refresh,
+      material, system, weight,
+      good_id)
+    values (#{computerId,jdbcType=VARCHAR}, #{computerName,jdbcType=VARCHAR}, #{computerVersion,jdbcType=VARCHAR},
+      #{computerColour,jdbcType=VARCHAR}, #{computerStorkNum,jdbcType=INTEGER}, #{computerSoldNum,jdbcType=INTEGER},
+      #{computerImgUrl,jdbcType=VARCHAR}, #{computerCpu,jdbcType=VARCHAR}, #{computerGpu,jdbcType=VARCHAR},
+      #{computerRom,jdbcType=VARCHAR}, #{computerRam,jdbcType=VARCHAR}, #{computerScreenSize,jdbcType=VARCHAR},
+      #{computerScreenResolution,jdbcType=VARCHAR}, #{computerScreenRefresh,jdbcType=INTEGER},
+      #{material,jdbcType=VARCHAR}, #{system,jdbcType=VARCHAR}, #{weight,jdbcType=DOUBLE},
+      #{goodId,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xc.shop.bean.Computer" >
+    insert into computer
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="computerId != null" >
+        computer_id,
+      </if>
+      <if test="computerName != null" >
+        computer_name,
+      </if>
+      <if test="computerVersion != null" >
+        computer_version,
+      </if>
+      <if test="computerColour != null" >
+        computer_colour,
+      </if>
+      <if test="computerStorkNum != null" >
+        computer_stork_num,
+      </if>
+      <if test="computerSoldNum != null" >
+        computer_sold_num,
+      </if>
+      <if test="computerImgUrl != null" >
+        computer_img_url,
+      </if>
+      <if test="computerCpu != null" >
+        computer_CPU,
+      </if>
+      <if test="computerGpu != null" >
+        computer_GPU,
+      </if>
+      <if test="computerRom != null" >
+        computer_ROM,
+      </if>
+      <if test="computerRam != null" >
+        computer_RAM,
+      </if>
+      <if test="computerScreenSize != null" >
+        computer_screen_size,
+      </if>
+      <if test="computerScreenResolution != null" >
+        computer_screen_resolution,
+      </if>
+      <if test="computerScreenRefresh != null" >
+        computer_screen_refresh,
+      </if>
+      <if test="material != null" >
+        material,
+      </if>
+      <if test="system != null" >
+        system,
+      </if>
+      <if test="weight != null" >
+        weight,
+      </if>
+      <if test="goodId != null" >
+        good_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="computerId != null" >
+        #{computerId,jdbcType=VARCHAR},
+      </if>
+      <if test="computerName != null" >
+        #{computerName,jdbcType=VARCHAR},
+      </if>
+      <if test="computerVersion != null" >
+        #{computerVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="computerColour != null" >
+        #{computerColour,jdbcType=VARCHAR},
+      </if>
+      <if test="computerStorkNum != null" >
+        #{computerStorkNum,jdbcType=INTEGER},
+      </if>
+      <if test="computerSoldNum != null" >
+        #{computerSoldNum,jdbcType=INTEGER},
+      </if>
+      <if test="computerImgUrl != null" >
+        #{computerImgUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="computerCpu != null" >
+        #{computerCpu,jdbcType=VARCHAR},
+      </if>
+      <if test="computerGpu != null" >
+        #{computerGpu,jdbcType=VARCHAR},
+      </if>
+      <if test="computerRom != null" >
+        #{computerRom,jdbcType=VARCHAR},
+      </if>
+      <if test="computerRam != null" >
+        #{computerRam,jdbcType=VARCHAR},
+      </if>
+      <if test="computerScreenSize != null" >
+        #{computerScreenSize,jdbcType=VARCHAR},
+      </if>
+      <if test="computerScreenResolution != null" >
+        #{computerScreenResolution,jdbcType=VARCHAR},
+      </if>
+      <if test="computerScreenRefresh != null" >
+        #{computerScreenRefresh,jdbcType=INTEGER},
+      </if>
+      <if test="material != null" >
+        #{material,jdbcType=VARCHAR},
+      </if>
+      <if test="system != null" >
+        #{system,jdbcType=VARCHAR},
+      </if>
+      <if test="weight != null" >
+        #{weight,jdbcType=DOUBLE},
+      </if>
+      <if test="goodId != null" >
+        #{goodId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xc.shop.bean.Computer" >
+    update computer
+    <set >
+      <if test="computerName != null" >
+        computer_name = #{computerName,jdbcType=VARCHAR},
+      </if>
+      <if test="computerVersion != null" >
+        computer_version = #{computerVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="computerColour != null" >
+        computer_colour = #{computerColour,jdbcType=VARCHAR},
+      </if>
+      <if test="computerStorkNum != null" >
+        computer_stork_num = #{computerStorkNum,jdbcType=INTEGER},
+      </if>
+      <if test="computerSoldNum != null" >
+        computer_sold_num = #{computerSoldNum,jdbcType=INTEGER},
+      </if>
+      <if test="computerImgUrl != null" >
+        computer_img_url = #{computerImgUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="computerCpu != null" >
+        computer_CPU = #{computerCpu,jdbcType=VARCHAR},
+      </if>
+      <if test="computerGpu != null" >
+        computer_GPU = #{computerGpu,jdbcType=VARCHAR},
+      </if>
+      <if test="computerRom != null" >
+        computer_ROM = #{computerRom,jdbcType=VARCHAR},
+      </if>
+      <if test="computerRam != null" >
+        computer_RAM = #{computerRam,jdbcType=VARCHAR},
+      </if>
+      <if test="computerScreenSize != null" >
+        computer_screen_size = #{computerScreenSize,jdbcType=VARCHAR},
+      </if>
+      <if test="computerScreenResolution != null" >
+        computer_screen_resolution = #{computerScreenResolution,jdbcType=VARCHAR},
+      </if>
+      <if test="computerScreenRefresh != null" >
+        computer_screen_refresh = #{computerScreenRefresh,jdbcType=INTEGER},
+      </if>
+      <if test="material != null" >
+        material = #{material,jdbcType=VARCHAR},
+      </if>
+      <if test="system != null" >
+        system = #{system,jdbcType=VARCHAR},
+      </if>
+      <if test="weight != null" >
+        weight = #{weight,jdbcType=DOUBLE},
+      </if>
+      <if test="goodId != null" >
+        good_id = #{goodId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where computer_id = #{computerId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xc.shop.bean.Computer" >
+    update computer
+    set computer_name = #{computerName,jdbcType=VARCHAR},
+      computer_version = #{computerVersion,jdbcType=VARCHAR},
+      computer_colour = #{computerColour,jdbcType=VARCHAR},
+      computer_stork_num = #{computerStorkNum,jdbcType=INTEGER},
+      computer_sold_num = #{computerSoldNum,jdbcType=INTEGER},
+      computer_img_url = #{computerImgUrl,jdbcType=VARCHAR},
+      computer_CPU = #{computerCpu,jdbcType=VARCHAR},
+      computer_GPU = #{computerGpu,jdbcType=VARCHAR},
+      computer_ROM = #{computerRom,jdbcType=VARCHAR},
+      computer_RAM = #{computerRam,jdbcType=VARCHAR},
+      computer_screen_size = #{computerScreenSize,jdbcType=VARCHAR},
+      computer_screen_resolution = #{computerScreenResolution,jdbcType=VARCHAR},
+      computer_screen_refresh = #{computerScreenRefresh,jdbcType=INTEGER},
+      material = #{material,jdbcType=VARCHAR},
+      system = #{system,jdbcType=VARCHAR},
+      weight = #{weight,jdbcType=DOUBLE},
+      good_id = #{goodId,jdbcType=VARCHAR}
+    where computer_id = #{computerId,jdbcType=VARCHAR}
+  </update>
+
+  <!-- 根据关键字查询商品 -->
+  <select id="selectGoodsLikeKeyWord" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from computer
+    where computer_name like "%"#{keyWord}"%"
+  </select>
+
+  <select id="selectGoodsByType" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    a.computer_id,a.computer_name,a.price
+    from computer a left join good b
+    on a.good_id=b.good_id
+    where b.type_id = #{typeId}
+  </select>
+</mapper>

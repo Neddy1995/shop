@@ -2,35 +2,30 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.xc.shop.dao.GoodMapper" >
   <resultMap id="BaseResultMap" type="com.xc.shop.bean.Good" >
-    <id column="good_id" property="goodId" jdbcType="INTEGER" />
-    <result column="good_name" property="goodName" jdbcType="VARCHAR" />
-    <result column="good_version" property="goodVersion" jdbcType="VARCHAR" />
-    <result column="good_colour" property="goodColour" jdbcType="VARCHAR" />
-    <result column="good_price" property="goodPrice" jdbcType="DECIMAL" />
-    <result column="stock_num" property="stockNum" jdbcType="INTEGER" />
-    <result column="sold_num" property="soldNum" jdbcType="INTEGER" />
-    <result column="detail_id" property="detailId" jdbcType="INTEGER" />
+    <id column="good_id" property="goodId" jdbcType="VARCHAR" />
+    <result column="date_time" property="dateTime" jdbcType="TIMESTAMP" />
+    <result column="intro" property="intro" jdbcType="VARCHAR" />
+    <result column="business_id" property="businessId" jdbcType="VARCHAR" />
+    <result column="type_id" property="typeId" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    good_id, good_name, good_version, good_colour, good_price, stock_num, sold_num, detail_id
+    good_id, date_time, intro, business_id, type_id
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
     from good
-    where good_id = #{goodId,jdbcType=INTEGER}
+    where good_id = #{goodId,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from good
-    where good_id = #{goodId,jdbcType=INTEGER}
+    where good_id = #{goodId,jdbcType=VARCHAR}
   </delete>
   <insert id="insert" parameterType="com.xc.shop.bean.Good" >
-    insert into good (good_id, good_name, good_version, 
-      good_colour, good_price, stock_num, 
-      sold_num, detail_id)
-    values (#{goodId,jdbcType=INTEGER}, #{goodName,jdbcType=VARCHAR}, #{goodVersion,jdbcType=VARCHAR}, 
-      #{goodColour,jdbcType=VARCHAR}, #{goodPrice,jdbcType=DECIMAL}, #{stockNum,jdbcType=INTEGER}, 
-      #{soldNum,jdbcType=INTEGER}, #{detailId,jdbcType=INTEGER})
+    insert into good (good_id, date_time, intro, 
+      business_id, type_id)
+    values (#{goodId,jdbcType=VARCHAR}, #{dateTime,jdbcType=TIMESTAMP}, #{intro,jdbcType=VARCHAR}, 
+      #{businessId,jdbcType=VARCHAR}, #{typeId,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.xc.shop.bean.Good" >
     insert into good
@@ -38,91 +33,61 @@
       <if test="goodId != null" >
         good_id,
       </if>
-      <if test="goodName != null" >
-        good_name,
+      <if test="dateTime != null" >
+        date_time,
       </if>
-      <if test="goodVersion != null" >
-        good_version,
+      <if test="intro != null" >
+        intro,
       </if>
-      <if test="goodColour != null" >
-        good_colour,
+      <if test="businessId != null" >
+        business_id,
       </if>
-      <if test="goodPrice != null" >
-        good_price,
-      </if>
-      <if test="stockNum != null" >
-        stock_num,
-      </if>
-      <if test="soldNum != null" >
-        sold_num,
-      </if>
-      <if test="detailId != null" >
-        detail_id,
+      <if test="typeId != null" >
+        type_id,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="goodId != null" >
-        #{goodId,jdbcType=INTEGER},
+        #{goodId,jdbcType=VARCHAR},
       </if>
-      <if test="goodName != null" >
-        #{goodName,jdbcType=VARCHAR},
+      <if test="dateTime != null" >
+        #{dateTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="goodVersion != null" >
-        #{goodVersion,jdbcType=VARCHAR},
+      <if test="intro != null" >
+        #{intro,jdbcType=VARCHAR},
       </if>
-      <if test="goodColour != null" >
-        #{goodColour,jdbcType=VARCHAR},
+      <if test="businessId != null" >
+        #{businessId,jdbcType=VARCHAR},
       </if>
-      <if test="goodPrice != null" >
-        #{goodPrice,jdbcType=DECIMAL},
-      </if>
-      <if test="stockNum != null" >
-        #{stockNum,jdbcType=INTEGER},
-      </if>
-      <if test="soldNum != null" >
-        #{soldNum,jdbcType=INTEGER},
-      </if>
-      <if test="detailId != null" >
-        #{detailId,jdbcType=INTEGER},
+      <if test="typeId != null" >
+        #{typeId,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.xc.shop.bean.Good" >
     update good
     <set >
-      <if test="goodName != null" >
-        good_name = #{goodName,jdbcType=VARCHAR},
+      <if test="dateTime != null" >
+        date_time = #{dateTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="goodVersion != null" >
-        good_version = #{goodVersion,jdbcType=VARCHAR},
+      <if test="intro != null" >
+        intro = #{intro,jdbcType=VARCHAR},
       </if>
-      <if test="goodColour != null" >
-        good_colour = #{goodColour,jdbcType=VARCHAR},
+      <if test="businessId != null" >
+        business_id = #{businessId,jdbcType=VARCHAR},
       </if>
-      <if test="goodPrice != null" >
-        good_price = #{goodPrice,jdbcType=DECIMAL},
-      </if>
-      <if test="stockNum != null" >
-        stock_num = #{stockNum,jdbcType=INTEGER},
-      </if>
-      <if test="soldNum != null" >
-        sold_num = #{soldNum,jdbcType=INTEGER},
-      </if>
-      <if test="detailId != null" >
-        detail_id = #{detailId,jdbcType=INTEGER},
+      <if test="typeId != null" >
+        type_id = #{typeId,jdbcType=VARCHAR},
       </if>
     </set>
-    where good_id = #{goodId,jdbcType=INTEGER}
+    where good_id = #{goodId,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.xc.shop.bean.Good" >
     update good
-    set good_name = #{goodName,jdbcType=VARCHAR},
-      good_version = #{goodVersion,jdbcType=VARCHAR},
-      good_colour = #{goodColour,jdbcType=VARCHAR},
-      good_price = #{goodPrice,jdbcType=DECIMAL},
-      stock_num = #{stockNum,jdbcType=INTEGER},
-      sold_num = #{soldNum,jdbcType=INTEGER},
-      detail_id = #{detailId,jdbcType=INTEGER}
-    where good_id = #{goodId,jdbcType=INTEGER}
+    set date_time = #{dateTime,jdbcType=TIMESTAMP},
+      intro = #{intro,jdbcType=VARCHAR},
+      business_id = #{businessId,jdbcType=VARCHAR},
+      type_id = #{typeId,jdbcType=VARCHAR}
+    where good_id = #{goodId,jdbcType=VARCHAR}
   </update>
 </mapper>

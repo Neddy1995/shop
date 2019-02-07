@@ -2,40 +2,42 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.xc.shop.dao.TypeMapper" >
   <resultMap id="BaseResultMap" type="com.xc.shop.bean.Type" >
-    <id column="type_id" property="typeId" jdbcType="INTEGER" />
+    <id column="type_id" property="typeId" jdbcType="VARCHAR" />
     <result column="type_name" property="typeName" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
     type_id, type_name
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
     from type
-    where type_id = #{typeId,jdbcType=INTEGER}
+    where type_id = #{typeId,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from type
-    where type_id = #{typeId,jdbcType=INTEGER}
+    where type_id = #{typeId,jdbcType=VARCHAR}
   </delete>
   <insert id="insert" parameterType="com.xc.shop.bean.Type" >
+    <selectKey resultType="java.lang.String" keyProperty="typeId" order="BEFORE" >
+      select uuid_short()
+    </selectKey>
     insert into type (type_id, type_name)
-    values (#{typeId,jdbcType=INTEGER}, #{typeName,jdbcType=VARCHAR})
+    values (#{typeId,jdbcType=VARCHAR}, #{typeName,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.xc.shop.bean.Type" >
+    <selectKey resultType="java.lang.String" keyProperty="typeId" order="BEFORE" >
+      select uuid_short()
+    </selectKey>
     insert into type
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="typeId != null" >
-        type_id,
-      </if>
+      type_id,
       <if test="typeName != null" >
         type_name,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="typeId != null" >
-        #{typeId,jdbcType=INTEGER},
-      </if>
+      #{typeId,jdbcType=VARCHAR},
       <if test="typeName != null" >
         #{typeName,jdbcType=VARCHAR},
       </if>
@@ -48,11 +50,11 @@
         type_name = #{typeName,jdbcType=VARCHAR},
       </if>
     </set>
-    where type_id = #{typeId,jdbcType=INTEGER}
+    where type_id = #{typeId,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.xc.shop.bean.Type" >
     update type
     set type_name = #{typeName,jdbcType=VARCHAR}
-    where type_id = #{typeId,jdbcType=INTEGER}
+    where type_id = #{typeId,jdbcType=VARCHAR}
   </update>
 </mapper>

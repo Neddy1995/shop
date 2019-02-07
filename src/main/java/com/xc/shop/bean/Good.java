@@ -1,85 +1,55 @@
 package com.xc.shop.bean;
 
-import java.math.BigDecimal;
+import java.util.Date;
 
 public class Good {
-    private Integer goodId;//商品id
+    private String goodId;
 
-    private String goodName;//商品名称
+    private Date dateTime;
 
-    private String goodVersion;//版本
+    private String intro;
 
-    private String goodColour;//颜色
+    private String businessId;
 
-    private BigDecimal goodPrice;//价格
+    private String typeId;
 
-    private Integer stockNum;//库存数量
-
-    private Integer soldNum;//出售数量
-
-    private Integer detailId;//商品详情表id
-
-    public Integer getGoodId() {
+    public String getGoodId() {
         return goodId;
     }
 
-    public void setGoodId(Integer goodId) {
-        this.goodId = goodId;
+    public void setGoodId(String goodId) {
+        this.goodId = goodId == null ? null : goodId.trim();
     }
 
-    public String getGoodName() {
-        return goodName;
+    public Date getDateTime() {
+        return dateTime;
     }
 
-    public void setGoodName(String goodName) {
-        this.goodName = goodName == null ? null : goodName.trim();
+    public void setDateTime(Date dateTime) {
+        this.dateTime = dateTime;
     }
 
-    public String getGoodVersion() {
-        return goodVersion;
+    public String getIntro() {
+        return intro;
     }
 
-    public void setGoodVersion(String goodVersion) {
-        this.goodVersion = goodVersion == null ? null : goodVersion.trim();
+    public void setIntro(String intro) {
+        this.intro = intro == null ? null : intro.trim();
     }
 
-    public String getGoodColour() {
-        return goodColour;
+    public String getBusinessId() {
+        return businessId;
     }
 
-    public void setGoodColour(String goodColour) {
-        this.goodColour = goodColour == null ? null : goodColour.trim();
+    public void setBusinessId(String businessId) {
+        this.businessId = businessId == null ? null : businessId.trim();
     }
 
-    public BigDecimal getGoodPrice() {
-        return goodPrice;
+    public String getTypeId() {
+        return typeId;
     }
 
-    public void setGoodPrice(BigDecimal goodPrice) {
-        this.goodPrice = goodPrice;
-    }
-
-    public Integer getStockNum() {
-        return stockNum;
-    }
-
-    public void setStockNum(Integer stockNum) {
-        this.stockNum = stockNum;
-    }
-
-    public Integer getSoldNum() {
-        return soldNum;
-    }
-
-    public void setSoldNum(Integer soldNum) {
-        this.soldNum = soldNum;
-    }
-
-    public Integer getDetailId() {
-        return detailId;
-    }
-
-    public void setDetailId(Integer detailId) {
-        this.detailId = detailId;
+    public void setTypeId(String typeId) {
+        this.typeId = typeId == null ? null : typeId.trim();
     }
 }

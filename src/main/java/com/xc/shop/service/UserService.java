@@ -20,7 +20,7 @@ public class UserService {
      * @return user：登录成功，返回用户信息
      * @return null：登录失败，返回空
      */
-    public User login(String name,String password) {
+    public User login(String name, String password) {
         User userLogin = new User();
         userLogin.setUserName(name);
         userLogin.setPassword(password);

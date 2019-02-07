@@ -1,20 +1,20 @@
 package com.xc.shop.bean;
 
 public class OrderDetails {
-    private Integer detailId;
+    private String detailId;
 
     private Integer number;
 
-    private Integer orderId;
+    private String orderId;
 
-    private Integer goodId;
+    private String goodId;
 
-    public Integer getDetailId() {
+    public String getDetailId() {
         return detailId;
     }
 
-    public void setDetailId(Integer detailId) {
-        this.detailId = detailId;
+    public void setDetailId(String detailId) {
+        this.detailId = detailId == null ? null : detailId.trim();
     }
 
     public Integer getNumber() {
@@ -25,19 +25,19 @@ public class OrderDetails {
         this.number = number;
     }
 
-    public Integer getOrderId() {
+    public String getOrderId() {
         return orderId;
     }
 
-    public void setOrderId(Integer orderId) {
-        this.orderId = orderId;
+    public void setOrderId(String orderId) {
+        this.orderId = orderId == null ? null : orderId.trim();
     }
 
-    public Integer getGoodId() {
+    public String getGoodId() {
         return goodId;
     }
 
-    public void setGoodId(Integer goodId) {
-        this.goodId = goodId;
+    public void setGoodId(String goodId) {
+        this.goodId = goodId == null ? null : goodId.trim();
     }
 }

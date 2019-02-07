@@ -1,16 +1,16 @@
 package com.xc.shop.bean;
 
 public class Type {
-    private Integer typeId;//类型id
+    private String typeId;
 
-    private String typeName;//类型名称
+    private String typeName;
 
-    public Integer getTypeId() {
+    public String getTypeId() {
         return typeId;
     }
 
-    public void setTypeId(Integer typeId) {
-        this.typeId = typeId;
+    public void setTypeId(String typeId) {
+        this.typeId = typeId == null ? null : typeId.trim();
     }
 
     public String getTypeName() {
