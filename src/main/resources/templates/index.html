@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN" style="height:100%;" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="Chrome=1"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>--index--</title>
+
+    <link rel="stylesheet" type="text/css" href="./static/plugins/layui/css/layui.css"/>
+
+    <style>
+        body{
+            background-color: #f2f2f2;
+        }
+        .content-div{
+            position: absolute;
+            height: 100%;
+            width: 100%;
+        }
+        .content{
+            height: 100%;
+            width: 900px;
+            position: relative;
+            margin: auto;
+            background-color: #ffffff;
+        }
+        .index-logo{
+            height: 40px;
+            width: 80px;
+            float: left;
+        }
+        .layui-tab-title{
+            width: 300px;
+            float: left;
+            margin-left: 80px;
+            border: 0px;
+        }
+        .search-btn{
+            height: 30px;
+            float: right;
+            margin-top: 5px;
+            margin-right: 10px;
+        }
+        .search-input{
+            width: 200px;
+            height: 30px;
+            margin-top: 5px;
+            float: right;
+            margin-right: 10px;
+        }
+        .roll-content{
+            width: 100%;
+            height: 250px;
+            clear: both;
+            border-top: 1px solid #eeeeee;
+        }
+        .roll-content-left{
+            width: 160px;
+            height: 100%;
+            float: left;
+            margin-top: 20px;
+        }
+        .roll-content-right{
+            width: 740px;
+            height: 100%;
+            float: left;
+        }
+        .tool-bar-item{
+            width: 100%;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            border-bottom: 1px solid #f2f2f2;
+            cursor: pointer;
+        }
+        .tool-bar-item:hover{
+            background-color: red;
+            color: #ffffff;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="top-html" style="width: 100%;"></div>
+    <div class="content-div">
+        <div class="content">
+            <!--导航-->
+            <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief" style="height: 40px;">
+                <img class="index-logo" src="./images/logo.jpg">
+                <ul class="layui-tab-title">
+                    <li class="layui-this">电脑</li>
+                    <li>手机</li>
+                    <li>评测</li>
+                </ul>
+                <button class="layui-btn layui-btn-sm search-btn">搜索</button>
+                <input type="text" placeholder="搜索" class="layui-input search-input">
+            </div>
+            <!--滚动部分-->
+            <div class="roll-content">
+                <div class="roll-content-left">
+                    <div class="tool-bar-item">台式电脑</div>
+                    <div class="tool-bar-item">笔记本</div>
+                    <div class="tool-bar-item">二手电脑</div>
+                    <div class="tool-bar-item">外设</div>
+                    <div class="tool-bar-item">配件</div>
+                </div>
+                <!--轮播图部分-->
+                <div class="roll-content-right">
+                    <div class="layui-carousel" id="test1">
+                        <div carousel-item>
+                            <div style="text-align: center;line-height: 250px;background-color: red;">条目1</div>
+                            <div style="text-align: center;line-height: 250px;background-color: green;">条目2</div>
+                            <div style="text-align: center;line-height: 250px;background-color: yellow;">条目3</div>
+                            <div style="text-align: center;line-height: 250px;background-color: bisque;">条目4</div>
+                            <div style="text-align: center;line-height: 250px;background-color: hotpink;">条目5</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--那4个菱形-->
+            <div>
+                <div class="">
+                    每日新品
+                </div>
+                <div>
+                    限时抢购
+                </div>
+                <div>
+                    热销榜单
+                </div>
+                <div>
+                    随便逛逛
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script type="text/javascript" src="./static/plugins/jquery/jquery-2.0.3.min.js  "></script>
+    <script type="text/javascript" src="./static/plugins/layui/layui.js"></script>
+    <script type="text/javascript" src="./static/js/index.js"></script>
+    <script type="text/javascript" src="./static/js/public.js"></script>
+
+</body>
+</html>

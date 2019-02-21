@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN" style="height:100%;" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="Chrome=1"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>--titile--</title>
+
+    <link rel="stylesheet" type="text/css" href="./static/plugins/layui/css/layui.css"/>
+
+    <style>
+        body{
+            background: -webkit-linear-gradient(#d2d2d2, #dddddd, #e2e2e2, #eeeeee, #F0F0F0, #f2f2f2, #F0F0F0,  #eeeeee,#e2e2e2, #dddddd, #d2d2d2);
+            position:relative;
+            height: 100%;
+            width: 100%;
+        }
+        .layui-form{
+            text-align: center;
+            width: 400px;
+            margin: auto;
+            position: absolute;
+            top: 100px;
+            left: 0;
+            bottom: 0;
+            right: 0;
+        }
+        .login-logo{
+            width: 200px;
+            height: 100px;
+        }
+        .layui-form-item{
+            margin-top: 20px;
+            text-align: center;
+        }
+        .layui-form-label{
+            width: 50px;
+            height: 38px;
+            padding: 0px 0px;
+            float: left;
+            font-size: 25px;
+            line-height: 40px;
+            text-align: center;
+            color: #1E9FFF;
+        }
+        .layui-input-block{
+            width: 350px;
+            float: left;
+            margin-left: 0px;
+        }
+        .forget-password{
+            text-align: right;
+            font-size: 12px;
+            color: #1E9FFF;
+            cursor: pointer;
+        }
+        .immediate-registration{
+            text-align: right;
+            font-size: 12px;
+            color: #1E9FFF;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .verification-code{
+            float: right;
+            width: 80px;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="layui-form">
+        <img class="login-logo" src="./images/logo.jpg">
+        <div class="layui-form-item">
+            <i  class="layui-form-label layui-icon">&#xe66f;</i>
+            <div class="layui-input-block">
+                <input id="userName" type="text" name="title" required  lay-verify="required" placeholder="用户名" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <i  class="layui-form-label layui-icon">&#xe673;</i>
+            <div class="layui-input-block">
+                <input id="password" type="text" name="title" required  lay-verify="required" placeholder="密码" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="forget-password">忘记密码？</div>
+        <div class="layui-form-item">
+            <div class="layui-input-block" style="width: 260px; margin-left: 50px;">
+                <input id="paramCode" type="text" name="title" required  lay-verify="required" placeholder="验证码" autocomplete="off" class="layui-input">
+            </div>
+            <img th:src="@{code}" class="layui-form-label verification-code" title="验证码图片">
+
+        </div>
+        <button id="login-btn" class="layui-btn layui-btn-fluid" style="margin-left: 50px; width: 350px;">登  陆</button>
+        <div class="immediate-registration">立即注册</div>
+    </div>
+
+    <!--底部内容-->
+    <div class="bottom-html" style="height: 50px;width: 100%;background-color: #eeeeee;position: absolute;bottom: 0px;"></div>
+
+    <script type="text/javascript" src="./static/plugins/jquery/jquery-2.0.3.min.js  "></script>
+    <script type="text/javascript" src="./static/plugins/layui/layui.js"></script>
+    <script type="text/javascript" src="./static/js/login.js"></script>
+    <script type="text/javascript" src="./static/js/public.js"></script>
+
+</body>
+</html>
