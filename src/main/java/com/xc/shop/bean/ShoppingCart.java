@@ -5,6 +5,8 @@ public class ShoppingCart {
 
     private String userId;
 
+    private Integer number;
+
     private Integer goodId;
 
     public String getCartId() {
@@ -21,6 +23,14 @@ public class ShoppingCart {
 
     public void setUserId(String userId) {
         this.userId = userId == null ? null : userId.trim();
+    }
+
+    public Integer getNumber() {
+        return number;
+    }
+
+    public void setNumber(Integer number) {
+        this.number = number;
     }
 
     public Integer getGoodId() {

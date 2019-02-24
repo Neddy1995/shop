@@ -53,10 +53,11 @@
         </javaClientGenerator>
         <!-- 指定数据库表 -->
 
-        <table tableName="computer" domainObjectName="Computer"
+        <table tableName="shopping_cart" domainObjectName="ShoppingCart"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">
+            <generatedKey  column="cart_id"  sqlStatement="select uuid_short()"   identity="false"/>
         </table>
 
         <!--<table tableName="address" domainObjectName="Address"

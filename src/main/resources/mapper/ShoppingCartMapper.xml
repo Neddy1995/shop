@@ -4,10 +4,11 @@
   <resultMap id="BaseResultMap" type="com.xc.shop.bean.ShoppingCart" >
     <id column="cart_id" property="cartId" jdbcType="VARCHAR" />
     <result column="user_id" property="userId" jdbcType="VARCHAR" />
+    <result column="number" property="number" jdbcType="INTEGER" />
     <result column="good_id" property="goodId" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Base_Column_List" >
-    cart_id, user_id, good_id
+    cart_id, user_id, number, good_id
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
@@ -20,30 +21,38 @@
     where cart_id = #{cartId,jdbcType=VARCHAR}
   </delete>
   <insert id="insert" parameterType="com.xc.shop.bean.ShoppingCart" >
-    insert into shopping_cart (cart_id, user_id, good_id
-      )
-    values (#{cartId,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, #{goodId,jdbcType=INTEGER}
-      )
+    <selectKey resultType="java.lang.String" keyProperty="cartId" order="BEFORE" >
+      select uuid_short()
+    </selectKey>
+    insert into shopping_cart (cart_id, user_id, number, 
+      good_id)
+    values (#{cartId,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, #{number,jdbcType=INTEGER}, 
+      #{goodId,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.xc.shop.bean.ShoppingCart" >
+    <selectKey resultType="java.lang.String" keyProperty="cartId" order="BEFORE" >
+      select uuid_short()
+    </selectKey>
     insert into shopping_cart
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="cartId != null" >
-        cart_id,
-      </if>
+      cart_id,
       <if test="userId != null" >
         user_id,
+      </if>
+      <if test="number != null" >
+        number,
       </if>
       <if test="goodId != null" >
         good_id,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="cartId != null" >
-        #{cartId,jdbcType=VARCHAR},
-      </if>
+      #{cartId,jdbcType=VARCHAR},
       <if test="userId != null" >
         #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="number != null" >
+        #{number,jdbcType=INTEGER},
       </if>
       <if test="goodId != null" >
         #{goodId,jdbcType=INTEGER},
@@ -56,6 +65,9 @@
       <if test="userId != null" >
         user_id = #{userId,jdbcType=VARCHAR},
       </if>
+      <if test="number != null" >
+        number = #{number,jdbcType=INTEGER},
+      </if>
       <if test="goodId != null" >
         good_id = #{goodId,jdbcType=INTEGER},
       </if>
@@ -65,7 +77,31 @@
   <update id="updateByPrimaryKey" parameterType="com.xc.shop.bean.ShoppingCart" >
     update shopping_cart
     set user_id = #{userId,jdbcType=VARCHAR},
+      number = #{number,jdbcType=INTEGER},
       good_id = #{goodId,jdbcType=INTEGER}
     where cart_id = #{cartId,jdbcType=VARCHAR}
   </update>
+
+  <select id="selectByUserAndGood" parameterType="com.xc.shop.bean.ShoppingCart" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from shopping_cart
+    where user_id = #{userId,jdbcType=VARCHAR} and good_id = #{goodId,jdbcType=INTEGER}
+  </select>
+
+  <select id="selectGoodByUser" parameterType="java.lang.String" resultType="com.xc.shop.pojo.ShoppingCartPo">
+    select
+      b.cart_id as cartId,b.user_id as userId,b.number,b.good_id as goodId,a.computer_name as computerName,a.price
+    from computer a inner join shopping_cart b on a.computer_id = b.good_id
+    where b.user_id = #{userId,jdbcType=VARCHAR}
+  </select>
+
+  <delete id="deleteByListKey" parameterType="java.util.List">
+    delete
+    from shopping_cart
+    where cart_id in
+      <foreach collection="list" item="item" open="(" separator="," close=")">
+        #{item}
+      </foreach>
+  </delete>
 </mapper>
