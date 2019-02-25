@@ -1,6 +1,9 @@
 package com.xc.shop.dao;
 
 import com.xc.shop.bean.Favorite;
+import com.xc.shop.pojo.FavoritePo;
+
+import java.util.List;
 
 public interface FavoriteMapper {
     int deleteByPrimaryKey(String favoriteId);
@@ -14,4 +17,10 @@ public interface FavoriteMapper {
     int updateByPrimaryKeySelective(Favorite record);
 
     int updateByPrimaryKey(Favorite record);
+
+    List<FavoritePo> selectByUser(String userId);
+
+    Favorite selectByUserAndGood(Favorite favorite);
+
+    void deleteFavorite(List list);
 }

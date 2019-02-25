@@ -1,6 +1,5 @@
 package com.xc.shop.controller;
 
-import com.xc.shop.bean.ShoppingCart;
 import com.xc.shop.pojo.ShoppingCartPo;
 import com.xc.shop.service.ShoppingCartService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +30,11 @@ public class ShoppingCartController {
         return list;
     }
 
+    /**
+     * 批量删除购物车中的商品
+     * @param list
+     * @return
+     */
     @RequestMapping("/deleteCart")
     public String DeleteCart(List list){
         shoppingCartService.deleteCart(list);

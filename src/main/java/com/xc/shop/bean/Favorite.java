@@ -1,9 +1,13 @@
 package com.xc.shop.bean;
 
+import java.util.Date;
+
 public class Favorite {
     private String favoriteId;
 
     private String userId;
+
+    private Date time;
 
     private String goodId;
 
@@ -21,6 +25,14 @@ public class Favorite {
 
     public void setUserId(String userId) {
         this.userId = userId == null ? null : userId.trim();
+    }
+
+    public Date getTime() {
+        return time;
+    }
+
+    public void setTime(Date time) {
+        this.time = time;
     }
 
     public String getGoodId() {

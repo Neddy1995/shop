@@ -101,7 +101,7 @@
     from shopping_cart
     where cart_id in
       <foreach collection="list" item="item" open="(" separator="," close=")">
-        #{item}
+        #{item,jdbcType=VARCHAR}
       </foreach>
   </delete>
 </mapper>

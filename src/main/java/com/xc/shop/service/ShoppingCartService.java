@@ -57,6 +57,7 @@ public class ShoppingCartService {
      * @param list
      */
     public void deleteCart(List list) {
+        System.out.printf("1111111111");
         shoppingCartMapper.deleteByListKey(list);
     }
 }

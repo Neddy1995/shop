@@ -4,10 +4,11 @@
   <resultMap id="BaseResultMap" type="com.xc.shop.bean.Favorite" >
     <id column="favorite_id" property="favoriteId" jdbcType="VARCHAR" />
     <result column="user_id" property="userId" jdbcType="VARCHAR" />
+    <result column="time" property="time" jdbcType="TIMESTAMP" />
     <result column="good_id" property="goodId" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    favorite_id, user_id, good_id
+    favorite_id, user_id, time, good_id
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
@@ -20,10 +21,13 @@
     where favorite_id = #{favoriteId,jdbcType=VARCHAR}
   </delete>
   <insert id="insert" parameterType="com.xc.shop.bean.Favorite" >
-    insert into favorite (favorite_id, user_id, good_id
-      )
-    values (#{favoriteId,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, #{goodId,jdbcType=VARCHAR}
-      )
+    <selectKey resultType="java.lang.String" keyProperty="favoriteId" order="BEFORE">
+      select uuid_short()
+    </selectKey>
+    insert into favorite (favorite_id, user_id, time, 
+      good_id)
+    values (#{favoriteId,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, #{time,jdbcType=TIMESTAMP}, 
+      #{goodId,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.xc.shop.bean.Favorite" >
     insert into favorite
@@ -33,6 +37,9 @@
       </if>
       <if test="userId != null" >
         user_id,
+      </if>
+      <if test="time != null" >
+        time,
       </if>
       <if test="goodId != null" >
         good_id,
@@ -45,6 +52,9 @@
       <if test="userId != null" >
         #{userId,jdbcType=VARCHAR},
       </if>
+      <if test="time != null" >
+        #{time,jdbcType=TIMESTAMP},
+      </if>
       <if test="goodId != null" >
         #{goodId,jdbcType=VARCHAR},
       </if>
@@ -56,6 +66,9 @@
       <if test="userId != null" >
         user_id = #{userId,jdbcType=VARCHAR},
       </if>
+      <if test="time != null" >
+        time = #{time,jdbcType=TIMESTAMP},
+      </if>
       <if test="goodId != null" >
         good_id = #{goodId,jdbcType=VARCHAR},
       </if>
@@ -65,7 +78,31 @@
   <update id="updateByPrimaryKey" parameterType="com.xc.shop.bean.Favorite" >
     update favorite
     set user_id = #{userId,jdbcType=VARCHAR},
+      time = #{time,jdbcType=TIMESTAMP},
       good_id = #{goodId,jdbcType=VARCHAR}
     where favorite_id = #{favoriteId,jdbcType=VARCHAR}
   </update>
+
+  <select id="selectByUser" parameterType="java.lang.String" resultType="com.xc.shop.pojo.FavoritePo">
+    select a.favorite_id as favoriteId,a.user_id as userId,a.time,b.computer_name as computerName,b.price
+    from favorite a inner join computer b on a.good_id = b.computer_id
+    where user_id = #{userId,jdbcType=VARCHAR}
+    order by a.time desc
+  </select>
+
+  <select id="selectByUserAndGood" parameterType="com.xc.shop.bean.Favorite" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from favorite
+    where user_id = #{userId,jdbcType=VARCHAR} and good_id = #{goodId,jdbcType=VARCHAR}
+  </select>
+
+  <delete id="deleteFavorite" parameterType="java.util.List">
+    delete from
+    favorite
+    where favorite_id in
+    <foreach collection="list" item="item" open="(" separator="," close=")">
+      #{item,jdbcType=VARCHAR}
+    </foreach>
+  </delete>
 </mapper>
