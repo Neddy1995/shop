@@ -27,6 +27,9 @@
     where address_id = #{addressId,jdbcType=VARCHAR}
   </delete>
   <insert id="insert" parameterType="com.xc.shop.bean.Address" >
+    <selectKey resultType="java.lang.String" keyProperty="addressId" order="BEFORE">
+      select uuid_short()
+    </selectKey>
     insert into address (address_id, address_name, address_phone, 
       address_prov, address_city, address_area, 
       address_street, address_info, user_id
@@ -139,4 +142,11 @@
       user_id = #{userId,jdbcType=VARCHAR}
     where address_id = #{addressId,jdbcType=VARCHAR}
   </update>
+
+  <select id="selectAllAddress" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from address
+    where user_id = #{userId,jdbcType=VARCHAR}
+  </select>
 </mapper>

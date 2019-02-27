@@ -2,6 +2,8 @@ package com.xc.shop.dao;
 
 import com.xc.shop.bean.Address;
 
+import java.util.List;
+
 public interface AddressMapper {
     int deleteByPrimaryKey(String addressId);
 
@@ -14,4 +16,6 @@ public interface AddressMapper {
     int updateByPrimaryKeySelective(Address record);
 
     int updateByPrimaryKey(Address record);
+
+    List<Address> selectAllAddress(String userId);
 }

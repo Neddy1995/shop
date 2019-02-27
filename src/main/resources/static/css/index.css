@@ -1,0 +1,216 @@
+body{
+    background-color: #f0f3ef;
+}
+div{
+    box-sizing: border-box;
+}
+.content-div{
+    position: absolute;
+    height: 3000px;
+    width: 100%;
+}
+.content{
+    height: 100%;
+    width: 900px;
+    position: relative;
+    margin: auto;
+    /*background-color: #ffffff;*/
+}
+.index-logo{
+    height: 40px;
+    width: 80px;
+    float: left;
+}
+.layui-tab-title{
+    width: 300px;
+    float: left;
+    margin-left: 80px;
+    border: 0px;
+}
+.search-btn{
+    height: 30px;
+    float: right;
+    margin-top: 5px;
+    margin-right: 10px;
+}
+.search-input{
+    width: 200px;
+    height: 30px;
+    margin-top: 5px;
+    float: right;
+    margin-right: 10px;
+}
+.roll-content{
+    width: 100%;
+    height: 250px;
+    clear: both;
+    border-top: 1px solid #f2f2f2;
+    border-bottom: 1px solid #f2f2f2;
+    background-color: #ffffff;
+}
+.roll-content-left{
+    width: 160px;
+    height: 100%;
+    float: left;
+}
+.roll-content-right{
+    width: 740px;
+    height: 100%;
+    float: left;
+}
+.tool-bar-item{
+    width: 100%;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    border-bottom: 1px solid #f2f2f2;
+    cursor: pointer;
+}
+.tool-bar-item:hover{
+    background-color: red;
+    color: #ffffff;
+}
+.lingxing{
+    float: left;
+    width: 25%;
+}
+.lingxingitem{
+    height: 100px;
+    width: 100px;
+    text-align: center;
+    line-height: 100px;
+    margin-left: 62px;
+    margin-top: 30px;
+    transform: rotate(45deg);
+    cursor: pointer;
+    background-color: #e83632;
+    color: white;
+    font-size: 14px;
+}
+.lingxingitem:hover{
+    color: #393D49;
+}
+.lingxinglist{
+    clear: both;
+    height: 160px;
+    margin-top: 10px;
+    background-color: #ffffff;
+}
+.cepingitemlist{
+    clear: both;
+    height: 140px;
+    background-color: #ffffff;
+}
+.floorhd_tit{
+    font-size: 20px;
+    position: relative;
+    text-align: center;
+    float: left;
+    width: 230px;
+    margin-left: 335px;
+}
+.floorhd_tit:before{
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 3px;
+    display: block;
+    background: #222;
+    top: 25px;
+}
+.floorhd_tit:after{
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 3px;
+    background: #222;
+    top: 25px;
+    right: 0px;
+}
+.floorhd_tit_div{
+    height: 50px;
+    line-height: 50px;
+    margin-top: 20px;
+}
+.cepingitem{
+    height: 100px;
+    width: 150px;
+    text-align: center;
+    line-height: 100px;
+    margin-left: 33px;
+    margin-top: 20px;
+    cursor: pointer;
+    background-color: #e83632;
+    color: white;
+    font-size: 14px;
+}
+.cepingitem:hover{
+    color: #393D49;
+}
+.ceping{
+    float: left;
+    width: 25%;
+}
+.hover-img{
+    -webkit-transition: .6s;
+    -moz-transition: .6s;
+    transition: .6s;
+}
+.hover-img:hover{
+    -webkit-transform: scale(1.05);
+    -moz-transform: scale(1.05);
+    transform: scale(1.05);
+}
+.hot-list-item1{
+    height: 350px;
+    width: 300px;
+    float: left;
+}
+.hot-list-item-item{
+    height: 330px;
+    width: 280px;
+    margin: 10px;
+    background-color: white;
+}
+.hot-list-item-head-div{
+    line-height: 40px;
+    height: 40px;
+}
+.hot-list-item-title1{
+    font-size: 20px;
+    margin-left: 20px;
+    color: #222;
+    float: left;
+}
+.layui-icon-prev-circle{
+    margin: 0px 5px;
+    color: red;
+    font-weight: bold;
+    transform: rotate(180deg);
+    font-size: 20px;
+    float: left;
+}
+.hot-list-item-title2{
+    font-size: 13px;
+    float: left;
+    color: #999;
+}
+.hot-list-item-content{
+    width: 100%;
+    height:290px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
