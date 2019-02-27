@@ -10,11 +10,14 @@
 
     <style>
         body{
-            background-color: #f2f2f2;
+            background-color: #f0f3ef;
+        }
+        div{
+            box-sizing: border-box;
         }
         .content-div{
             position: absolute;
-            height: 100%;
+            height: 3000px;
             width: 100%;
         }
         .content{
@@ -22,7 +25,7 @@
             width: 900px;
             position: relative;
             margin: auto;
-            background-color: #ffffff;
+            /*background-color: #ffffff;*/
         }
         .index-logo{
             height: 40px;
@@ -52,13 +55,14 @@
             width: 100%;
             height: 250px;
             clear: both;
-            border-top: 1px solid #eeeeee;
+            border-top: 1px solid #f2f2f2;
+            border-bottom: 1px solid #f2f2f2;
+            background-color: #ffffff;
         }
         .roll-content-left{
             width: 160px;
             height: 100%;
             float: left;
-            margin-top: 20px;
         }
         .roll-content-right{
             width: 740px;
@@ -77,6 +81,97 @@
             background-color: red;
             color: #ffffff;
         }
+        .lingxing{
+            float: left;
+            width: 25%;
+        }
+        .lingxingitem{
+            height: 100px;
+            width: 100px;
+            text-align: center;
+            line-height: 100px;
+            margin-left: 62px;
+            margin-top: 30px;
+            transform: rotate(45deg);
+            cursor: pointer;
+            background-color: #e83632;
+            color: white;
+            font-size: 14px;
+        }
+        .lingxingitem:hover{
+            color: #393D49;
+        }
+        .lingxinglist{
+            clear: both;
+            height: 160px;
+            margin-top: 10px;
+            background-color: #ffffff;
+        }
+        .cepingitemlist{
+            clear: both;
+            height: 140px;
+            background-color: #ffffff;
+        }
+        .floorhd_tit{
+            font-size: 20px;
+            position: relative;
+            text-align: center;
+            float: left;
+            width: 230px;
+            margin-left: 335px;
+        }
+        .floorhd_tit:before{
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            display: block;
+            background: #222;
+            top: 25px;
+        }
+        .floorhd_tit:after{
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: #222;
+            top: 25px;
+            right: 0px;
+        }
+        .floorhd_tit_div{
+            height: 50px;
+            line-height: 50px;
+            margin-top: 20px;
+        }
+        .cepingitem{
+            height: 100px;
+            width: 150px;
+            text-align: center;
+            line-height: 100px;
+            margin-left: 33px;
+            margin-top: 20px;
+            cursor: pointer;
+            background-color: #e83632;
+            color: white;
+            font-size: 14px;
+        }
+        .cepingitem:hover{
+            color: #393D49;
+        }
+        .ceping{
+            float: left;
+            width: 25%;
+        }
+        img{
+            -webkit-transition: .6s;
+            -moz-transition: .6s;
+            transition: .6s;
+        }
+        img:hover{
+            -webkit-transform: scale(1.05);
+            -moz-transform: scale(1.05);
+            transform: scale(1.05);
+        }
     </style>
 
 </headx>
@@ -85,7 +180,7 @@
     <div class="content-div">
         <div class="content">
             <!--导航-->
-            <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief" style="height: 40px;">
+            <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief" style="height: 40px;background-color: white;">
                 <img class="index-logo" src="./images/logo.jpg">
                 <ul class="layui-tab-title">
                     <li class="layui-this">电脑</li>
@@ -117,22 +212,149 @@
                     </div>
                 </div>
             </div>
+
             <!--那4个菱形-->
-            <div>
-                <div class="">
-                    每日新品
+            <div class="lingxinglist">
+                <div class="lingxing">
+                    <div class="lingxingitem">
+                        每日新品
+                    </div>
                 </div>
-                <div>
-                    限时抢购
+                <div class="lingxing">
+                    <div class="lingxingitem">
+                        限时抢购
+                    </div>
                 </div>
-                <div>
-                    热销榜单
+                <div class="lingxing">
+                    <div class="lingxingitem">
+                        热销榜单
+                    </div>
                 </div>
-                <div>
-                    随便逛逛
+                <div class="lingxing">
+                    <div class="lingxingitem">
+                        随便逛逛
+                    </div>
                 </div>
             </div>
 
+            <div class="floorhd_tit_div">
+                <span class="floorhd_tit">测评推荐</span>
+            </div>
+
+            <div class="cepingitemlist">
+                <div class="ceping">
+                    <div class="cepingitem">
+                        笔记本测评
+                    </div>
+                </div>
+                <div class="ceping">
+                    <div class="cepingitem">
+                        笔记本测评
+                    </div>
+                </div>
+                <div class="ceping">
+                    <div class="cepingitem">
+                        笔记本测评
+                    </div>
+                </div>
+                <div class="ceping">
+                    <div class="cepingitem">
+                        笔记本测评
+                    </div>
+                </div>
+            </div>
+
+            <div class="floorhd_tit_div">
+                <span class="floorhd_tit">最新热卖</span>
+            </div>
+
+            <div class="remailist">
+
+                <div style="height: 350px; width: 300px; float: left;">
+                    <div style="height: 330px; width: 280px; margin: 10px; background-color: white;">
+                        <div style="line-height: 40px;height: 40px;">
+                            <div style="font-size: 20px; margin-left: 20px; color: #222; float: left;">外设</div>
+                            <i style="margin: 0px 5px; color: red; font-weight: bold; transform: rotate(180deg); font-size: 20px; float: left;" class="layui-icon layui-icon-prev-circle"></i>
+                            <div style="font-size: 13px; float: left; color: #999;">玩所未玩</div>
+                        </div>
+                        <div style="width: 100%; height:290px;">
+                            <img src="/static/images/icon_jianpan.jpg" style="height: 50%; width: 100%;">
+                            <div style="text-align: center; line-height: 50px;">罗技黑科技了解一下</div>
+                            <div style="height: 1px; background-color: #999; width: 100px; margin-left: 90px;"></div>
+                            <div style="text-align: center;font-size: 11px;color: #333333;padding: 20px 30px;">罗技的ROMER G机械轴体和LIGHTSYNC光效技术也值得我们去一探究竟。</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="height: 350px; width: 300px; float: left;">
+                    <div style="height: 330px; width: 280px; margin: 10px; background-color: white;">
+                        <div style="line-height: 40px;">
+                            <div style="font-size: 20px; margin-left: 20px; color: #222; float: left;">配件</div>
+                            <i style="margin: 0px 5px; color: red; font-weight: bold; transform: rotate(180deg); font-size: 20px; float: left;" class="layui-icon layui-icon-prev-circle"></i>
+                            <div style="font-size: 13px; float: left; color: #999;">一个极客的诞生</div>
+                        </div>
+                    </div>
+                </div>
+                <div style="height: 350px; width: 300px; float: left;">
+                    <div style="height: 330px; width: 280px; margin: 10px; background-color: white;">
+                        <div style="line-height: 40px;">
+                            <div style="font-size: 20px; margin-left: 20px; color: #222; float: left;">二手市场</div>
+                            <i style="margin: 0px 5px; color: red; font-weight: bold; transform: rotate(180deg); font-size: 20px; float: left;" class="layui-icon layui-icon-prev-circle"></i>
+                            <div style="font-size: 13px; float: left; color: #999;">物超所值</div>
+                        </div>
+                    </div>
+                </div>
+                <div style="height: 350px; width: 300px; float: left;">
+                    <div style="height: 330px; width: 280px; margin: 10px; background-color: white;">
+                        <div style="line-height: 40px;">
+                            <div style="font-size: 20px; margin-left: 20px; color: #222; float: left;">小米</div>
+                            <i style="margin: 0px 5px; color: red; font-weight: bold; transform: rotate(180deg); font-size: 20px; float: left;" class="layui-icon layui-icon-prev-circle"></i>
+                            <div style="font-size: 13px; float: left; color: #999;">为生活</div>
+                        </div>
+                    </div>
+                </div>
+                <div style="height: 350px; width: 300px; float: left;">
+                    <div style="height: 330px; width: 280px; margin: 10px; background-color: white;">
+                        <div style="line-height: 40px;">
+                            <div style="font-size: 20px; margin-left: 20px; color: #222; float: left;">华为</div>
+                            <i style="margin: 0px 5px; color: red; font-weight: bold; transform: rotate(180deg); font-size: 20px; float: left;" class="layui-icon layui-icon-prev-circle"></i>
+                            <div style="font-size: 13px; float: left; color: #999;">畅我所想</div>
+                        </div>
+                    </div>
+                </div>
+                <div style="height: 350px; width: 300px; float: left;">
+                    <div style="height: 330px; width: 280px; margin: 10px; background-color: white;">
+                        <div style="line-height: 40px;">
+                            <div style="font-size: 20px; margin-left: 20px; color: #222; float: left;">笔记本</div>
+                            <i style="margin: 0px 5px; color: red; font-weight: bold; transform: rotate(180deg); font-size: 20px; float: left;" class="layui-icon layui-icon-prev-circle"></i>
+                            <div style="font-size: 13px; float: left; color: #999;">好电脑不贵</div>
+                        </div>
+                    </div>
+                </div>
+                <div style="height: 350px; width: 300px; float: left;">
+                    <div style="height: 330px; width: 280px; margin: 10px; background-color: white;">
+                        <div style="line-height: 40px;">
+                            <div style="font-size: 20px; margin-left: 20px; color: #222; float: left;">外星人</div>
+                            <i style="margin: 0px 5px; color: red; font-weight: bold; transform: rotate(180deg); font-size: 20px; float: left;" class="layui-icon layui-icon-prev-circle"></i>
+                            <div style="font-size: 13px; float: left; color: #999;">预见未来</div>
+                        </div>
+                    </div>
+                </div>
+                <div style="height: 350px; width: 300px; float: left;">
+                    <div style="height: 330px; width: 280px; margin: 10px; background-color: white;">
+                        <div style="line-height: 40px;height: 40px;">
+                            <div style="font-size: 20px; margin-left: 20px; color: #222; float: left;">新品首发</div>
+                            <i style="margin: 0px 5px; color: red; font-weight: bold; transform: rotate(180deg); font-size: 20px; float: left;" class="layui-icon layui-icon-prev-circle"></i>
+                            <div style="font-size: 13px; float: left; color: #999;">探索生活</div>
+                        </div>
+                    </div>
+                </div>
+                <div style="height: 350px; width: 300px; float: left;">
+                    <div style="height: 330px; width: 280px; margin: 10px; background-color: white;">
+                        <img src="/static/images/icon_luyou.jpg" style="height: 100%; width:100%; cursor: pointer;">
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <script type="text/javascript" src="./static/plugins/jquery/jquery-2.0.3.min.js  "></script>
