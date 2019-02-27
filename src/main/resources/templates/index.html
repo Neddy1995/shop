@@ -7,6 +7,7 @@
     <title>--index--</title>
 
     <link rel="stylesheet" type="text/css" href="./static/plugins/layui/css/layui.css"/>
+    <link rel="stylesheet" type="text/css" href="./static/css/index.css"/>
 
     <style>
         body{
@@ -14,163 +15,6 @@
         }
         div{
             box-sizing: border-box;
-        }
-        .content-div{
-            position: absolute;
-            height: 3000px;
-            width: 100%;
-        }
-        .content{
-            height: 100%;
-            width: 900px;
-            position: relative;
-            margin: auto;
-            /*background-color: #ffffff;*/
-        }
-        .index-logo{
-            height: 40px;
-            width: 80px;
-            float: left;
-        }
-        .layui-tab-title{
-            width: 300px;
-            float: left;
-            margin-left: 80px;
-            border: 0px;
-        }
-        .search-btn{
-            height: 30px;
-            float: right;
-            margin-top: 5px;
-            margin-right: 10px;
-        }
-        .search-input{
-            width: 200px;
-            height: 30px;
-            margin-top: 5px;
-            float: right;
-            margin-right: 10px;
-        }
-        .roll-content{
-            width: 100%;
-            height: 250px;
-            clear: both;
-            border-top: 1px solid #f2f2f2;
-            border-bottom: 1px solid #f2f2f2;
-            background-color: #ffffff;
-        }
-        .roll-content-left{
-            width: 160px;
-            height: 100%;
-            float: left;
-        }
-        .roll-content-right{
-            width: 740px;
-            height: 100%;
-            float: left;
-        }
-        .tool-bar-item{
-            width: 100%;
-            height: 40px;
-            text-align: center;
-            line-height: 40px;
-            border-bottom: 1px solid #f2f2f2;
-            cursor: pointer;
-        }
-        .tool-bar-item:hover{
-            background-color: red;
-            color: #ffffff;
-        }
-        .lingxing{
-            float: left;
-            width: 25%;
-        }
-        .lingxingitem{
-            height: 100px;
-            width: 100px;
-            text-align: center;
-            line-height: 100px;
-            margin-left: 62px;
-            margin-top: 30px;
-            transform: rotate(45deg);
-            cursor: pointer;
-            background-color: #e83632;
-            color: white;
-            font-size: 14px;
-        }
-        .lingxingitem:hover{
-            color: #393D49;
-        }
-        .lingxinglist{
-            clear: both;
-            height: 160px;
-            margin-top: 10px;
-            background-color: #ffffff;
-        }
-        .cepingitemlist{
-            clear: both;
-            height: 140px;
-            background-color: #ffffff;
-        }
-        .floorhd_tit{
-            font-size: 20px;
-            position: relative;
-            text-align: center;
-            float: left;
-            width: 230px;
-            margin-left: 335px;
-        }
-        .floorhd_tit:before{
-            content: '';
-            position: absolute;
-            width: 50px;
-            height: 3px;
-            display: block;
-            background: #222;
-            top: 25px;
-        }
-        .floorhd_tit:after{
-            content: '';
-            position: absolute;
-            width: 50px;
-            height: 3px;
-            background: #222;
-            top: 25px;
-            right: 0px;
-        }
-        .floorhd_tit_div{
-            height: 50px;
-            line-height: 50px;
-            margin-top: 20px;
-        }
-        .cepingitem{
-            height: 100px;
-            width: 150px;
-            text-align: center;
-            line-height: 100px;
-            margin-left: 33px;
-            margin-top: 20px;
-            cursor: pointer;
-            background-color: #e83632;
-            color: white;
-            font-size: 14px;
-        }
-        .cepingitem:hover{
-            color: #393D49;
-        }
-        .ceping{
-            float: left;
-            width: 25%;
-        }
-        img{
-            -webkit-transition: .6s;
-            -moz-transition: .6s;
-            transition: .6s;
-        }
-        img:hover{
-            -webkit-transform: scale(1.05);
-            -moz-transform: scale(1.05);
-            transform: scale(1.05);
         }
     </style>
 
@@ -237,6 +81,7 @@
                 </div>
             </div>
 
+            <!-- 评测推荐 -->
             <div class="floorhd_tit_div">
                 <span class="floorhd_tit">测评推荐</span>
             </div>
@@ -264,21 +109,22 @@
                 </div>
             </div>
 
+            <!--最新热卖-->
             <div class="floorhd_tit_div">
                 <span class="floorhd_tit">最新热卖</span>
             </div>
 
-            <div class="remailist">
+            <div class="hot-list">
 
-                <div style="height: 350px; width: 300px; float: left;">
-                    <div style="height: 330px; width: 280px; margin: 10px; background-color: white;">
-                        <div style="line-height: 40px;height: 40px;">
-                            <div style="font-size: 20px; margin-left: 20px; color: #222; float: left;">外设</div>
-                            <i style="margin: 0px 5px; color: red; font-weight: bold; transform: rotate(180deg); font-size: 20px; float: left;" class="layui-icon layui-icon-prev-circle"></i>
-                            <div style="font-size: 13px; float: left; color: #999;">玩所未玩</div>
+                <div class="hot-list-item1">
+                    <div class="hot-list-item-item">
+                        <div class="hot-list-item-head-div">
+                            <div class="hot-list-item-title1">外设</div>
+                            <i class="layui-icon layui-icon-prev-circle"></i>
+                            <div class="hot-list-item-title2">玩所未玩</div>
                         </div>
-                        <div style="width: 100%; height:290px;">
-                            <img src="/static/images/icon_jianpan.jpg" style="height: 50%; width: 100%;">
+                        <div class="hot-list-item-content">
+                            <img class="hover-img" src="/static/images/icon_jianpan.jpg" style="height: 50%; width: 100%;">
                             <div style="text-align: center; line-height: 50px;">罗技黑科技了解一下</div>
                             <div style="height: 1px; background-color: #999; width: 100px; margin-left: 90px;"></div>
                             <div style="text-align: center;font-size: 11px;color: #333333;padding: 20px 30px;">罗技的ROMER G机械轴体和LIGHTSYNC光效技术也值得我们去一探究竟。</div>
@@ -286,72 +132,112 @@
                     </div>
                 </div>
 
-                <div style="height: 350px; width: 300px; float: left;">
-                    <div style="height: 330px; width: 280px; margin: 10px; background-color: white;">
-                        <div style="line-height: 40px;">
-                            <div style="font-size: 20px; margin-left: 20px; color: #222; float: left;">配件</div>
-                            <i style="margin: 0px 5px; color: red; font-weight: bold; transform: rotate(180deg); font-size: 20px; float: left;" class="layui-icon layui-icon-prev-circle"></i>
-                            <div style="font-size: 13px; float: left; color: #999;">一个极客的诞生</div>
+                <div class="hot-list-item1">
+                    <div class="hot-list-item-item">
+                        <div class="hot-list-item-head-div">
+                            <div class="hot-list-item-title1">配件</div>
+                            <i class="layui-icon layui-icon-prev-circle"></i>
+                            <div class="hot-list-item-title2">一个极客的诞生</div>
+                        </div>
+                        <div class="hot-list-item-content">
+                            <div style="height: 50%; width: 100%;">
+                                <img class="hover-img" src="/static/images/icon_xianshiqi1.jpg" width="120px" height="120px" style="margin: 10px;float: left;">
+                                <div style="float: left; width: 120px; font-size: 13px; color: #333; margin-top: 50px;">AOC 32英寸曲面2K显示器144Hz吃鸡</div>
+                            </div>
+                            <div style="height: 50%; width: 100%;border-top: 1px solid #f2f2f2;">
+                                <img class="hover-img" src="/static/images/icon_jianshu1.jpg" width="120px" height="120px" style="margin: 10px;float: left;">
+                                <div style="float: left; width: 120px; font-size: 13px; color: #333; margin-top: 50px;">Razer/雷蛇 炼狱蝰蛇+萨诺狼蛛键鼠套装</div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div style="height: 350px; width: 300px; float: left;">
-                    <div style="height: 330px; width: 280px; margin: 10px; background-color: white;">
-                        <div style="line-height: 40px;">
-                            <div style="font-size: 20px; margin-left: 20px; color: #222; float: left;">二手市场</div>
-                            <i style="margin: 0px 5px; color: red; font-weight: bold; transform: rotate(180deg); font-size: 20px; float: left;" class="layui-icon layui-icon-prev-circle"></i>
-                            <div style="font-size: 13px; float: left; color: #999;">物超所值</div>
+
+                <div class="hot-list-item1">
+                    <div class="hot-list-item-item">
+                        <div class="hot-list-item-head-div">
+                            <div class="hot-list-item-title1">小米</div>
+                            <i class="layui-icon layui-icon-prev-circle"></i>
+                            <div class="hot-list-item-title2">为生活</div>
+                        </div>
+                        <div class="hot-list-item-content">
+                            <img class="hover-img" src="/static/images/icon_xiaomi1.jpg" width="70%" height="80%" style="margin-left: 15%;">
+                            <div style="width: 100%; font-size: 14px; color: #333;text-align: center;line-height: 50px;">Xiaomi/小米 小米电视4A 65英寸4K超清</div>
                         </div>
                     </div>
                 </div>
-                <div style="height: 350px; width: 300px; float: left;">
-                    <div style="height: 330px; width: 280px; margin: 10px; background-color: white;">
-                        <div style="line-height: 40px;">
-                            <div style="font-size: 20px; margin-left: 20px; color: #222; float: left;">小米</div>
-                            <i style="margin: 0px 5px; color: red; font-weight: bold; transform: rotate(180deg); font-size: 20px; float: left;" class="layui-icon layui-icon-prev-circle"></i>
-                            <div style="font-size: 13px; float: left; color: #999;">为生活</div>
+
+                <div class="hot-list-item1">
+                    <div class="hot-list-item-item">
+                        <div class="hot-list-item-head-div">
+                            <div class="hot-list-item-title1">华为</div>
+                            <i class="layui-icon layui-icon-prev-circle"></i>
+                            <div class="hot-list-item-title2">畅我所想</div>
+                        </div>
+                        <div class="hot-list-item-content">
+                            <img class="hover-img" src="/static/images/icon_huawei1.jpg" width="70%" height="80%" style="margin-left: 15%;">
+                            <div style="width: 100%; font-size: 15px; color: #333;text-align: center;line-height: 50px;">Huawei/Mate 20 Pro 曲面屏</div>
                         </div>
                     </div>
                 </div>
-                <div style="height: 350px; width: 300px; float: left;">
-                    <div style="height: 330px; width: 280px; margin: 10px; background-color: white;">
-                        <div style="line-height: 40px;">
-                            <div style="font-size: 20px; margin-left: 20px; color: #222; float: left;">华为</div>
-                            <i style="margin: 0px 5px; color: red; font-weight: bold; transform: rotate(180deg); font-size: 20px; float: left;" class="layui-icon layui-icon-prev-circle"></i>
-                            <div style="font-size: 13px; float: left; color: #999;">畅我所想</div>
+
+                <div class="hot-list-item1">
+                    <div class="hot-list-item-item">
+                        <div class="hot-list-item-head-div">
+                            <div class="hot-list-item-title1">电脑频道</div>
+                            <i class="layui-icon layui-icon-prev-circle"></i>
+                            <div class="hot-list-item-title2">好电脑不贵</div>
+                        </div>
+                        <div class="hot-list-item-content">
+                            <img class="hover-img" src="/static/images/icon_huasuo.png" width="140px" height="120px%" style="float: left">
+                            <img class="hover-img" src="/static/images/ucon_dell.png" width="140px" height="120px%" style="float: left">
+                            <img class="hover-img" src="/static/images/icon_acer.png" width="140px" height="120px%" style="float: left">
+                            <img class="hover-img" src="/static/images/icon_hp.png" width="140px" height="120px%" style="float: left">
+                            <div style="line-height: 40px;text-align: center;color: #333;">你想看的都在这里</div>
                         </div>
                     </div>
                 </div>
-                <div style="height: 350px; width: 300px; float: left;">
-                    <div style="height: 330px; width: 280px; margin: 10px; background-color: white;">
-                        <div style="line-height: 40px;">
-                            <div style="font-size: 20px; margin-left: 20px; color: #222; float: left;">笔记本</div>
-                            <i style="margin: 0px 5px; color: red; font-weight: bold; transform: rotate(180deg); font-size: 20px; float: left;" class="layui-icon layui-icon-prev-circle"></i>
-                            <div style="font-size: 13px; float: left; color: #999;">好电脑不贵</div>
+
+
+                <div class="hot-list-item1">
+                    <div class="hot-list-item-item">
+                        <div class="hot-list-item-head-div">
+                            <div class="hot-list-item-title1">外星人</div>
+                            <i class="layui-icon layui-icon-prev-circle"></i>
+                            <div class="hot-list-item-title2">预见未来</div>
+                        </div>
+                        <div class="hot-list-item-content">
+                            <img class="hover-img" src="/static/images/icon_waixingren.jpg" style="height: 60%; width: 80%; margin-left: 10%;">
+                            <div style="text-align: center;font-size: 11px;color: #333333;padding: 20px 30px;border-top: 1px solid #f2f2f2;">外星人Alienware 2018新款外星人游戏本17.3英寸笔记本游戏本电脑 【性价比】i7-8750 1070 16G FHD 1TB 机械+256 ssd</div>
                         </div>
                     </div>
                 </div>
-                <div style="height: 350px; width: 300px; float: left;">
-                    <div style="height: 330px; width: 280px; margin: 10px; background-color: white;">
-                        <div style="line-height: 40px;">
-                            <div style="font-size: 20px; margin-left: 20px; color: #222; float: left;">外星人</div>
-                            <i style="margin: 0px 5px; color: red; font-weight: bold; transform: rotate(180deg); font-size: 20px; float: left;" class="layui-icon layui-icon-prev-circle"></i>
-                            <div style="font-size: 13px; float: left; color: #999;">预见未来</div>
+
+
+                <div class="hot-list-item1">
+                    <div class="hot-list-item-item" style="background-color: #f0f3ef;">
+                        <div style="height: 300px;width: 230px;border: 5px solid #000;position: absolute;margin-top: 15px;border-right: 0px;"></div>
+                        <img class="hover-img" src="/static/images/icon_p1.jpg" style="height: 150px;width: 250px;position: absolute;margin-left: 30px;">
+                        <img class="hover-img" src="/static/images/icon_p2.jpg" style="height: 150px;width: 250px;margin-top: 180px;position: absolute;margin-left: 30px;">
+                    </div>
+                </div>
+
+
+                <div class="hot-list-item1">
+                    <div class="hot-list-item-item">
+                        <div class="hot-list-item-head-div">
+                            <div class="hot-list-item-title1">新品首发</div>
+                            <i class="layui-icon layui-icon-prev-circle"></i>
+                            <div class="hot-list-item-title2">来看看清楚</div>
+                        </div>
+                        <div class="hot-list-item-content">
+                            <img src="/static/images/icon_xinping1.jpg" style="height: 100%; width:100%; cursor: pointer;">
                         </div>
                     </div>
                 </div>
+
                 <div style="height: 350px; width: 300px; float: left;">
                     <div style="height: 330px; width: 280px; margin: 10px; background-color: white;">
-                        <div style="line-height: 40px;height: 40px;">
-                            <div style="font-size: 20px; margin-left: 20px; color: #222; float: left;">新品首发</div>
-                            <i style="margin: 0px 5px; color: red; font-weight: bold; transform: rotate(180deg); font-size: 20px; float: left;" class="layui-icon layui-icon-prev-circle"></i>
-                            <div style="font-size: 13px; float: left; color: #999;">探索生活</div>
-                        </div>
-                    </div>
-                </div>
-                <div style="height: 350px; width: 300px; float: left;">
-                    <div style="height: 330px; width: 280px; margin: 10px; background-color: white;">
-                        <img src="/static/images/icon_luyou.jpg" style="height: 100%; width:100%; cursor: pointer;">
+                        <img class="hover-img" src="/static/images/icon_luyou.jpg" style="height: 100%; width:100%; cursor: pointer;">
                     </div>
                 </div>
             </div>
