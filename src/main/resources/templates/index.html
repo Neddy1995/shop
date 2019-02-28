@@ -4,7 +4,8 @@
     <meta http-equiv="X-UA-Compatible" content="Chrome=1"/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>--index--</title>
+    <meta charset="UTF-8">
+    <title>MECHREV</title>
 
     <link rel="stylesheet" type="text/css" href="./static/plugins/layui/css/layui.css"/>
     <link rel="stylesheet" type="text/css" href="./static/css/index.css"/>
@@ -23,63 +24,78 @@
     <div class="top-html" style="width: 100%;"></div>
     <div class="content-div">
         <div class="content">
-            <!--导航-->
-            <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief" style="height: 40px;background-color: white;">
+
+            <!--搜索部分-->
+            <div style="height: 40px;">
                 <img class="index-logo" src="./images/logo.jpg">
-                <ul class="layui-tab-title">
-                    <li class="layui-this">电脑</li>
-                    <li>手机</li>
-                    <li>评测</li>
-                </ul>
-                <button class="layui-btn layui-btn-sm search-btn">搜索</button>
-                <input type="text" placeholder="搜索" class="layui-input search-input">
+                <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+                    <ul class="layui-tab-title">
+                        <li class="tab-brief-li layui-this">电脑</li>
+                        <li class="tab-brief-li">手机</li>
+                        <li class="tab-brief-li">评测</li>
+                    </ul>
+                    <button class="layui-btn layui-btn-sm search-btn">搜索</button>
+                    <input type="text" placeholder="搜索" class="layui-input search-input">
+                </div>
             </div>
+
             <!--滚动部分-->
             <div class="roll-content">
                 <div class="roll-content-left">
-                    <div class="tool-bar-item">台式电脑</div>
-                    <div class="tool-bar-item">笔记本</div>
-                    <div class="tool-bar-item">二手电脑</div>
-                    <div class="tool-bar-item">外设</div>
-                    <div class="tool-bar-item">配件</div>
+                    <!--示例代码，勿删-->
+                    <!--<div class="tool-bar-item" param="taishidiannao">台式电脑</div>-->
+                    <!--<div class="tool-bar-item" param="bijiben">笔记本</div>-->
+                    <!--<div class="tool-bar-item" param="ershoudiannao">二手电脑</div>-->
+                    <!--<div class="tool-bar-item" param="waishe">外设</div>-->
+                    <!--<div class="tool-bar-item" param="peijian">配件</div>-->
                 </div>
                 <!--轮播图部分-->
                 <div class="roll-content-right">
                     <div class="layui-carousel" id="test1">
                         <div carousel-item>
-                            <div style="text-align: center;line-height: 250px;background-color: red;">条目1</div>
-                            <div style="text-align: center;line-height: 250px;background-color: green;">条目2</div>
-                            <div style="text-align: center;line-height: 250px;background-color: yellow;">条目3</div>
-                            <div style="text-align: center;line-height: 250px;background-color: bisque;">条目4</div>
-                            <div style="text-align: center;line-height: 250px;background-color: hotpink;">条目5</div>
+                            <img class="hover-img" src="/static/images/icon_roll1.jpg" style="height: 100%;width: 100%;">
+                            <img class="hover-img" src="/static/images/icon_roll2.jpg" style="height: 100%;width: 100%;">
+                            <img class="hover-img" src="/static/images/icon_roll3.jpg" style="height: 100%;width: 100%;">
+                            <img class="hover-img" src="/static/images/icon_roll5.webp" style="height: 100%;width: 100%;">
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!--那4个菱形-->
-            <div class="lingxinglist">
-                <div class="lingxing">
-                    <div class="lingxingitem">
-                        每日新品
+            <div class="floorhd_tit_div" style="margin-top: 40px;">
+                <span class="floorhd_tit">探索生活</span>
+            </div>
+
+            <div style="width: 100%; height: 250px;">
+                <div class="hover-img" style="width: 25%;height: 100%;float: left;">
+                    <div style="height: 100%; width: 94%; margin-left: 3%;background-color: white;text-align: center">
+                        <span style="line-height: 50px">每日新品</span>
+                        <img src="/static/images/icon_tuijian2.jpg" style="height: 200px; width: 90%;bottom: 0px;">
                     </div>
                 </div>
-                <div class="lingxing">
-                    <div class="lingxingitem">
-                        限时抢购
+                <div class="hover-img" style="width: 25%;height: 100%;float: left;">
+                    <div style="height: 100%; width: 94%; margin-left: 3%;background-color: white;text-align: center">
+                        <span style="line-height: 50px">限时抢购</span>
+                        <img src="/static/images/icon_ip1.jpg" style="height: 150px; width: 75%;bottom: 0px;"><br>
+                        <span style="line-height: 50px">Apple iPhone X (A1865) 64G</span>
                     </div>
                 </div>
-                <div class="lingxing">
-                    <div class="lingxingitem">
-                        热销榜单
+                <div class="hover-img" style="width: 25%;height: 100%;float: left;">
+                    <div style="height: 100%; width: 94%; margin-left: 3%;background-color: white;text-align: center">
+                        <span style="line-height: 50px">热卖推荐</span>
+                        <img src="/static/images/icon_remai.jpg" style="height: 150px; width: 75%;bottom: 0px;"><br>
+                        <span style="line-height: 50px">小米 红米Redmi Note7</span>
                     </div>
                 </div>
-                <div class="lingxing">
-                    <div class="lingxingitem">
-                        随便逛逛
+                <div class="hover-img" style="width: 25%;height: 100%;float: left;">
+                    <div style="height: 100%; width: 94%; margin-left: 3%;background-color: white;text-align: center">
+                        <span style="line-height: 50px">随便逛逛</span>
+                        <img src="/static/images/icon_loge1.jpg" style="height: 150px; width: 75%;bottom: 0px;"><br>
+                        <span style="line-height: 50px;">罗技黑科技</span>
                     </div>
                 </div>
             </div>
+
 
             <!-- 评测推荐 -->
             <div class="floorhd_tit_div">
@@ -88,23 +104,27 @@
 
             <div class="cepingitemlist">
                 <div class="ceping">
-                    <div class="cepingitem">
-                        笔记本测评
+                    <img class="ceping-img" src="/static/images/icon_remai.jpg">
+                    <div class="ceping-title">
+                        测评推荐测评推荐测评推荐测评推荐测评推荐测评推荐测评推荐测评推荐测评推荐测评推荐测评推荐测评推荐
                     </div>
                 </div>
                 <div class="ceping">
-                    <div class="cepingitem">
-                        笔记本测评
+                    <img class="ceping-img" src="/static/images/icon_remai.jpg">
+                    <div class="ceping-title">
+                        测评推荐测评推荐测评推荐测评推荐测评推荐测评推荐测评推荐测评推荐测评推荐测评推荐测评推荐测评推荐
                     </div>
                 </div>
                 <div class="ceping">
-                    <div class="cepingitem">
-                        笔记本测评
+                    <img class="ceping-img" src="/static/images/icon_remai.jpg">
+                    <div class="ceping-title">
+                        测评推荐测评推荐测评推荐测评推荐测评推荐测评推荐测评推荐测评推荐测评推荐测评推荐测评推荐测评推荐
                     </div>
                 </div>
                 <div class="ceping">
-                    <div class="cepingitem">
-                        笔记本测评
+                    <img class="ceping-img" src="/static/images/icon_remai.jpg">
+                    <div class="ceping-title">
+                        测评推荐测评推荐测评推荐测评推荐测评推荐测评推荐测评推荐测评推荐测评推荐测评推荐测评推荐测评推荐
                     </div>
                 </div>
             </div>
@@ -242,7 +262,12 @@
                 </div>
             </div>
         </div>
+
+        <!--底部内容-->
+        <div class="bottom-html" style="height: 50px;width: 100%;background-color: #eeeeee;position: absolute;bottom: 0px;"></div>
+
     </div>
+
     <script type="text/javascript" src="./static/plugins/jquery/jquery-2.0.3.min.js  "></script>
     <script type="text/javascript" src="./static/plugins/layui/layui.js"></script>
     <script type="text/javascript" src="./static/js/index.js"></script>

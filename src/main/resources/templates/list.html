@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-CN" style="height:100%;" xmlns:th="http://www.w3.org/1999/xhtml">
+<headx>
+    <meta http-equiv="X-UA-Compatible" content="Chrome=1"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="UTF-8">
+    <title>MECHREV</title>
+
+    <link rel="stylesheet" type="text/css" href="./static/plugins/layui/css/layui.css"/>
+    <link rel="stylesheet" type="text/css" href="./static/css/index.css"/>
+    <link rel="stylesheet" type="text/css" href="./static/css/list.css"/>
+
+    <style>
+        body{
+            background-color: #f0f3ef;
+        }
+        div{
+            box-sizing: border-box;
+        }
+    </style>
+
+</headx>
+<body>
+<div class="top-html" style="width: 100%;"></div>
+<div class="content-div">
+    <div class="content">
+
+        <!--搜索部分-->
+        <div style="height: 40px;">
+            <img class="index-logo" src="./images/logo.jpg">
+            <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+                <button class="layui-btn layui-btn-sm search-btn">搜索</button>
+                <input type="text" placeholder="搜索" class="layui-input search-input">
+            </div>
+        </div>
+
+        <div style="width: 100%; height: 260px; background-color: white;margin-top: 10px;padding: 20px;">
+            <div style="width: 100%;height: 140px;border-bottom: 1px solid #f2f2f2;">
+                <div class="pinpai-title">品牌：</div>
+                <div class="pinpai-item-content">
+                    <div class="pinpai-item-div" title="联想">
+                        <img class="pinpai-img-item hover-img" src="/static/images/lenovo.jpg">
+                    </div>
+                    <div class="pinpai-item-div" title="ThinkPad">
+                        <img class="pinpai-img-item hover-img" src="/static/images/thinkpad.png">
+                    </div>
+                    <div class="pinpai-item-div" title="戴尔">
+                        <img class="pinpai-img-item hover-img" src="/static/images/dell.jpg">
+                    </div>
+                    <div class="pinpai-item-div" title="华硕">
+                        <img class="pinpai-img-item hover-img" src="/static/images/haus.jpg">
+                    </div>
+                    <div class="pinpai-item-div" title="华为">
+                        <img class="pinpai-img-item hover-img" src="/static/images/huawei.jpg">
+                    </div>
+                    <div class="pinpai-item-div" title="惠普">
+                        <img class="pinpai-img-item hover-img" src="/static/images/hp.jpg">
+                    </div>
+                    <div class="pinpai-item-div" title="小米">
+                        <img class="pinpai-img-item hover-img" src="/static/images/xiaomi.jpg">
+                    </div>
+                    <div class="pinpai-item-div" title="苹果">
+                        <img class="pinpai-img-item hover-img" src="/static/images/ipone.jpg">
+                    </div>
+                    <div class="pinpai-item-div" title="宏基">
+                        <img class="pinpai-img-item hover-img" src="/static/images/acer.jpg">
+                    </div>
+                    <div class="pinpai-item-div" title="微软（Microsoft）">
+                        <img class="pinpai-img-item hover-img" src="/static/images/microsoft.jpg">
+                    </div>
+                    <div class="pinpai-item-div" title="三星">
+                        <img class="pinpai-img-item hover-img" src="/static/images/sumsung.jpg">
+                    </div>
+                    <div class="pinpai-item-div" title="神舟">
+                        <img class="pinpai-img-item hover-img" src="/static/images/hasee.jpg">
+                    </div>
+                    <div class="pinpai-item-div" title="外星人">
+                        <img class="pinpai-img-item hover-img" src="/static/images/waixingren.jpg">
+                    </div>
+                    <div class="pinpai-item-div" title="机械革命">
+                        <img class="pinpai-img-item hover-img" src="/static/images/mechreve.png">
+                    </div>
+                    <div class="pinpai-item-div" title="微星">
+                        <img class="pinpai-img-item hover-img" src="/static/images/msi.jpg">
+                    </div>
+                    <div class="pinpai-item-div" title="雷蛇">
+                        <img class="pinpai-img-item hover-img" src="/static/images/raz.jpg">
+                    </div>
+                    <div class="pinpai-item-div" title="戴瑞">
+                        <img class="pinpai-img-item hover-img" src="/static/images/dere.jpg">
+                    </div>
+                    <div class="pinpai-item-div" title="麦本本">
+                        <img class="pinpai-img-item hover-img" src="/static/images/maibenben.jpg">
+                    </div>
+                </div>
+            </div>
+
+            <div style="width: 100%;height: 40px;border-bottom: 1px solid #f2f2f2;">
+                <div class="pinpai-title">价格：</div>
+                <div class="pinpai-price-content">
+                    <div class="pinpai-price-item">1000以下</div>
+                    <div class="pinpai-price-item">10000-1999</div>
+                    <div class="pinpai-price-item">2000-2999</div>
+                    <div class="pinpai-price-item">3000-3999</div>
+                    <div class="pinpai-price-item">4000-4999</div>
+                    <div class="pinpai-price-item">5000-5999</div>
+                    <div class="pinpai-price-item">6000-6999</div>
+                    <div class="pinpai-price-item">7000-9999</div>
+                    <div class="pinpai-price-item">9999以上</div>
+                </div>
+            </div>
+
+            <div style="width: 100%;height: 40px;border-bottom: 1px solid #f2f2f2;">
+                <div class="pinpai-title">屏幕尺寸：</div>
+                <div class="pinpai-size-content">
+                    <div class="pinpai-size-item">11.6英寸</div>
+                    <div class="pinpai-size-item">12.5英寸</div>
+                    <div class="pinpai-size-item">13.5英寸</div>
+                    <div class="pinpai-size-item">14.5英寸</div>
+                    <div class="pinpai-size-item">4000-4999</div>
+                    <div class="pinpai-size-item">15.6英寸</div>
+                    <div class="pinpai-size-item">17英寸</div>
+                </div>
+            </div>
+        </div>
+
+        <div style="width: 100%;padding: 20px 0px;">
+            <div class="list-item">
+            </div>
+        </div>
+
+    </div>
+
+    <!--底部内容-->
+    <div class="bottom-html" style="height: 50px;width: 100%;background-color: #eeeeee;position: absolute;bottom: 0px;"></div>
+
+</div>
+
+<script type="text/javascript" src="./static/plugins/jquery/jquery-2.0.3.min.js  "></script>
+<script type="text/javascript" src="./static/plugins/layui/layui.js"></script>
+<script type="text/javascript" src="./static/js/list.js"></script>
+<script type="text/javascript" src="./static/js/public.js"></script>
+
+</body>
+</html>
