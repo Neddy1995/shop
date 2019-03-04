@@ -37,4 +37,15 @@ public class GoodController {
         List<Computer> list = goodService.selectGoodsByType(typeId);
         return list;
     }
+
+    /**
+     * 根据id查询单个商品
+     * @param goodId
+     * @return
+     */
+    @RequestMapping("/selectGoodByKey")
+    public Computer selectGoodByKey(String goodId){
+        Computer computer = goodService.selectGoodByKey(goodId);
+        return computer;
+    }
 }

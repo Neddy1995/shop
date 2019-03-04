@@ -85,14 +85,15 @@
         </div>
         <div class="forget-password">忘记密码？</div>
         <div class="layui-form-item">
-            <div class="layui-input-block" style="width: 260px; margin-left: 50px;">
+            <i class="layui-form-label layui-icon">&#xe679;</i>
+            <div class="layui-input-block" style="width: 260px;">
                 <input id="paramCode" type="text" name="title" required  lay-verify="required" placeholder="验证码" autocomplete="off" class="layui-input">
             </div>
             <img th:src="@{code}" class="layui-form-label verification-code" title="验证码图片">
 
         </div>
         <button id="login-btn" class="layui-btn layui-btn-fluid" style="margin-left: 50px; width: 350px;">登  陆</button>
-        <div class="immediate-registration">立即注册</div>
+        <div class="immediate-registration" onclick="window.location.href='register.h'">立即注册</div>
     </div>
 
     <!--底部内容-->

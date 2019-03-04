@@ -15,7 +15,7 @@ public class PageJumpController {
      * 跳转到登陆页面
      * @return
      */
-    @RequestMapping("/login.html")
+    @RequestMapping("/login.h")
     public String login(){
         return "login";
     }
@@ -24,8 +24,16 @@ public class PageJumpController {
      * 跳转到系统首页
      * @return
      */
-    @RequestMapping("/index.html")
+    @RequestMapping("/index.h")
     public String index(){
         return "index";
+    }
+
+    /**
+     *
+     */
+    @RequestMapping("/register.h")
+    public String register(){
+        return "register";
     }
 }

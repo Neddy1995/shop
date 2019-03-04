@@ -3,8 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <title>--register--</title>
+
+    <link rel="stylesheet" type="text/css" href="./static/plugins/layui/css/layui.css"/>
+
+    <style>
+        body{
+            background: -webkit-linear-gradient(#d2d2d2, #dddddd, #e2e2e2, #eeeeee, #F0F0F0, #f2f2f2, #F0F0F0,  #eeeeee,#e2e2e2, #dddddd, #d2d2d2);
+            position:relative;
+            height: 100%;
+            width: 100%;
+        }
+        .layui-form{
+            text-align: center;
+            width: 400px;
+            top: 100px;
+            margin: auto;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            right: 0;
+        }
+    </style>
+
 </head>
 <body>
+<!--顶部内容-->
+<div class="">
+    <div style="text-align: left">成为商家</div>
+    <div style="text-align: right">已有账号？前往<a href="login.h">登录</a></div>
+</div>
 
+<!--表单内容-->
+<div class="layui-form">
+    <div><img src="./images/logo.jpg"/></div>
+    <!--用户名-->
+    <div class="layui-form-item">
+        <i class="layui-icon">&#xe66f;</i>
+        <div class="layui-input-block">
+            <input id="username" type="text" placeholder="用户名" >
+        </div>
+    </div>
+    <!--密码-->
+    <div class="layui-form-item">
+        <i class="layui-icon">&#xe673;</i>
+        <div class="layui-input-block">
+            <input id="password" type="text" placeholder="密码" >
+        </div>
+    </div>
+    <!--确认密码-->
+    <div class="layui-form-item">
+        <i class="layui-icon">&#xe673;</i>
+        <div class="layui-input-block">
+            <input id="passwordAgain" type="text" placeholder="确认密码" >
+        </div>
+    </div>
+    <!--性别-->
+    <div class="layui-form-item">
+        <i class="layui-icon">&#xe662;</i>
+        <i class="layui-icon">&#xe661;</i>
+    </div>
+    <!--年龄和职业-->
+    <div class="layui-form-item">
+        <i class="layui-icon">&#xe66b;</i>
+        <i class="layui-icon">&#xe770;</i>
+    </div>
+    <!--注册按钮-->
+    <div class="layui-form-item">
+        <button class="layui-btn">注册</button>
+    </div>
+</div>
+
+    <script src="./static/plugins/layui/layui.js"></script>
 </body>
 </html>

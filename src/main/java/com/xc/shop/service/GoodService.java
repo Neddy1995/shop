@@ -34,4 +34,16 @@ public class GoodService {
         List<Computer> list = computerMapper.selectGoodsByType(typeId);
         return list;
     }
+
+
+    /**
+     * 根据id查询单个详细商品
+     * 需要修改：判断id的类型判断是手机还是电脑
+     * @param goodId
+     * @return
+     */
+    public Computer selectGoodByKey(String goodId) {
+        Computer computer = computerMapper.selectByPrimaryKey(goodId);
+        return computer;
+    }
 }
