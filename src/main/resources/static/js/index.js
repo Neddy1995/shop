@@ -40,30 +40,32 @@ $(document).ready(function () {
 function initRollContentLeftData(text) {
     var html = '';
     if (text == "电脑") {
-        html += '<div class="tool-bar-item" param="台式电脑">台式电脑</div>';
-        html += '<div class="tool-bar-item" param="笔记本">笔记本</div>';
-        html += '<div class="tool-bar-item" param="二手电脑">二手电脑</div>';
-        html += '<div class="tool-bar-item" param="外设">外设</div>';
-        html += '<div class="tool-bar-item" param="配件">配件</div>';
+        html += '<div class="tool-bar-item" type="电脑" param="台式电脑">台式电脑</div>';
+        html += '<div class="tool-bar-item" type="电脑" param="笔记本">笔记本</div>';
+        html += '<div class="tool-bar-item" type="电脑" param="二手电脑">二手电脑</div>';
+        html += '<div class="tool-bar-item" type="电脑" param="外设">外设</div>';
+        html += '<div class="tool-bar-item" type="电脑" param="配件">配件</div>';
     } else if (text == "手机") {
-        html += '<div class="tool-bar-item" param="发烧友">发烧友</div>';
-        html += '<div class="tool-bar-item" param="性价比">性价比</div>';
-        html += '<div class="tool-bar-item" param="二手机">二手机</div>';
-        html += '<div class="tool-bar-item" param="外设">外设</div>';
-        html += '<div class="tool-bar-item" param="配件">配件</div>';
+        html += '<div class="tool-bar-item" type="手机" param="发烧友">发烧友</div>';
+        html += '<div class="tool-bar-item" type="手机" param="性价比">性价比</div>';
+        html += '<div class="tool-bar-item" type="手机" param="二手机">二手机</div>';
+        html += '<div class="tool-bar-item" type="手机" param="外设">外设</div>';
+        html += '<div class="tool-bar-item" type="手机" param="配件">配件</div>';
     } else if (text == "评测") {
-        html += '<div class="tool-bar-item" param="台式电脑测评">台式电脑测评</div>';
-        html += '<div class="tool-bar-item" param="笔记本测评">笔记本测评</div>';
-        html += '<div class="tool-bar-item" param="手机测评">手机测评</div>';
-        html += '<div class="tool-bar-item" param="外设测评">外设测评</div>';
-        html += '<div class="tool-bar-item" param="配件测评">配件测评</div>';
+        html += '<div class="tool-bar-item" type=""param="台式电脑测评">台式电脑测评</div>';
+        html += '<div class="tool-bar-item" type="" param="笔记本测评">笔记本测评</div>';
+        html += '<div class="tool-bar-item" type="" param="手机测评">手机测评</div>';
+        html += '<div class="tool-bar-item" type="" param="外设测评">外设测评</div>';
+        html += '<div class="tool-bar-item" type="" param="配件测评">配件测评</div>';
     } else {
         return;
     }
     $(".roll-content-left").html(html);
 
     $(".tool-bar-item").click(function () {
-        var searchContent = $(this).attr("param")
-        location.href=encodeURI("list.html?search=" + searchContent);
+        var type = $(this).attr("type");
+        var searchContent = $(this).attr("param");
+        var url = "list.html?type=" + type + "&search=" + searchContent;
+        window.open(encodeURI(url));
     });
 }
