@@ -8,10 +8,14 @@
 
     <style>
         body{
-            background: -webkit-linear-gradient(#d2d2d2, #dddddd, #e2e2e2, #eeeeee, #F0F0F0, #f2f2f2, #F0F0F0,  #eeeeee,#e2e2e2, #dddddd, #d2d2d2);
             position:relative;
             height: 100%;
             width: 100%;
+        }
+        .head{
+            width: 400px;
+            top: 20px;
+            margin: auto;
         }
         .layui-form{
             text-align: center;
@@ -23,19 +27,27 @@
             bottom: 0;
             right: 0;
         }
+        .logo{
+            width: 200px;
+            height: 120px;
+        }
+        .layui-form-item{
+            text-align: center;
+            margin-top: 20px;
+        }
     </style>
 
 </head>
 <body>
 <!--顶部内容-->
-<div class="">
-    <div style="text-align: left">成为商家</div>
-    <div style="text-align: right">已有账号？前往<a href="login.h">登录</a></div>
+<div class="head">
+    <div style="float: left">成为商家</div>
+    <div style="float: right">已有账号？前往<a href="login.h">登录</a></div>
 </div>
 
 <!--表单内容-->
 <div class="layui-form">
-    <div><img src="./images/logo.jpg"/></div>
+    <img src="./images/logo.jpg" class="logo"/>
     <!--用户名-->
     <div class="layui-form-item">
         <i class="layui-icon">&#xe66f;</i>
