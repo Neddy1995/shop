@@ -52,7 +52,7 @@ function initRollContentLeftData(text) {
         html += '<div class="tool-bar-item" type="手机" param="外设">外设</div>';
         html += '<div class="tool-bar-item" type="手机" param="配件">配件</div>';
     } else if (text == "评测") {
-        html += '<div class="tool-bar-item" type=""param="台式电脑测评">台式电脑测评</div>';
+        html += '<div class="tool-bar-item" type="" param="台式电脑测评">台式电脑测评</div>';
         html += '<div class="tool-bar-item" type="" param="笔记本测评">笔记本测评</div>';
         html += '<div class="tool-bar-item" type="" param="手机测评">手机测评</div>';
         html += '<div class="tool-bar-item" type="" param="外设测评">外设测评</div>';

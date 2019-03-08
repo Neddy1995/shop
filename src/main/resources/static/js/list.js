@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
     // 参数
-    var type = getUrlParam("type");
+    var type = getUrlParam("type");   // 电脑，手机
     var search = getUrlParam("search");
 
     // 加载头部代码
@@ -29,7 +29,7 @@ $(document).ready(function () {
                     var lis = [];
                     for(var i = 0; i < 8; i++){
                         var html = '';
-                        html += '<div class="list-item">';
+                        html += '<div class="list-item" type="' + type + '" goodId="123456" onclick="toDetail(this)">';
                             html += '<img class="hover-img" src="/static/images/icon_c1.png" style="width: 100%; height: 200px;">';
                             html += '<div class="list-item-price">￥ 2000</div>';
                             html += '<div class="list-item-info">我是一个电脑介绍我是一个电脑介绍我是一个个电脑介绍电脑介绍</div>';
@@ -87,16 +87,19 @@ function getListData() {
     });
 }
 
-// 动态显示列表数据
-function showListData(data) {
-    var length = 20;
 
-    for (var i = 0; i < length ; i++) {
+function toDetail(dom) {
+    var goodId = dom.getAttribute("goodId");
+    var type = dom.getAttribute("type");   // 电脑、手机
 
+    if (type == "电脑") {
+        var url = "diannao_detail.html?goodId=" + goodId;
+        window.open(encodeURI(url));
+    } else if (type == "手机") {
+        var url = "shouji_detail.html?goodId=" + goodId;
+        window.open(encodeURI(url));
     }
 }
-
-
 
 
 
