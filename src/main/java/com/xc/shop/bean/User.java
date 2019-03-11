@@ -19,6 +19,19 @@ public class User {
 
     private Integer power;
 
+    public User(String userName, String password, Integer age, Integer sex, String profession) {
+        this.userName = userName;
+        this.password = password;
+        this.age = age;
+        this.sex = sex;
+        this.profession = profession;
+    }
+
+    public User(){
+
+    }
+
+
     public String getUserId() {
         return userId;
     }

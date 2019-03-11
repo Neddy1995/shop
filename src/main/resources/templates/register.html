@@ -35,7 +35,23 @@
             text-align: center;
             margin-top: 20px;
         }
+        .layui-form-label{
+            width: 50px;
+            height: 38px;
+            padding: 0px 0px;
+            float: left;
+            font-size: 25px;
+            line-height: 40px;
+            text-align: center;
+            color: #1E9FFF;
+        }
+        .layui-input-block{
+            width: 290px;
+            float: left;
+            margin-left: 0px;
+        }
     </style>
+
 
 </head>
 <body>
@@ -46,45 +62,74 @@
 </div>
 
 <!--表单内容-->
-<div class="layui-form">
+<div class="layui-form layui-form-pane">
     <img src="./images/logo.jpg" class="logo"/>
     <!--用户名-->
-    <div class="layui-form-item">
-        <i class="layui-icon">&#xe66f;</i>
+    <div class="layui-form-item" pane>
+        <i class="layui-icon layui-form-label">&#xe66f;</i>
         <div class="layui-input-block">
-            <input id="username" type="text" placeholder="用户名" >
+            <input id="username" type="text" required lay-verify="required" placeholder="用户名" autocomplete="off" class="layui-input"/>
         </div>
     </div>
     <!--密码-->
-    <div class="layui-form-item">
-        <i class="layui-icon">&#xe673;</i>
+    <div class="layui-form-item" pane>
+        <i class="layui-icon layui-form-label">&#xe673;</i>
         <div class="layui-input-block">
-            <input id="password" type="text" placeholder="密码" >
+            <input id="password" type="password" required lay-verify="required" placeholder="密码" autocomplete="off" class="layui-input"/>
         </div>
     </div>
     <!--确认密码-->
-    <div class="layui-form-item">
-        <i class="layui-icon">&#xe673;</i>
+    <div class="layui-form-item" pane>
+        <i class="layui-icon layui-form-label">&#xe673;</i>
         <div class="layui-input-block">
-            <input id="passwordAgain" type="text" placeholder="确认密码" >
+            <input id="passwordAgain" type="password" required lay-verify="required" placeholder="确认密码" autocomplete="off" class="layui-input"/>
         </div>
     </div>
     <!--性别-->
-    <div class="layui-form-item">
-        <i class="layui-icon">&#xe662;</i>
-        <i class="layui-icon">&#xe661;</i>
+    <div class="layui-form-item" pane>
+        <label class="layui-form-label"><i class="layui-icon layui-form-label">&#xe662;</i></label>
+        <div class="layui-input-block">
+            <input type="radio" name="sex" id="boy" value="1" title="男">
+            <input type="radio" name="sex" id="girl" value="2" title="女" checked>
+        </div>
     </div>
-    <!--年龄和职业-->
-    <div class="layui-form-item">
-        <i class="layui-icon">&#xe66b;</i>
-        <i class="layui-icon">&#xe770;</i>
+    <!--年龄-->
+    <div class="layui-form-item" pane>
+        <label class="layui-form-label"><i class="layui-icon layui-form-label">&#xe66b;</i></label>
+        <div class="layui-input-block">
+            <select name="age" lay-verify="required">
+                <option value=""></option>
+                <option value="0">北京</option>
+                <option value="1">上海</option>
+                <option value="2">广州</option>
+                <option value="3">深圳</option>
+                <option value="4">杭州</option>
+            </select>
+        </div>
+    </div>
+
+    <!--职业-->
+    <div class="layui-form-item" pane>
+        <label class="layui-form-label"><i class="layui-icon layui-form-label">&#xe770;</i></label>
+        <div class="layui-input-block">
+            <select name="profession" lay-verify="required">
+                <option value=""></option>
+                <option value="0">北京</option>
+                <option value="1">上海</option>
+                <option value="2">广州</option>
+                <option value="3">深圳</option>
+                <option value="4">杭州</option>
+            </select>
+        </div>
     </div>
     <!--注册按钮-->
     <div class="layui-form-item">
-        <button class="layui-btn">注册</button>
+        <button class="layui-btn layui-btn-fluid">注册</button>
     </div>
 </div>
 
-    <script src="./static/plugins/layui/layui.js"></script>
+    <script type="text/javascript" src="./static/plugins/jquery/jquery-2.0.3.min.js  "></script>
+    <script type="text/javascript" src="./static/plugins/layui/layui.js"></script>
+    <script type="text/javascript" src="./static/js/register.js"></script>
 </body>
 </html>

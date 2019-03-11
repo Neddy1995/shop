@@ -3,9 +3,15 @@ package com.xc.shop.controller;
 import com.xc.shop.bean.User;
 import com.xc.shop.dao.UserMapper;
 import com.xc.shop.service.UserService;
+import com.xc.shop.util.ControllerResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @RestController
 public class UserController {
@@ -44,17 +50,36 @@ public class UserController {
 
     /**
      * 注册
-     * @param user
+     * @param
      * @return
      */
-    @RequestMapping("/register")
-    public String userRegister(User user){
-        boolean i = userService.register(user);
-        if (i){
-            return "login";
+    @RequestMapping("/register.do")
+    public ControllerResult userRegister(HttpServletRequest request,
+                               HttpServletResponse response,@RequestParam("userName") String userName,
+                               @RequestParam("password") String password,
+                               @RequestParam("sex") int sex,
+                               @RequestParam("age") int age,
+                               @RequestParam("profession") String profession){
+
+        User user = new User(userName,password,sex,age,profession);
+
+        ControllerResult controllerResult = new ControllerResult();
+        try {
+            boolean i = userService.register(user);
+            if (i) {
+                controllerResult.setResultCode(ControllerResult.RESULT_CODE_SUCCESS);
+                controllerResult.setMessage("注册成功！");
+                return controllerResult;
+            }
+            else{
+                controllerResult.setResultCode(ControllerResult.RESULT_CODE_FAIL);
+                controllerResult.setMessage("已存在该用户！");
+                return controllerResult;
+            }
+        }catch (Exception e){
+            e.printStackTrace();
         }
-        System.out.printf("已存在该用户");
-        return "register";
+        return controllerResult;
     }
 
     /**
