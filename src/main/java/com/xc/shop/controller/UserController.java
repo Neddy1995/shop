@@ -5,13 +5,13 @@ import com.xc.shop.dao.UserMapper;
 import com.xc.shop.service.UserService;
 import com.xc.shop.util.ControllerResult;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 @RestController
 public class UserController {
@@ -53,9 +53,10 @@ public class UserController {
      * @param
      * @return
      */
-    @RequestMapping("/register.do")
+    @PostMapping(value = "/register.do")
     public ControllerResult userRegister(HttpServletRequest request,
-                               HttpServletResponse response,@RequestParam("userName") String userName,
+                               HttpServletResponse response,
+                               @RequestParam("userName") String userName,
                                @RequestParam("password") String password,
                                @RequestParam("sex") int sex,
                                @RequestParam("age") int age,

@@ -7,19 +7,21 @@ $(document).ready(function () {
     // 加载底部代码
     $('.bottom-html').load('./static/html/bottomhtml.html');
 
-    $("#layui-btn").click(function () {
-        var username = $.trim($("#userName").val());
+    $(".btn_register").click(function () {
+        console.log("123456");
+        var username = $.trim($("#username").val());
         var password = $.trim($("#password").val());
         var passwordAgain = $.trim($("#passwordAgain").val());
         var sex = $('input[name="sex"]:checked').val();
-/*        var age = $('select[name="age"]').val();
-        var profession = $('select[name="profession"]').val();*/
+        var age = $('select[name="age"]').val();
+        var profession = $('select[name="profession"]').val();
 
-        var age = 1;
-        var profession = 2;
+        console.log(typeof(sex) +':'+ sex);
+        console.log(typeof(age) +':'+ age);
+        console.log(typeof(profession)+':'+ profession)
 
         if (username == "") {
-            showAlertMsg("用户名为空");
+            showAlertMsg('用户名为空');
             return;
         }
 
@@ -33,12 +35,12 @@ $(document).ready(function () {
             return;
         }
 
-        if (password == passwordAgain) {
+        if (password != passwordAgain) {
             showAlertMsg("两次密码不一致");
             return;
         }
 
-        if (age == "") {
+        if (age == NaN) {
             showAlertMsg("未选择年龄");
             return;
         }
@@ -62,10 +64,10 @@ $(document).ready(function () {
  */
 function register(username,password,sex,age,profession) {
     $.ajax({
-        type:"past",
+        type:"post",
         url:"register.do",
         data:{
-            "username":username,
+            "userName":username,
             "password":password,
             "sex":sex,
             "age":age,

@@ -7,6 +7,8 @@ spring:
       charset: utf-8
       enabled: true
       force: true
+  thymeleaf:
+    cache: false
 
   #配置数据源
   datasource:
