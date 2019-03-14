@@ -36,4 +36,9 @@ public class PageJumpController {
     public String register(){
         return "register";
     }
+
+    @RequestMapping("/shoppingCart.h")
+    public String shoppingCart(){
+        return "shoppingCart";
+    }
 }
