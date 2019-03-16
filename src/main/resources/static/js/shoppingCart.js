@@ -1,3 +1,8 @@
+layui.use('form', function(){
+    var form = layui.form;
+});
+
+
 $(document).ready(function () {
     //加载头部代码
     $('.top-html').load('./static/html/tophtml.html');
