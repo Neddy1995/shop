@@ -42,30 +42,50 @@ body{
     margin-right: 10px;
 }
 
-/*显示内容*/
-.content-table{
-    margin: auto;
+/*收藏夹内容*/
+.content-favorite{
     padding-top: 20px;
 }
 
-/*价格和结算*/
-.content-accounts{
+h2{
+    color: #01AAED;
+}
+
+/*收藏的商品*/
+.content-good{
+
+}
+
+.good-top{
+    float: left;
     width: 100%;
-    float: left;
 }
 
-.content-money{
-    width: 10%;
-    padding-left: 60%;
+.good-time{
     float: left;
-    margin-top: 12px;
 }
-
-.money{
+.good-p{
     float: right;
 }
 
-.settle-btn{
-    float: right;
-    width: 30%;
+/*商品内容*/
+.good-picture{
+    float: left;
+    width: 100px;
+    height: 60px;
 }
+
+.good-name{
+    float: left;
+    width: 100px;
+    height: 60px;
+    margin-top: 24px;
+}
+
+.good-price{
+    float: left;
+}
+.good-btn{
+    float: left;
+}
+

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>favorite</title>
+    <link rel="stylesheet" type="text/css" href="./static/plugins/layui/css/layui.css"/>
+    <link rel="stylesheet" type="text/css" href="./static/css/favorite.css"/>
+</head>
+<body>
+<!--顶部内容-->
+<div class="top-html" style="width: 100%;"></div>
+<div class="content">
+    <!--搜索部分-->
+    <div style="height: 40px;">
+        <img class="logo" src="./images/logo.jpg" onclick="window.location.href='index.h'">
+        <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+            <ul class="layui-tab-title">
+                <li class="tab-brief-li layui-this" onclick="window.location.href='index.h'">电脑</li>
+                <li class="tab-brief-li" onclick="window.location.href='index.h'">手机</li>
+                <li class="tab-brief-li" onclick="window.location.href='index.h'">评测</li>
+            </ul>
+            <button class="layui-btn layui-btn-sm search-btn">搜索</button>
+            <input type="text" placeholder="搜索" class="layui-input search-input">
+        </div>
+    </div>
+    <!--收藏夹内容-->
+    <div class="content-favorite">
+        <h2>收藏夹</h2>
+        <hr class="layui-bg-cyan">
+        <!--收藏的商品-->
+        <div class="content-good">
+            <div class="good-top">
+                <div class="good-time">收藏时间：2019-03-04 15:15:15</div>
+                <p class="good-p">已收藏</p>
+            </div>
+            <div class="good-body">
+                <img class="good-picture" src="./images/logo.jpg"/>
+                <div class="good-name">机械革命z2</div>
+                <div class="good-price">8999</div>
+                <button class="layui-btn good-btn">
+                    <i class="layui-icon">&#xe640;</i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--底部内容-->
+<div class="bottom-html" style="height: 50px;width: 100%;background-color: #eeeeee;position: absolute;bottom: 0px;"></div>
+<script type="text/javascript" src="./static/plugins/jquery/jquery-2.0.3.min.js  "></script>
+<script type="text/javascript" src="./static/plugins/layui/layui.js"></script>
+<script type="text/javascript" src="./static/js/public.js"></script>
+<script type="text/javascript" src="./static/js/shoppingCart.js"></script>
+</body>
+</html>

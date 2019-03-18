@@ -30,15 +30,29 @@ public class PageJumpController {
     }
 
     /**
-     *
+     * 跳转到登录界面
+     * @return
      */
     @RequestMapping("/register.h")
     public String register(){
         return "register";
     }
 
+    /**
+     * 跳转到购物车界面
+     * @return
+     */
     @RequestMapping("/shoppingCart.h")
     public String shoppingCart(){
         return "shoppingCart";
+    }
+
+    /**
+     * 跳转到收藏夹界面
+     * @return
+     */
+    @RequestMapping("/favorite.h")
+    public String favorite(){
+        return "favorite";
     }
 }
