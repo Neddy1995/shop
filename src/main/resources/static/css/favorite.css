@@ -53,12 +53,13 @@ h2{
 
 /*收藏的商品*/
 .content-good{
-
+    height: 220px;
+    width: 100%;
 }
 
 .good-top{
-    float: left;
     width: 100%;
+    height: 21px;
 }
 
 .good-time{
@@ -66,26 +67,35 @@ h2{
 }
 .good-p{
     float: right;
+    padding-right: 20px;
 }
 
 /*商品内容*/
+.good-body{
+    height: 199px;
+}
 .good-picture{
     float: left;
-    width: 100px;
-    height: 60px;
+    width: 120px;
+    height: 120px;
+    padding-right: 20px;
 }
 
 .good-name{
     float: left;
-    width: 100px;
-    height: 60px;
+    width: 128px;
+    height: 120px;
     margin-top: 24px;
 }
 
 .good-price{
+    width: 128px;
+    height: 120px;
     float: left;
 }
 .good-btn{
+    height: 128px;
+    width: 120px;
     float: left;
 }
 
