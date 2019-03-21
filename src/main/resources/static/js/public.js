@@ -9,3 +9,13 @@ function showAlertMsg(str) {
         layer.msg(str);
     });
 }
+
+function getImagesPath(){
+    var path = "D://images";
+}
+
+function getSession() {
+    var session = "<%=session.getAttribute("user")%>";
+    alert(session);
+    return session;
+}

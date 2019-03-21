@@ -19,7 +19,7 @@ public class FavoriteController {
      * @param userId
      * @return
      */
-    @RequestMapping("/selectAllFavorite")
+    @RequestMapping("/selectAllFavorite.do")
     public List<FavoritePo> selectAllByUser(String userId){
         List<FavoritePo> list = favoriteService.selectAllByUser(userId);
         return list;

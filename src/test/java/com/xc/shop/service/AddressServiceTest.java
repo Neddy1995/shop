@@ -5,12 +5,10 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.core.env.Environment;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
-
-import static org.junit.Assert.*;
 
 @SpringBootTest
 @RunWith(SpringRunner.class)
@@ -18,6 +16,9 @@ public class AddressServiceTest {
 
     @Autowired
     public AddressService addressService;
+
+    @Autowired
+    private Environment environment;
 
     @Test
     public void addAddress () {
@@ -43,8 +44,10 @@ public class AddressServiceTest {
 
     @Test
     public void selectOneAddress() {
-        Address address = addressService.selectOneAddress("26021483625054209");
+        Address address = addressService.selectOneAddress("26021483625054210");
         address.toString();
+        String accessKeyId = environment.getProperty("images.path");
+        System.out.printf(""+accessKeyId);
     }
 
     @Test

@@ -64,38 +64,32 @@ h2{
 
 .good-time{
     float: left;
+    font-size: 16px;
 }
 .good-p{
     float: right;
     padding-right: 20px;
+    font-size: 16px;
 }
 
 /*商品内容*/
 .good-body{
     height: 199px;
 }
+.good{
+    float: left;
+    width: 128px;
+    height: 120px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    padding: 0 45px;
+    font-size: 16px;
+    display: -webkit-box;
+    -webkit-box-pack:center;
+    -webkit-box-orient:vertical;
+}
 .good-picture{
-    float: left;
-    width: 120px;
-    height: 120px;
-    padding-right: 20px;
+    width: 150px;
 }
 
-.good-name{
-    float: left;
-    width: 128px;
-    height: 120px;
-    margin-top: 24px;
-}
-
-.good-price{
-    width: 128px;
-    height: 120px;
-    float: left;
-}
-.good-btn{
-    height: 128px;
-    width: 120px;
-    float: left;
-}
 

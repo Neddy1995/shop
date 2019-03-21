@@ -18,7 +18,8 @@ $(document).ready(function () {
 
         console.log(typeof(sex) +':'+ sex);
         console.log(typeof(age) +':'+ age);
-        console.log(typeof(profession)+':'+ profession)
+        console.log(typeof(profession)+':'+ profession);
+
 
         if (username == "") {
             showAlertMsg('用户名为空');
@@ -49,6 +50,8 @@ $(document).ready(function () {
             showAlertMsg("为选择职业");
             return;
         }
+
+
 
         register(username, password, sex, age, profession);
     });

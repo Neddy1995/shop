@@ -6,3 +6,17 @@ $(document).ready(function () {
     $('.bottom-html').load('./static/html/bottomhtml.html');
 
 });
+
+var user = getsession();
+
+$(window).load(selectAll(user.));
+
+function selectAll(userId) {
+    $.ajax({
+        type: "post",
+        url: "selectAllFavorite.do",
+        data: {
+
+        },
+    });
+}
