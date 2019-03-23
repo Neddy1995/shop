@@ -5,11 +5,15 @@
     <title>bottom-content</title>
 </head>
 <body>
-    <div style="text-align: right;line-height: 40px;background-color: #393D49;padding-right: 50px;">
-        <button class="layui-btn layui-btn-primary layui-btn-xs" onclick="window.location.href='/login.h'">登陆</button>
-        <button class="layui-btn layui-btn-primary layui-btn-xs" onclick="window.location.href='/register.h'">注册</button>
+    <div style="text-align: right;line-height: 40px;background-color: #393D49;padding-right: 50px;" >
+        <button id="login" class="layui-btn layui-btn-primary layui-btn-xs" onclick="window.location.href='/login.h'" >登陆</button>
+        <button id="register" class="layui-btn layui-btn-primary layui-btn-xs" onclick="window.location.href='/register.h'" >注册</button>
+        <button id="user" class="layui-btn layui-btn-primary layui-btn-xs"></button>
+        <button id="logout" class="layui-btn layui-btn-primary layui-btn-xs">退出</button>
         <button class="layui-btn layui-btn-primary layui-btn-xs" onclick="window.location.href='/shoppingCart.h'">购物车</button>
         <button class="layui-btn layui-btn-primary layui-btn-xs"v onclick="window.location.href='/favorite.h'">收藏夹</button>
     </div>
+
+<script type="text/javascript" src="./js/top.js"></script>
 </body>
 </html>

@@ -7,9 +7,6 @@ $(document).ready(function () {
 
 });
 
-var user = getsession();
-
-$(window).load(selectAll(user.));
 
 function selectAll(userId) {
     $.ajax({

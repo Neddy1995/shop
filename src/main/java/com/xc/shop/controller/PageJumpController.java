@@ -30,7 +30,7 @@ public class PageJumpController {
     }
 
     /**
-     * 跳转到登录界面
+     * 跳转到注册界面
      * @return
      */
     @RequestMapping("/register.h")
