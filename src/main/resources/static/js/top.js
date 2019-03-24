@@ -10,12 +10,16 @@ $(document).ready(function () {
         dataType:"json",
         async: false,
         success:function (data) {
-            if (data!=null){
+            var resultCode = data.resultCode;
+            var message = data.message;
+            var user = data.data;
+            console.log(message);
+            if (resultCode == "success"){
                 $("#login").hide();
                 $("#register").hide();
                 $("#user").show();
                 $("#logout").show();
-                $("#user").text(data.userName);
+                $("#user").text(user.userName);
             }
             else{
                 $("#user").hide();
