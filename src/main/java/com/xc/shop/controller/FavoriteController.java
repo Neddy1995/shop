@@ -54,6 +54,7 @@ public class FavoriteController {
 
         User user = (User) session.getAttribute(SessionKeyValue.USER_KEY);
 
+//        查询所有记录
         List<FavoritePo> list = favoriteService.selectAllByUser(user.getUserId());
         for (FavoritePo favoritePo : list){
             if (favoritePo.getGoodId().equals(goodId)){
@@ -82,6 +83,14 @@ public class FavoriteController {
         controllerResult.setResultCode(ControllerResult.RESULT_CODE_SUCCESS);
         controllerResult.setMessage("删除成功！");
         return controllerResult;
+    }
 
+    @PostMapping(value = "/deleteFavorite.do")
+    public ControllerResult DeleteFavorite(HttpSession session,
+                                           @RequestParam("favoriteId") String favoriteId){
+        favoriteService.deleteFavorite(favoriteId);
+        controllerResult.setResultCode(ControllerResult.RESULT_CODE_SUCCESS);
+        controllerResult.setMessage("删除成功！");
+        return controllerResult;
     }
 }

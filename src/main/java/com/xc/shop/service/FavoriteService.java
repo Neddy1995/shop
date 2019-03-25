@@ -55,4 +55,8 @@ public class FavoriteService {
     public void deleteFavorite(List list) {
         favoriteMapper.deleteFavorite(list);
     }
+
+    public void deleteFavorite(String favoriteId){
+        favoriteMapper.deleteByPrimaryKey(favoriteId);
+    }
 }

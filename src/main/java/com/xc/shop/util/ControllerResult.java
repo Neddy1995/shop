@@ -1,10 +1,13 @@
 package com.xc.shop.util;
 
+import org.springframework.stereotype.Component;
+
 /**
  * @Description: 接口数据返回对象，数据都封装到这个类对象里头， 统一格式
  * @Param:
  * @return
  */
+@Component
 public class ControllerResult {
 
     public static final String RESULT_CODE_SUCCESS = "success";

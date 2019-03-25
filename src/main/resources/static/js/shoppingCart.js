@@ -34,11 +34,31 @@ $(document).ready(function () {
 
     //增加一个物品
     $("#jia").click(function () {
-
+        alert("增加一个");
     });
     //减少一个物品
     $("#jian").click(function () {
-
+        alert("减少一个");
     });
 
 });
+
+
+function deleteAll(list) {
+    $.ajax({
+        type:"post",
+        url:"deleteCart.do",
+        data:{
+            "list":list
+        },
+        success:function (data) {
+            var result = data.resultCode;
+            var message = data.message;
+            console.log(result + message);
+            if(result == "success"){
+                alert(message);
+            }
+            alert(message);
+        }
+    })
+}
