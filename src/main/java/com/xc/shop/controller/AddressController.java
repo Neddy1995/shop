@@ -1,11 +1,17 @@
 package com.xc.shop.controller;
 
 import com.xc.shop.bean.Address;
+import com.xc.shop.bean.User;
 import com.xc.shop.service.AddressService;
+import com.xc.shop.util.ControllerResult;
+import com.xc.shop.util.SessionKeyValue;
+import org.hibernate.validator.constraints.pl.REGON;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @RestController
@@ -13,6 +19,10 @@ public class AddressController {
 
     @Autowired
     private AddressService addressService;
+
+    @Autowired
+    private ControllerResult controllerResult;
+
 
     /**
      * 添加收货地址
@@ -23,11 +33,19 @@ public class AddressController {
      * @param area
      * @param street
      * @param info
-     * @param userId
      * @return
      */
-    @RequestMapping("/addAddress")
-    public String addAddress(String name,String phone,String prov,String city,String area,String street,String info,String userId){
+    @PostMapping(value = "/addAddress.do")
+    public ControllerResult addAddress(HttpSession session,
+                             @RequestParam("name") String name,
+                             @RequestParam("phone") String phone,
+                             @RequestParam("prov") String prov,
+                             @RequestParam("city") String city,
+                             @RequestParam("area") String area,
+                             @RequestParam("street") String street,
+                             @RequestParam("info") String info){
+        User user =(User) session.getAttribute(SessionKeyValue.USER_KEY);
+
         Address address = new Address();
         address.setAddressName(name);
         address.setAddressPhone(phone);
@@ -36,29 +54,45 @@ public class AddressController {
         address.setAddressArea(area);
         address.setAddressStreet(street);
         address.setAddressInfo(info);
-        address.setUserId(userId);
+        address.setUserId(user.getUserId());
+
+//        添加地址
         addressService.addAddress(address);
-        return "添加成功";
+        controllerResult.setResultCode(ControllerResult.RESULT_CODE_SUCCESS);
+        controllerResult.setMessage("添加成功！");
+        return controllerResult;
     }
 
     /**
      * 查询一条记录
      * @return
      */
-    @RequestMapping("/selectOneAddress")
-    public Address selectAddress(String addressId){
+    @PostMapping(value = "/selectOneAddress.do")
+    public ControllerResult selectAddress(HttpSession session,
+                                 @RequestParam("addressId") String addressId){
+        User user =(User) session.getAttribute(SessionKeyValue.USER_KEY);
+//        查询一条记录
         Address address = addressService.selectOneAddress(addressId);
-        return address;
+        controllerResult.setResultCode(ControllerResult.RESULT_CODE_SUCCESS);
+        controllerResult.setMessage("查询成功！");
+        controllerResult.setData(address);
+        return controllerResult;
     }
 
     /**
      * 查询所有收货地址
      * @return
      */
-    @RequestMapping("/selectAllAddress")
-    public List selectAllAddress(String userId){
-        List<Address> list = addressService.selectAllAddress(userId);
-        return list;
+    @GetMapping(value="/selectAllAddress.do")
+    public ControllerResult selectAllAddress(HttpSession session){
+        User user = (User) session.getAttribute(SessionKeyValue.USER_KEY);
+
+//        查询所有
+        List<Address> list = addressService.selectAllAddress(user.getUserId());
+        controllerResult.setResultCode(ControllerResult.RESULT_CODE_SUCCESS);
+        controllerResult.setMessage("查询成功！");
+        controllerResult.setData(list);
+        return controllerResult;
     }
 
 
@@ -67,14 +101,26 @@ public class AddressController {
      * @param addressId
      * @return
      */
-    @RequestMapping("/deleteAddress")
-    public String deleteAddress(String addressId){
+    @PostMapping(value = "/deleteAddress.do")
+    public ControllerResult deleteAddress(HttpSession session,
+                                @RequestParam("addressId") String addressId){
         addressService.deleteAddress(addressId);
-        return "删除成功";
+        controllerResult.setResultCode(ControllerResult.RESULT_CODE_SUCCESS);
+        controllerResult.setMessage("删除成功！");
+        return controllerResult;
     }
 
-    @RequestMapping("/updateAddress")
-    public String updateAddress(String addressId,String name,String phone,String prov,String city,String area,String street,String info,String userId){
+    @PostMapping(value = "/updateAddress.do")
+    public ControllerResult updateAddress(HttpSession session,
+                                @RequestParam("addressId") String addressId,
+                                @RequestParam("name") String name,
+                                @RequestParam("phone") String phone,
+                                @RequestParam("prov") String prov,
+                                @RequestParam("city") String city,
+                                @RequestParam("area") String area,
+                                @RequestParam("street") String street,
+                                @RequestParam("info") String info){
+        User user =(User) session.getAttribute(SessionKeyValue.USER_KEY);
         Address address = new Address();
         address.setAddressId(addressId);
         address.setAddressName(name);
@@ -84,9 +130,13 @@ public class AddressController {
         address.setAddressArea(area);
         address.setAddressStreet(street);
         address.setAddressInfo(info);
-        address.setUserId(userId);
-        addressService.updateAddress(address);
-        return "修改成功";
-    }
+        address.setUserId(user.getUserId());
 
+//        修改信息
+        addressService.updateAddress(address);
+
+        controllerResult.setResultCode(ControllerResult.RESULT_CODE_SUCCESS);
+        controllerResult.setMessage("修改成功！");
+        return controllerResult;
+    }
 }

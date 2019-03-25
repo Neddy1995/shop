@@ -2,8 +2,11 @@ package com.xc.shop.controller;
 
 import com.xc.shop.bean.Computer;
 import com.xc.shop.service.GoodService;
+import com.xc.shop.util.ControllerResult;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -14,16 +17,23 @@ public class GoodController {
     @Autowired
     private GoodService goodService;
 
+    @Autowired
+    private ControllerResult controllerResult;
+
     /**
      * 根据关键字查询商品信息
      * 商品信息为good的子类computer
      * @param keyWord
      * @return 商品列表
      */
-    @RequestMapping("/selectByKeyWord")
-    public List<Computer> selectGoodLikeKeyWord(String keyWord){
+    @PostMapping(value = "/selectByKeyWord.do")
+    public ControllerResult selectGoodLikeKeyWord(@RequestParam("keyWord") String keyWord){
+
         List<Computer> list = goodService.selectGoodsLikeKeyWord(keyWord);
-        return list;
+        controllerResult.setResultCode(ControllerResult.RESULT_CODE_SUCCESS);
+        controllerResult.setMessage("查询成功！");
+        controllerResult.setData(list);
+        return controllerResult;
     }
 
     /**
@@ -32,10 +42,13 @@ public class GoodController {
      * @param typeId
      * @return
      */
-    @RequestMapping("/selectByType")
-    public List<Computer> selectGoodsByType(String typeId){
+    @PostMapping(value = "/selectByType.do")
+    public ControllerResult selectGoodsByType(@RequestParam("typeId") String typeId){
         List<Computer> list = goodService.selectGoodsByType(typeId);
-        return list;
+        controllerResult.setResultCode(ControllerResult.RESULT_CODE_SUCCESS);
+        controllerResult.setMessage("查询成功！");
+        controllerResult.setData(list);
+        return controllerResult;
     }
 
     /**
@@ -43,9 +56,12 @@ public class GoodController {
      * @param goodId
      * @return
      */
-    @RequestMapping("/selectGoodByKey")
-    public Computer selectGoodByKey(String goodId){
+    @PostMapping(value = "/selectGoodByKey.do")
+    public ControllerResult selectGoodByKey(@RequestParam("goodId") String goodId){
         Computer computer = goodService.selectGoodByKey(goodId);
-        return computer;
+        controllerResult.setResultCode(ControllerResult.RESULT_CODE_SUCCESS);
+        controllerResult.setMessage("查询成功！");
+        controllerResult.setData(computer);
+        return controllerResult;
     }
 }

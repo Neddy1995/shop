@@ -4,14 +4,13 @@ import com.xc.shop.bean.User;
 import com.xc.shop.dao.UserMapper;
 import com.xc.shop.service.UserService;
 import com.xc.shop.util.ControllerResult;
+import com.xc.shop.util.SessionKeyValue;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @RestController
 public class UserController {
@@ -33,30 +32,12 @@ public class UserController {
     }
 
     /**
-     * 登录
-     * @param name
-     * @param password
-     * @return
-     */
-    @RequestMapping("/login")
-    public String userLogin(String name,String password){
-        User user = userService.login(name,password);
-        if (user !=null){
-            user.toString();
-            return "index";
-        }
-        return "login";
-    }
-
-    /**
      * 注册
      * @param
      * @return
      */
     @PostMapping(value = "/register.do")
-    public ControllerResult userRegister(HttpServletRequest request,
-                               HttpServletResponse response,
-                               @RequestParam("userName") String userName,
+    public ControllerResult userRegister(@RequestParam("userName") String userName,
                                @RequestParam("password") String password,
                                @RequestParam("sex") int sex,
                                @RequestParam("age") int age,
@@ -85,12 +66,16 @@ public class UserController {
 
     /**
      * 查询用户信息
-     * @param id
      * @return 用户信息
      */
-    @RequestMapping("/userInfo")
-    public String userInfo(String id){
-        User user = userService.selectUserByKey(id);
-        return "" + user.toString();
+    @GetMapping(value = "/userInfo.do")
+    public ControllerResult userInfo(HttpSession session){
+        User user = (User)session.getAttribute(SessionKeyValue.USER_KEY);
+        ControllerResult controllerResult = new ControllerResult();
+        controllerResult.setResultCode(ControllerResult.RESULT_CODE_SUCCESS);
+        controllerResult.setMessage("查询成功");
+        controllerResult.setData(user);
+        return controllerResult;
+
     }
 }

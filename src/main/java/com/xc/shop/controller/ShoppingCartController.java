@@ -6,10 +6,7 @@ import com.xc.shop.service.ShoppingCartService;
 import com.xc.shop.util.ControllerResult;
 import com.xc.shop.util.SessionKeyValue;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,22 +18,21 @@ public class ShoppingCartController {
     @Autowired
     private ShoppingCartService  shoppingCartService;
 
+    @Autowired
+    private ControllerResult controllerResult;
+
 
     /**
      * 添加购物车
-     * @param request
-     * @param response
+     * @param session
      * @param number
      * @param goodId
      * @return
      */
-    @RequestMapping("/addCart.do")
-    public ControllerResult addCartGoodByUser(HttpServletRequest request,
-                                              HttpServletResponse response,
+    @PostMapping(value = "/addCart.do")
+    public ControllerResult addCartGoodByUser(HttpSession session,
                                               @RequestParam int number,
                                               @RequestParam int goodId){
-        HttpSession session = request.getSession();
-        ControllerResult controllerResult = new ControllerResult();
         User user = (User) session.getAttribute("user");
 
 //        添加操作
@@ -49,15 +45,12 @@ public class ShoppingCartController {
 
     /**
      * 查询用户添加到购物车的所有商品
-     * @param
+     * @param session
      * @return
      */
-    @GetMapping("/selectAllCart.do")
-    public ControllerResult selectAllCart(HttpServletRequest request,
-                                          HttpServletResponse response){
+    @GetMapping(value = "/selectAllCart.do")
+    public ControllerResult selectAllCart(HttpSession session){
 
-        HttpSession session = request.getSession();
-        ControllerResult controllerResult = new ControllerResult();
         User user = (User) session.getAttribute(SessionKeyValue.USER_KEY);
 
 //        查询购物车
@@ -78,13 +71,19 @@ public class ShoppingCartController {
 
     /**
      * 批量删除购物车中的商品
+     * @param session
      * @param list
      * @return
      */
-    @RequestMapping("/deleteCart")
-    public String DeleteCart(List list){
+    @PostMapping(value = "/deleteCart.do")
+    public ControllerResult DeleteCart(HttpSession session,
+                             @RequestParam List list){
+
+//        批量删除购物车的商品
         shoppingCartService.deleteCart(list);
-        return "删除成功";
+        controllerResult.setResultCode(ControllerResult.RESULT_CODE_SUCCESS);
+        controllerResult.setMessage("删除成功");
+        return controllerResult;
     }
 
 

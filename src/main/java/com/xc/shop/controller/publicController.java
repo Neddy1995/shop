@@ -3,6 +3,7 @@ package com.xc.shop.controller;
 import com.xc.shop.bean.User;
 import com.xc.shop.util.ControllerResult;
 import com.xc.shop.util.SessionKeyValue;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,16 +18,14 @@ import javax.servlet.http.HttpSession;
 @RestController
 public class publicController {
 
+    @Autowired
+    private ControllerResult controllerResult;
     /**
      * 获取session
-     * @param request
-     * @param response
+     * @param session
      */
     @GetMapping("/getSession")
-    public ControllerResult getSession(HttpServletRequest request,
-                                       HttpServletResponse response){
-        HttpSession session = request.getSession();
-        ControllerResult controllerResult = new ControllerResult();
+    public ControllerResult getSession(HttpSession session){
 
 //        获取session中的值
         User user = (User) session.getAttribute(SessionKeyValue.USER_KEY);
@@ -40,6 +39,12 @@ public class publicController {
         controllerResult.setMessage("未登录");
         return controllerResult;
     }
+
+    /**
+     * 关闭session
+     * @param request
+     * @param response
+     */
 
     @GetMapping("/closeSession")
     public void closeSession(HttpServletRequest request,
