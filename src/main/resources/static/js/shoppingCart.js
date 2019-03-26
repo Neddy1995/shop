@@ -24,13 +24,35 @@ $(document).ready(function () {
                 notSession(message);
             }
             else if (resultCode == "success"){
+                $(".cart-table").show();
+                $(".cart-div").hide();
                 // 加载中间商品
+                var html = '';
+                for(i=0 ; i<list.size() ; i++){
+                    var computerImgUrl = list.get(i).computerImgUrl;
+                    var computerName = list.get(i).computerName;
+                    var number = list.get(i).number;
+                    var price = list.get(i).price;
+                    var money=number * price;
+                    html +='<tr class="layui-table-body">';
+                    html +='<td><input type="radio" onclick="" value="1"/></td>';
+                    html +='<td><img id="image" class="logo" src="' + computerImgUrl + '" /><p id="name">' + computerName +'</p></td>';
+                    html +='<td id="price">￥'+ price +'</td>';
+                    html +='<td><div><button id="jian" class="layui-btn"><i class="layui-icon">－</i></button>';
+                    html +='<space id="number">' + number + '</space>';
+                    html +='<button id="jia" class="layui-btn"><i class="layui-icon">＋</i></button></div></td>';
+                    html +='<td id="result">￥' + money + '</td>';
+                    html +='<td><button id="deleteGoodForShoppingCart" class="layui-btn">';
+                    html +='<i class="layui-icon">&#xe640;</i></button></td></tr>';
 
+                    }
+                $(".content-table").html(html);
 
             }
             else if(resultCode == "fail"){
                 alert(message);
-
+                $(".cart-table").hide();
+                $(".cart-div").show();
             }
         },
         error:function () {
