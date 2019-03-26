@@ -4,7 +4,7 @@ package com.xc.shop.util;
  * @Description:
  * @Param:
  * @return
- * @Author: zhanghuajian
+ * @Author: xc
  * @CreateDate: 2019/2/19 14:40
  */
 public class Example {
