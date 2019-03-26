@@ -14,6 +14,7 @@ $(document).ready(function () {
         type:"get",
         url:"selectAllCart.do",
         dataType:"json",
+
         success:function (data) {
             var resultCode = data.resultCode;
             var message = data.message;
@@ -23,15 +24,17 @@ $(document).ready(function () {
                 notSession(message);
             }
             else if (resultCode == "success"){
-                for ( var shoppingCartPo in list){
-                    $("#image").src(shoppingCartPo.computerImgUrl);
-                    $("#name").text(shoppingCartPo.computerName);
-                    $("#price").text("￥"+shoppingCartPo.price);
-                }
+                // 加载中间商品
+
+
             }
-            else {
+            else if(resultCode == "fail"){
                 alert(message);
+
             }
+        },
+        error:function () {
+            alert("报错了！");
         }
     });
 
@@ -45,6 +48,7 @@ $(document).ready(function () {
     });
 
 });
+
 
 
 function deleteAll(list) {
@@ -64,4 +68,11 @@ function deleteAll(list) {
             alert(message);
         }
     })
+}
+
+/**
+ * 查询所有记录
+ */
+function selectAll() {
+
 }

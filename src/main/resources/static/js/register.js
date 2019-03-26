@@ -19,7 +19,6 @@ $(document).ready(function () {
         console.log(typeof(sex) +':'+ sex);
         console.log(typeof(age) +':'+ age);
         console.log(typeof(profession)+':'+ profession);
-        getSession();
 
         if (username == "") {
             showAlertMsg('用户名为空');

@@ -8,4 +8,5 @@ package com.xc.shop.util;
 public class SessionKeyValue {
     // session中存入的用户信息
     public static final String USER_KEY = "user";
+    public static final String USER_ID = "userId";
 }

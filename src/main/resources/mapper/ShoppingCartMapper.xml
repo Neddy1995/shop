@@ -91,7 +91,7 @@
 
   <select id="selectGoodByUser" parameterType="java.lang.String" resultType="com.xc.shop.pojo.ShoppingCartPo">
     select
-      b.cart_id as cartId,b.user_id as userId,b.number,b.good_id as goodId,a.computer_name as computerName,a.price
+      b.cart_id as cartId,b.user_id as userId,b.number,b.good_id as goodId,a.computer_name as computerName,a.price,a.computer_img_url as computerImgUrl
     from computer a inner join shopping_cart b on a.computer_id = b.good_id
     where b.user_id = #{userId,jdbcType=VARCHAR}
   </select>

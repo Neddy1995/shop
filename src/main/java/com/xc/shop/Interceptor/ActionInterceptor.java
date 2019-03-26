@@ -33,7 +33,7 @@ public class ActionInterceptor extends HandlerInterceptorAdapter {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         HttpSession session = request.getSession();
-        String account = (String) session.getAttribute(SessionKeyValue.USER_KEY);
+        String account = (String) session.getAttribute(SessionKeyValue.USER_ID);
         String url = request.getRequestURI();
 
         // 无需校验的请求，如：登录，注册，忘记密码等

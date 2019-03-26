@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
 import java.util.concurrent.ConcurrentHashMap;
 
 @RestController
@@ -71,6 +72,7 @@ public class LoginController {
 
             // 登陆成功，将用户信息放到session里面
             session.setAttribute(SessionKeyValue.USER_KEY, user);
+            session.setAttribute(SessionKeyValue.USER_ID, user.getUserId());
 
             controllerResult.setResultCode(ControllerResult.RESULT_CODE_SUCCESS);
             controllerResult.setMessage("登陆成功");

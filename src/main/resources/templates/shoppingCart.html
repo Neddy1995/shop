@@ -23,41 +23,37 @@
                 <input type="text" placeholder="搜索" class="layui-input search-input">
             </div>
         </div>
+
         <!--已购商品部分-->
         <div class="content-table">
-            <table class="layui-table">
-                <tr class="layui-table-header">
-                    <td><input type="radio" onclick="" title="全选" checked/>全选</td>
-                    <td>商品信息</td>
-                    <td>单价</td>
-                    <td>数量</td>
-                    <td>金额</td>
-                    <td>操作</td>
-                </tr>
-                <tr class="layui-table-body">
-                    <td><input type="radio" onclick="" value="1"/></td>
-                    <td><img id="image" class="logo" src="./images/raz.jpg" /><p id="name">小米手机 银色</p></td>
-                    <td id="price">￥2399</td>
-                    <td>
-                        <div>
-                            <button id="jian" class="layui-btn"><i class="layui-icon">－</i></button>
-                            1
-                            <button id="jia" class="layui-btn"><i class="layui-icon">＋</i></button>
-                        </div>
-                    </td>
-                    <td id="result">￥2399</td>
-                    <td>
-                        <button id="deleteGoodForShoppingCart" class="layui-btn">
-                            <i class="layui-icon">&#xe640;</i>
-                        </button>
-                    </td>
-                </tr>
-            </table>
+            <!--模拟数据-->
+
+            <table class="layui-table"></table>
+                <!--
+            <tr class="layui-table-header">
+                <td><input type="radio" onclick="" title="全选" checked/>全选</td>
+                <td>商品信息</td>
+                <td>单价</td>
+                <td>数量</td>
+                <td>金额</td>
+                <td>操作</td>
+            </tr>
+            <tr class="layui-table-body">
+                <td><input type="radio" onclick="" value="1"/></td>
+                <td><img id="image" class="logo" src="./images/raz.jpg" /><p id="name">小米手机 银色</p></td>
+                <td id="price">￥2399</td>
+                <td><div><button id="jian" class="layui-btn"><i class="layui-icon">－</i></button>
+                        1
+                        <button id="jia" class="layui-btn"><i class="layui-icon">＋</i></button></div></td>
+                <td id="result">￥2399</td>
+                <td><button id="deleteGoodForShoppingCart" class="layui-btn">
+                        <i class="layui-icon">&#xe640;</i></button></td></tr>
+            </table>-->
         </div>
         <!--结算部分-->
         <div class="content-accounts">
             <div class="content-money">
-                合计：<div class="money">1999</div>
+                合计：<div class="money">0</div>
             </div>
             <button id="settle-accounts" class="layui-btn settle-btn">去结算</button>
         </div>
