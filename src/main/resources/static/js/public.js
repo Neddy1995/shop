@@ -13,3 +13,9 @@ function showAlertMsg(str) {
 function getImagesPath(){
     var path = "D://images";
 }
+
+
+function notSession(message) {
+    alert(message + "前往登录！");
+    window.location.href='login.h';
+}

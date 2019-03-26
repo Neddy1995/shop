@@ -19,14 +19,17 @@ $(document).ready(function () {
             var message = data.message;
             var list = data.data;
             console.log(message);
-            if (resultCode == "success"){
+            if(resultCode == "error"){
+                notSession(message);
+            }
+            else if (resultCode == "success"){
                 for ( var shoppingCartPo in list){
                     $("#image").src(shoppingCartPo.computerImgUrl);
                     $("#name").text(shoppingCartPo.computerName);
                     $("#price").text("￥"+shoppingCartPo.price);
                 }
             }
-            else{
+            else {
                 alert(message);
             }
         }

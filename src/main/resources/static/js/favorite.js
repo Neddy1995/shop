@@ -19,12 +19,16 @@ function selectAll() {
             var message = data.message;
             var list = data.data;
             console.log(result + message);
-            if(result =="success"){
+            if(result =="error"){
+                notSession(message);
+            }
+            else if(result =="success"){
                 for(var favoritePo in list){
 
                 }
             }
-            alert(message);
+            else{alert(message);}
+
         }
 
     });

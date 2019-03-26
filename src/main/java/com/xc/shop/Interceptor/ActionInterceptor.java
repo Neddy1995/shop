@@ -44,7 +44,7 @@ public class ActionInterceptor extends HandlerInterceptorAdapter {
         // 未登录，直接返回：认证失败
         if (StringUtils.isEmpty(account)) {
             ControllerResult controllerResult = new ControllerResult();
-            controllerResult.setResultCode(ControllerResult.RESULT_CODE_FAIL);
+            controllerResult.setResultCode(ControllerResult.RESULT_CODE_SESSION);
             controllerResult.setMessage("未登陆！");
             returnError(response, JSONObject.toJSONString(controllerResult));
             return false;

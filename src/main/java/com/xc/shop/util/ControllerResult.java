@@ -12,6 +12,8 @@ public class ControllerResult {
 
     public static final String RESULT_CODE_SUCCESS = "success";
     public static final String RESULT_CODE_FAIL = "fail";
+    public static final String RESULT_CODE_SESSION = "error";
+
 
     // success 或者 fail
     private String resultCode;
