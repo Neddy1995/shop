@@ -36,6 +36,7 @@ public class FavoriteController {
             controllerResult.setResultCode(ControllerResult.RESULT_CODE_SUCCESS);
             controllerResult.setMessage("查询成功！");
             controllerResult.setData(list);
+            return controllerResult;
         }
         controllerResult.setResultCode(ControllerResult.RESULT_CODE_FAIL);
         controllerResult.setMessage("没有数据！");

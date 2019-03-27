@@ -14,7 +14,7 @@ $(document).ready(function () {
         type:"get",
         url:"selectAllCart.do",
         dataType:"json",
-
+        async: false,
         success:function (data) {
             var resultCode = data.resultCode;
             var message = data.message;
@@ -28,12 +28,14 @@ $(document).ready(function () {
                 $(".cart-div").hide();
                 // 加载中间商品
                 var html = '';
-                for(i=0 ; i<list.size() ; i++){
-                    var computerImgUrl = list.get(i).computerImgUrl;
-                    var computerName = list.get(i).computerName;
-                    var number = list.get(i).number;
-                    var price = list.get(i).price;
+                console.log(list);
+                for(var i=0;i<list.length;i++){
+                    var computerImgUrl = list[i].computerImgUrl;
+                    var computerName = list[i].computerName;
+                    var number = list[i].number;
+                    var price = list[i].price;
                     var money=number * price;
+                    console.log("computerImgUrl:"+computerImgUrl+"computerName:"+computerName+"number:"+number+"price:"+price+"money:"+money);
                     html +='<tr class="layui-table-body">';
                     html +='<td><input type="radio" onclick="" value="1"/></td>';
                     html +='<td><img id="image" class="logo" src="' + computerImgUrl + '" /><p id="name">' + computerName +'</p></td>';
@@ -44,15 +46,15 @@ $(document).ready(function () {
                     html +='<td id="result">￥' + money + '</td>';
                     html +='<td><button id="deleteGoodForShoppingCart" class="layui-btn">';
                     html +='<i class="layui-icon">&#xe640;</i></button></td></tr>';
-
                     }
-                $(".content-table").html(html);
+                $(".table-tbody").append(html);
 
             }
             else if(resultCode == "fail"){
                 alert(message);
                 $(".cart-table").hide();
                 $(".cart-div").show();
+
             }
         },
         error:function () {

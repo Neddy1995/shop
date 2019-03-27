@@ -47,6 +47,8 @@ body{
     margin: auto;
     padding-top: 20px;
     height: 400px;
+    width: 900px;
+    float: left;
 }
 
 /*价格和结算*/
