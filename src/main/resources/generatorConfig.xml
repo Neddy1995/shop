@@ -5,7 +5,8 @@
 <generatorConfiguration>
 
     <!--mysql 连接数据库jar 这里选择自己本地位置-->
-    <classPathEntry location="E:\apache-maven-3.5.3\repo1\mysql\mysql-connector-java\5.1.30\mysql-connector-java-5.1.30.jar" />
+    <!--<classPathEntry location="E:\apache-maven-3.5.3\repo1\mysql\mysql-connector-java\5.1.30\mysql-connector-java-5.1.30.jar" />-->
+    <classPathEntry location="D:\mavenrespository\repository\repository\mysql\mysql-connector-java\5.1.30\mysql-connector-java-5.1.30.jar" />
     <context id="context1" targetRuntime="MyBatis3">
         <commentGenerator>
             <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
@@ -15,7 +16,7 @@
         <!--数据库连接的信息：驱动类、连接地址、用户名、密码 -->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
                         connectionURL="jdbc:mysql://localhost:3306/shop?serverTimezone=UTC" userId="root"
-                        password="123456">
+                        password="root">
         </jdbcConnection>
 
         <!-- 默认false，把JDBC DECIMAL 和 NUMERIC 类型解析为 Integer，为 true时把JDBC DECIMAL 和
@@ -27,7 +28,7 @@
 
         <!-- targetProject:生成PO类的位置 -->
         <javaModelGenerator targetPackage="com.xc.shop.bean"
-                            targetProject="E:\IDEA\IDEAworkspace\shop\src\main\java">
+                            targetProject="D:\商城系统\shop\src\main\java">
             <!-- enableSubPackages:是否让schema作为包的后缀 -->
             <property name="enableSubPackages" value="false" />
             <!-- 从数据库返回的值被清理前后的空格 -->
@@ -39,7 +40,7 @@
         若果maven工程是分模块的工程，targetProject="所属模块的名称"，例如：
         targetProject="ecps-manager-mapper"，下同-->
         <sqlMapGenerator targetPackage="mapper"
-                         targetProject="E:\IDEA\IDEAworkspace\shop\src\main\resources">
+                         targetProject="D:\商城系统\shop\src\main\resources">
             <!-- enableSubPackages:是否让schema作为包的后缀 -->
             <property name="enableSubPackages" value="false" />
         </sqlMapGenerator>
@@ -47,18 +48,54 @@
         <!-- targetPackage：mapper接口生成的位置 -->
         <javaClientGenerator type="XMLMAPPER"
                              targetPackage="com.xc.shop.dao"
-                             targetProject="E:\IDEA\IDEAworkspace\shop\src\main\java">
+                             targetProject="D:\商城系统\shop\src\main\java">
             <!-- enableSubPackages:是否让schema作为包的后缀 -->
             <property name="enableSubPackages" value="false" />
         </javaClientGenerator>
         <!-- 指定数据库表 -->
 
-        <table tableName="favorite" domainObjectName="Favorite"
+        <!--<table tableName="good_grand_info" domainObjectName="GoodGrandInfo"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">
-            <!--<generatedKey  column="cart_id"  sqlStatement="select uuid_short()"   identity="false"/>-->
+        </table>-->
+
+        <!--<table tableName="mobile_phone" domainObjectName="MobilePhone"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+        </table>-->
+
+        <!--<table tableName="computer" domainObjectName="Computer"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+        </table>-->
+
+        <!--<table tableName="goods_type" domainObjectName="GoodType"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+        </table>-->
+
+        <table tableName="brand_info" domainObjectName="BrandInfo"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
         </table>
+
+       <!-- <table tableName="good_base_info" domainObjectName="GoodBaseInfo"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+        </table>-->
+
+        <!--<table tableName="favorite" domainObjectName="Favorite"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            &lt;!&ndash;<generatedKey  column="cart_id"  sqlStatement="select uuid_short()"   identity="false"/>&ndash;&gt;
+        </table>-->
 
         <!--<table tableName="address" domainObjectName="Address"
                enableCountByExample="false" enableUpdateByExample="false"

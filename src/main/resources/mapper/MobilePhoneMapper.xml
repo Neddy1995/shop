@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.xc.shop.dao.ComputerMapper" >
-  <resultMap id="BaseResultMap" type="com.xc.shop.bean.Computer" >
+<mapper namespace="com.xc.shop.dao.MobilePhoneMapper" >
+  <resultMap id="BaseResultMap" type="com.xc.shop.bean.MobilePhone" >
     <result column="good_id" property="goodId" jdbcType="VARCHAR" />
     <result column="computer_id" property="computerId" jdbcType="VARCHAR" />
     <result column="computer_name" property="computerName" jdbcType="VARCHAR" />
@@ -22,8 +22,8 @@
     <result column="brand_id" property="brandId" jdbcType="VARCHAR" />
     <result column="good_desc" property="goodDesc" jdbcType="VARCHAR" />
   </resultMap>
-  <insert id="insert" parameterType="com.xc.shop.bean.Computer" >
-    insert into computer (good_id, computer_id, computer_name, 
+  <insert id="insert" parameterType="com.xc.shop.bean.MobilePhone" >
+    insert into mobile_phone (good_id, computer_id, computer_name, 
       computer_version, computer_colour, price, 
       computer_img_url, computer_CPU, computer_GPU, 
       computer_ROM, computer_RAM, computer_screen_size, 
@@ -38,8 +38,8 @@
       #{material,jdbcType=VARCHAR}, #{system,jdbcType=VARCHAR}, #{weight,jdbcType=VARCHAR}, 
       #{brandId,jdbcType=VARCHAR}, #{goodDesc,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.xc.shop.bean.Computer" >
-    insert into computer
+  <insert id="insertSelective" parameterType="com.xc.shop.bean.MobilePhone" >
+    insert into mobile_phone
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="goodId != null" >
         good_id,

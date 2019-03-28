@@ -1,6 +1,6 @@
 package com.xc.shop.bean;
 
-public class Computer {
+public class MobilePhone {
     private String goodId;
 
     private String computerId;
