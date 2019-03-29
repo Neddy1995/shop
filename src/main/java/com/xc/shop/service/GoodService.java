@@ -76,15 +76,15 @@ public class GoodService {
      * @param goodVo
      * @return
      */
-    public List<Map<String, Object>> selectGoodList(GoodVo goodVo) {
+    public PageBean<Map<String, Object>> selectGoodList(GoodVo goodVo) {
         PageHelper.startPage(goodVo.getCurrentPage(), goodVo.getPageSize());
         List<Map<String, Object>> list = goodBaseInfoMapper.selectGoodList(goodVo);        //全部商品
 
-        int countNums = list.size(); //总记录数
+        int countNums = goodBaseInfoMapper.selectGoodListCount(goodVo); //总记录数,再次查询，这个bug不晓得怎么解决，暂时规避这个问题
 
         PageBean<Map<String, Object>> pageData = new PageBean<>(goodVo.getCurrentPage(), goodVo.getPageSize(), countNums);
         pageData.setItems(list);
-        return pageData.getItems();
+        return pageData;
     }
 }
 

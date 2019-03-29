@@ -21,4 +21,6 @@ public interface GoodBaseInfoMapper {
     int updateByPrimaryKey(GoodBaseInfo record);
 
     List<Map<String, Object>> selectGoodList(GoodVo goodVo);
+
+    int selectGoodListCount(GoodVo goodVo);
 }

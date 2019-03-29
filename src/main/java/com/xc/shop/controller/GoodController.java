@@ -3,6 +3,7 @@ package com.xc.shop.controller;
 import com.xc.shop.bean.Computer;
 import com.xc.shop.service.GoodService;
 import com.xc.shop.util.ControllerResult;
+import com.xc.shop.util.PageBean;
 import com.xc.shop.util.Result;
 import com.xc.shop.vo.GoodVo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -102,7 +103,7 @@ public class GoodController {
     public Result selectGoodList(GoodVo goodVo) {
 
         Result result = new Result();
-        List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
+        PageBean<Map<String, Object>> list = new PageBean<Map<String, Object>>();
 
         try {
             list = goodService.selectGoodList(goodVo);

@@ -20,14 +20,16 @@ public class PageVo {
     }
 
     public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
+        if (pageSize != null || pageSize != 0)
+            this.pageSize = pageSize ;
     }
 
     public Integer getCurrentPage() {
         return currentPage;
     }
 
-    public void setCurrentPage(Integer pageNum) {
-        this.currentPage = pageNum;
+    public void setCurrentPage(Integer currentPage) {
+        if (currentPage != null || currentPage != 0)
+            this.currentPage = currentPage;
     }
 }

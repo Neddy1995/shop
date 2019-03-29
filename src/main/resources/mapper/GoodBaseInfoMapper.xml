@@ -206,7 +206,34 @@
       <if test="goodName != null and goodName != '' ">
         and good_name like '%${goodName}%'
       </if>
-      <if test="goodTypeId != null and goodType != '' ">
+      <if test="goodTypeId != null and goodTypeId != '' ">
+        and good_type_id = #{goodTypeId}
+      </if>
+      <if test="brandId != null and brandId != '' ">
+        and brand_id = #{brandId}
+      </if>
+      <if test="screenSize != null and screenSize != '' ">
+        and screen_size = #{screenSize}
+      </if>
+      <if test="minGoodPrice != null and minGoodPrice != '' ">
+        and good_price <![CDATA[ >= ]]> ${minGoodPrice}
+      </if>
+      <if test="maxGoodPrice != null and maxGoodPrice != '' ">
+        and good_price <![CDATA[ <= ]]> ${maxGoodPrice}
+      </if>
+    </where>
+  </select>
+
+  <!--  根据 商品类型、品牌、价格、屏幕大小 查询商品列表的数量  -->
+  <select id="selectGoodListCount" resultType="int" parameterType="com.xc.shop.vo.GoodVo">
+    select count(*)
+    from good_base_info a
+    left join user b on b.user_id = a.seller_id
+    <where>
+      <if test="goodName != null and goodName != '' ">
+        and good_name like '%${goodName}%'
+      </if>
+      <if test="goodTypeId != null and goodTypeId != '' ">
         and good_type_id = #{goodTypeId}
       </if>
       <if test="brandId != null and brandId != '' ">
