@@ -68,4 +68,34 @@
       brand_id = #{brandId,jdbcType=VARCHAR}
     where ID = #{id,jdbcType=INTEGER}
   </update>
+
+
+  <!-- 根据商品类型，查询该商品所有的品牌信息 -->
+  <select id="selectAllBrandByType" resultType="map">
+    select
+      a.good_type_id,
+      a.brand_id,
+      b.brand_name,
+      b.brand_des,
+      b.img
+    from good_brand_info a
+    left join brand_info b on b.brand_id = a.brand_id
+    where a.good_type_id = #{goodTypeId}
+  </select>
+
 </mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -3,6 +3,7 @@ $(document).ready(function () {
     // 参数
     var type = getUrlParam("type");   // 电脑，手机
     var search = getUrlParam("search");
+    var goodTypeId = ""; // 商品类别id
 
     // 加载头部代码
     $('.top-html').load('./static/html/tophtml.html');
@@ -50,6 +51,9 @@ $(document).ready(function () {
     // 根据参数，初始化页面显示内容
     initDomShow(type);
 
+    // 根据goodTypeId查询品牌信息
+    selectAllBrandByType();
+
 });
 
 
@@ -64,9 +68,11 @@ function getUrlParam(name) {
 function initDomShow(type) {
     if (type == "电脑") {
         $(".compter-type-div").css("display", "block");
+        goodTypeId = "computer";
     }
     if (type == "手机") {
         $(".mobile-type-div").css("display", "block");
+        goodTypeId = "mobile_phone";
     }
 }
 
@@ -76,7 +82,7 @@ function getListData() {
         url: "",
         type: "get",
         data: {
-            
+
         },
         success: function (data) {
             
@@ -87,7 +93,7 @@ function getListData() {
     });
 }
 
-
+// 跳转到详情页面
 function toDetail(dom) {
     var goodId = dom.getAttribute("goodId");
     var type = dom.getAttribute("type");   // 电脑、手机
@@ -101,7 +107,38 @@ function toDetail(dom) {
     }
 }
 
+// 根据goodTypeId查询品牌信息
+function selectAllBrandByType() {
+    $.ajax({
+        url: "/selectAllBrandByType.do",
+        type: "get",
+        data: {
+            "goodTypeId": goodTypeId
+        },
+        success: function (data) {
+            console.log(data);
+            // 显示品牌数据信息
+            var html = '';
+            var result = data.data;
+            for (var i = 0 ;i < result.length; i++) {
+                var brand_id = result[i].brand_id;
+                var brand_name = result[i].brand_name;
+                var img = result[i].img;
 
+                var imgSrc = getBrandImagePath() + img;
+
+                html += '<div class="pinpai-item-div" title="' + brand_name + '">';
+                html += '<img class="pinpai-img-item hover-img" src="' + imgSrc + '">';
+                html += '</div>';
+            }
+
+            $(".pinpai-item-content").html(html);
+        },
+        error: function (data) {
+            console.log(data);
+        }
+    });
+}
 
 
 

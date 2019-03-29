@@ -5,6 +5,7 @@ import com.xc.shop.util.ControllerResult;
 import com.xc.shop.util.FilterMatchUtil;
 import com.xc.shop.util.SessionKeyValue;
 import org.apache.log4j.Logger;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.util.StringUtils;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
@@ -20,6 +21,7 @@ import java.util.List;
 /**
  * Created by Administrator on 2018/3/9.
  */
+@Configuration
 public class ActionInterceptor extends HandlerInterceptorAdapter {
     private static Logger logger = Logger.getLogger(ActionInterceptor.class);
 

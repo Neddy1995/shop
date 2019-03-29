@@ -3,12 +3,14 @@ package com.xc.shop.controller;
 import com.xc.shop.bean.Computer;
 import com.xc.shop.service.GoodService;
 import com.xc.shop.util.ControllerResult;
+import com.xc.shop.util.Result;
+import com.xc.shop.vo.GoodVo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 public class GoodController {
@@ -63,4 +65,78 @@ public class GoodController {
         controllerResult.setData(computer);
         return controllerResult;
     }
+
+
+    /** 111
+     * 根据商品类型，查询该商品所有的品牌信息，查询结果不对应具体的实体类，所以这里用map
+     * @param goodTypeId
+     * @return
+     */
+    @GetMapping(value = "/selectAllBrandByType.do")
+    public Result selectAllBrandByType(@RequestParam("goodTypeId") String goodTypeId) {
+
+        Result result = new Result();
+        List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
+
+        try {
+            list = goodService.selectAllBrandByType(goodTypeId);
+
+            result.setResultCode(ControllerResult.RESULT_CODE_SUCCESS);
+            result.setMessage("查询成功！");
+            result.setData(list);
+        } catch (Exception e) {
+            result.setResultCode(ControllerResult.RESULT_CODE_SUCCESS);
+            result.setMessage("查询报错：" + e);
+            e.printStackTrace();
+        }
+
+        return result;
+    }
+
+    /**
+     * 111  商品列表接口
+     * @param
+     * @return
+     */
+    @GetMapping(value = "/selectGoodList.do")
+    public Result selectGoodList(GoodVo goodVo) {
+
+        Result result = new Result();
+        List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
+
+        try {
+            list = goodService.selectGoodList(goodVo);
+
+            result.setResultCode(ControllerResult.RESULT_CODE_SUCCESS);
+            result.setMessage("查询成功！");
+            result.setData(list);
+        } catch (Exception e) {
+            result.setResultCode(ControllerResult.RESULT_CODE_SUCCESS);
+            result.setMessage("查询报错：" + e);
+            e.printStackTrace();
+        }
+
+        return result;
+    }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

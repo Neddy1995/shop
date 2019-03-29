@@ -2,12 +2,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.xc.shop.dao.GoodBaseInfoMapper" >
   <resultMap id="BaseResultMap" type="com.xc.shop.bean.GoodBaseInfo" >
-    <result column="ID" property="id" jdbcType="CHAR" />
+    <id column="ID" property="id" jdbcType="INTEGER" />
     <result column="good_id" property="goodId" jdbcType="VARCHAR" />
     <result column="good_name" property="goodName" jdbcType="VARCHAR" />
     <result column="good_type_id" property="goodTypeId" jdbcType="VARCHAR" />
     <result column="brand_id" property="brandId" jdbcType="VARCHAR" />
-    <result column="good_price" property="goodPrice" jdbcType="VARCHAR" />
+    <result column="good_price" property="goodPrice" jdbcType="INTEGER" />
     <result column="screen_size" property="screenSize" jdbcType="VARCHAR" />
     <result column="good_desc" property="goodDesc" jdbcType="VARCHAR" />
     <result column="seller_id" property="sellerId" jdbcType="VARCHAR" />
@@ -15,18 +15,33 @@
     <result column="sold" property="sold" jdbcType="INTEGER" />
     <result column="up_time" property="upTime" jdbcType="VARCHAR" />
     <result column="detail_table" property="detailTable" jdbcType="VARCHAR" />
+    <result column="good_img" property="goodImg" jdbcType="VARCHAR" />
   </resultMap>
+  <sql id="Base_Column_List" >
+    ID, good_id, good_name, good_type_id, brand_id, good_price, screen_size, good_desc, 
+    seller_id, stock, sold, up_time, detail_table, good_img
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from good_base_info
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from good_base_info
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
   <insert id="insert" parameterType="com.xc.shop.bean.GoodBaseInfo" >
     insert into good_base_info (ID, good_id, good_name, 
       good_type_id, brand_id, good_price, 
       screen_size, good_desc, seller_id, 
       stock, sold, up_time, 
-      detail_table)
-    values (#{id,jdbcType=CHAR}, #{goodId,jdbcType=VARCHAR}, #{goodName,jdbcType=VARCHAR}, 
-      #{goodTypeId,jdbcType=VARCHAR}, #{brandId,jdbcType=VARCHAR}, #{goodPrice,jdbcType=VARCHAR}, 
+      detail_table, good_img)
+    values (#{id,jdbcType=INTEGER}, #{goodId,jdbcType=VARCHAR}, #{goodName,jdbcType=VARCHAR}, 
+      #{goodTypeId,jdbcType=VARCHAR}, #{brandId,jdbcType=VARCHAR}, #{goodPrice,jdbcType=INTEGER},
       #{screenSize,jdbcType=VARCHAR}, #{goodDesc,jdbcType=VARCHAR}, #{sellerId,jdbcType=VARCHAR}, 
       #{stock,jdbcType=INTEGER}, #{sold,jdbcType=INTEGER}, #{upTime,jdbcType=VARCHAR}, 
-      #{detailTable,jdbcType=VARCHAR})
+      #{detailTable,jdbcType=VARCHAR}, #{goodImg,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.xc.shop.bean.GoodBaseInfo" >
     insert into good_base_info
@@ -70,10 +85,13 @@
       <if test="detailTable != null" >
         detail_table,
       </if>
+      <if test="goodImg != null" >
+        good_img,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
-        #{id,jdbcType=CHAR},
+        #{id,jdbcType=INTEGER},
       </if>
       <if test="goodId != null" >
         #{goodId,jdbcType=VARCHAR},
@@ -111,6 +129,118 @@
       <if test="detailTable != null" >
         #{detailTable,jdbcType=VARCHAR},
       </if>
+      <if test="goodImg != null" >
+        #{goodImg,jdbcType=VARCHAR},
+      </if>
     </trim>
   </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xc.shop.bean.GoodBaseInfo" >
+    update good_base_info
+    <set >
+      <if test="goodId != null" >
+        good_id = #{goodId,jdbcType=VARCHAR},
+      </if>
+      <if test="goodName != null" >
+        good_name = #{goodName,jdbcType=VARCHAR},
+      </if>
+      <if test="goodTypeId != null" >
+        good_type_id = #{goodTypeId,jdbcType=VARCHAR},
+      </if>
+      <if test="brandId != null" >
+        brand_id = #{brandId,jdbcType=VARCHAR},
+      </if>
+      <if test="goodPrice != null" >
+        good_price = #{goodPrice,jdbcType=INTEGER},
+      </if>
+      <if test="screenSize != null" >
+        screen_size = #{screenSize,jdbcType=VARCHAR},
+      </if>
+      <if test="goodDesc != null" >
+        good_desc = #{goodDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerId != null" >
+        seller_id = #{sellerId,jdbcType=VARCHAR},
+      </if>
+      <if test="stock != null" >
+        stock = #{stock,jdbcType=INTEGER},
+      </if>
+      <if test="sold != null" >
+        sold = #{sold,jdbcType=INTEGER},
+      </if>
+      <if test="upTime != null" >
+        up_time = #{upTime,jdbcType=VARCHAR},
+      </if>
+      <if test="detailTable != null" >
+        detail_table = #{detailTable,jdbcType=VARCHAR},
+      </if>
+      <if test="goodImg != null" >
+        good_img = #{goodImg,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xc.shop.bean.GoodBaseInfo" >
+    update good_base_info
+    set good_id = #{goodId,jdbcType=VARCHAR},
+      good_name = #{goodName,jdbcType=VARCHAR},
+      good_type_id = #{goodTypeId,jdbcType=VARCHAR},
+      brand_id = #{brandId,jdbcType=VARCHAR},
+      good_price = #{goodPrice,jdbcType=INTEGER},
+      screen_size = #{screenSize,jdbcType=VARCHAR},
+      good_desc = #{goodDesc,jdbcType=VARCHAR},
+      seller_id = #{sellerId,jdbcType=VARCHAR},
+      stock = #{stock,jdbcType=INTEGER},
+      sold = #{sold,jdbcType=INTEGER},
+      up_time = #{upTime,jdbcType=VARCHAR},
+      detail_table = #{detailTable,jdbcType=VARCHAR},
+      good_img = #{goodImg,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+
+  <!--  根据 商品类型、品牌、价格、屏幕大小 查询商品列表  -->
+  <select id="selectGoodList" resultType="map" parameterType="com.xc.shop.vo.GoodVo">
+    select a.*, b.user_name
+    from good_base_info a
+    left join user b on b.user_id = a.seller_id
+    <where>
+      <if test="goodName != null and goodName != '' ">
+        and good_name like '%${goodName}%'
+      </if>
+      <if test="goodTypeId != null and goodType != '' ">
+        and good_type_id = #{goodTypeId}
+      </if>
+      <if test="brandId != null and brandId != '' ">
+        and brand_id = #{brandId}
+      </if>
+      <if test="screenSize != null and screenSize != '' ">
+        and screen_size = #{screenSize}
+      </if>
+      <if test="minGoodPrice != null and minGoodPrice != '' ">
+        and good_price <![CDATA[ >= ]]> ${minGoodPrice}
+      </if>
+      <if test="maxGoodPrice != null and maxGoodPrice != '' ">
+        and good_price <![CDATA[ <= ]]> ${maxGoodPrice}
+      </if>
+    </where>
+  </select>
+
 </mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

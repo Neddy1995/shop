@@ -11,12 +11,6 @@
   <sql id="Base_Column_List" >
     ID, brand_id, brand_name, brand_des, img
   </sql>
-  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
-    select 
-    <include refid="Base_Column_List" />
-    from brand_info
-    where ID = #{id,jdbcType=INTEGER}
-  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from brand_info
     where ID = #{id,jdbcType=INTEGER}

@@ -1,11 +1,17 @@
 package com.xc.shop.service;
 
+import com.github.pagehelper.PageHelper;
 import com.xc.shop.bean.Computer;
 import com.xc.shop.dao.ComputerMapper;
+import com.xc.shop.dao.GoodBaseInfoMapper;
+import com.xc.shop.dao.GoodBrandInfoMapper;
+import com.xc.shop.util.PageBean;
+import com.xc.shop.vo.GoodVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class GoodService {
@@ -13,6 +19,12 @@ public class GoodService {
 
     @Autowired
     ComputerMapper computerMapper;
+
+    @Autowired
+    GoodBrandInfoMapper goodBrandInfoMapper;
+
+    @Autowired
+    GoodBaseInfoMapper goodBaseInfoMapper;
 
     /**
      * 根据关键字查询商品信息
@@ -46,4 +58,45 @@ public class GoodService {
         Computer computer = computerMapper.selectByPrimaryKey(goodId);
         return computer;
     }
+
+
+
+    /**
+     * 根据商品类型，查询该商品所有的品牌信息，查询结果不对应具体的实体类，所以这里用map
+     * @param goodTypeId
+     * @return
+     */
+    public List<Map<String, Object>> selectAllBrandByType(String goodTypeId) {
+        return goodBrandInfoMapper.selectAllBrandByType(goodTypeId);
+    }
+
+
+    /**
+     * 111 观月PageHelper分页插件，参考：https://www.cnblogs.com/onetwo/p/7371778.html
+     * @param goodVo
+     * @return
+     */
+    public List<Map<String, Object>> selectGoodList(GoodVo goodVo) {
+        PageHelper.startPage(goodVo.getCurrentPage(), goodVo.getPageSize());
+        List<Map<String, Object>> list = goodBaseInfoMapper.selectGoodList(goodVo);        //全部商品
+
+        int countNums = list.size(); //总记录数
+
+        PageBean<Map<String, Object>> pageData = new PageBean<>(goodVo.getCurrentPage(), goodVo.getPageSize(), countNums);
+        pageData.setItems(list);
+        return pageData.getItems();
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

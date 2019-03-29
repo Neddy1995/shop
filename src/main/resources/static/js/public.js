@@ -11,7 +11,18 @@ function showAlertMsg(str) {
 }
 
 function getImagesPath(){
-    var path = "D://images";
+    var path = "D:/商城系统/图片/电脑品牌图标/";
+    return path;
+}
+
+// 品牌图片路径
+function getBrandImagePath() {
+    return "http://47.99.183.187:8080/Images/brand_img/";
+}
+
+// 商品列表的图片路径
+function getGoodListImagePath() {
+    return "http://47.99.183.187:8080/Images/";
 }
 
 

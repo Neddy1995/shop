@@ -1,7 +1,7 @@
 package com.xc.shop.bean;
 
 public class GoodBaseInfo {
-    private String id;
+    private Integer id;
 
     private String goodId;
 
@@ -11,7 +11,7 @@ public class GoodBaseInfo {
 
     private String brandId;
 
-    private String goodPrice;
+    private Integer goodPrice;
 
     private String screenSize;
 
@@ -27,12 +27,14 @@ public class GoodBaseInfo {
 
     private String detailTable;
 
-    public String getId() {
+    private String goodImg;
+
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id == null ? null : id.trim();
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getGoodId() {
@@ -67,12 +69,12 @@ public class GoodBaseInfo {
         this.brandId = brandId == null ? null : brandId.trim();
     }
 
-    public String getGoodPrice() {
+    public Integer getGoodPrice() {
         return goodPrice;
     }
 
-    public void setGoodPrice(String goodPrice) {
-        this.goodPrice = goodPrice == null ? null : goodPrice.trim();
+    public void setGoodPrice(Integer goodPrice) {
+        this.goodPrice = goodPrice == null ? null : goodPrice;
     }
 
     public String getScreenSize() {
@@ -129,5 +131,13 @@ public class GoodBaseInfo {
 
     public void setDetailTable(String detailTable) {
         this.detailTable = detailTable == null ? null : detailTable.trim();
+    }
+
+    public String getGoodImg() {
+        return goodImg;
+    }
+
+    public void setGoodImg(String goodImg) {
+        this.goodImg = goodImg == null ? null : goodImg.trim();
     }
 }
