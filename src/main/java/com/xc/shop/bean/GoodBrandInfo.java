@@ -1,6 +1,6 @@
 package com.xc.shop.bean;
 
-public class GoodGrandInfo {
+public class GoodBrandInfo {
     private Integer id;
 
     private String goodTypeId;
