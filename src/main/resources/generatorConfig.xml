@@ -54,7 +54,7 @@
         </javaClientGenerator>
         <!-- 指定数据库表 -->
 
-        <!--<table tableName="good_grand_info" domainObjectName="GoodGrandInfo"
+        <!--<table tableName="good_grand_info" domainObjectName="GoodBrandInfo"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">
@@ -78,17 +78,17 @@
                selectByExampleQueryId="false">
         </table>-->
 
-        <table tableName="brand_info" domainObjectName="BrandInfo"
-               enableCountByExample="false" enableUpdateByExample="false"
-               enableDeleteByExample="false" enableSelectByExample="false"
-               selectByExampleQueryId="false">
-        </table>
-
-       <!-- <table tableName="good_base_info" domainObjectName="GoodBaseInfo"
+      <!--  <table tableName="brand_info" domainObjectName="BrandInfo"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">
         </table>-->
+
+        <table tableName="good_base_info" domainObjectName="GoodBaseInfo"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+        </table>
 
         <!--<table tableName="favorite" domainObjectName="Favorite"
                enableCountByExample="false" enableUpdateByExample="false"

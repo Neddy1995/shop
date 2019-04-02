@@ -2,11 +2,14 @@ package com.xc.shop.service;
 
 import com.github.pagehelper.PageHelper;
 import com.xc.shop.bean.Computer;
+import com.xc.shop.bean.MobilePhone;
 import com.xc.shop.dao.ComputerMapper;
 import com.xc.shop.dao.GoodBaseInfoMapper;
 import com.xc.shop.dao.GoodBrandInfoMapper;
+import com.xc.shop.dao.MobilePhoneMapper;
 import com.xc.shop.util.PageBean;
 import com.xc.shop.vo.GoodVo;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,6 +28,9 @@ public class GoodService {
 
     @Autowired
     GoodBaseInfoMapper goodBaseInfoMapper;
+
+    @Autowired
+    MobilePhoneMapper mobilePhoneMapper;
 
     /**
      * 根据关键字查询商品信息
@@ -85,6 +91,24 @@ public class GoodService {
         PageBean<Map<String, Object>> pageData = new PageBean<>(goodVo.getCurrentPage(), goodVo.getPageSize(), countNums);
         pageData.setItems(list);
         return pageData;
+    }
+
+    /**
+     * 查询电脑详情
+     * @param goodId
+     * @return
+     */
+    public Computer selectComputerGoodDetail(String goodId) {
+        return computerMapper.selectComputerGoodDetail(goodId);
+    }
+
+    /**
+     * 查询手机详情
+     * @param goodId
+     * @return
+     */
+    public MobilePhone selectMobilePhoneGoodDetail(String goodId) {
+        return mobilePhoneMapper.selectMobilePhoneGoodDetail(goodId);
     }
 }
 

@@ -1,6 +1,7 @@
 package com.xc.shop.controller;
 
 import com.xc.shop.bean.Computer;
+import com.xc.shop.bean.MobilePhone;
 import com.xc.shop.service.GoodService;
 import com.xc.shop.util.ControllerResult;
 import com.xc.shop.util.PageBean;
@@ -117,6 +118,57 @@ public class GoodController {
             e.printStackTrace();
         }
 
+        return result;
+    }
+
+    /**
+     * 111 查询电脑详情
+     * @param
+     * @return
+     */
+    @GetMapping(value = "/selectComputerGoodDetail.do")
+    public Result selectComputerGoodDetail(@RequestParam("goodId") String goodId) {
+
+        Result result = new Result();
+        Computer computer;
+
+        try {
+            computer = goodService.selectComputerGoodDetail(goodId);
+
+            result.setResultCode(ControllerResult.RESULT_CODE_SUCCESS);
+            result.setMessage("查询成功！");
+            result.setData(computer);
+        } catch (Exception e) {
+            result.setResultCode(ControllerResult.RESULT_CODE_SUCCESS);
+            result.setMessage("查询报错：" + e);
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    /**
+     * 111 查询手机详情
+     * @param
+     * @return
+     */
+    @GetMapping(value = "/selectMobilePhoneGoodDetail.do")
+    public Result selectMobilePhoneGoodDetail(@RequestParam("goodId") String goodId) {
+
+        Result result = new Result();
+
+        MobilePhone mobilePhone;
+
+        try {
+            mobilePhone = goodService.selectMobilePhoneGoodDetail(goodId);
+
+            result.setResultCode(ControllerResult.RESULT_CODE_SUCCESS);
+            result.setMessage("查询成功！");
+            result.setData(mobilePhone);
+        } catch (Exception e) {
+            result.setResultCode(ControllerResult.RESULT_CODE_SUCCESS);
+            result.setMessage("查询报错：" + e);
+            e.printStackTrace();
+        }
         return result;
     }
 

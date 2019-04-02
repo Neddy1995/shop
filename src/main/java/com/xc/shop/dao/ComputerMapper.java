@@ -1,6 +1,7 @@
 package com.xc.shop.dao;
 
 import com.xc.shop.bean.Computer;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -14,4 +15,6 @@ public interface ComputerMapper {
     List<Computer> selectGoodsByType(String keyWord);
 
     Computer selectByPrimaryKey(String keyWord);
+
+    Computer selectComputerGoodDetail(@Param("goodId") String goodId);
 }

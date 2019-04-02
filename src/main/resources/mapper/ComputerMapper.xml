@@ -22,6 +22,17 @@
     <result column="brand_id" property="brandId" jdbcType="VARCHAR" />
     <result column="good_desc" property="goodDesc" jdbcType="VARCHAR" />
   </resultMap>
+
+  <sql id="computer-base-column">
+    good_id, computer_id, computer_name,
+    computer_version, computer_colour, price,
+    computer_img_url, computer_CPU, computer_GPU,
+    computer_ROM, computer_RAM, computer_screen_size,
+    computer_screen_resolution, computer_screen_refresh,
+    material, system, weight,
+    brand_id, good_desc
+  </sql>
+
   <insert id="insert" parameterType="com.xc.shop.bean.Computer" >
     insert into computer (good_id, computer_id, computer_name, 
       computer_version, computer_colour, price, 
@@ -159,4 +170,24 @@
       </if>
     </trim>
   </insert>
+
+  <select id="selectComputerGoodDetail" resultMap="BaseResultMap">
+    select <include refid="computer-base-column"> from computer
+    where good_id = #{goodId}
+  </select>
+
 </mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

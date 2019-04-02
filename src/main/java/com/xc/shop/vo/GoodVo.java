@@ -8,7 +8,7 @@ public class GoodVo extends PageVo{
     // 商品名称
     private String goodName;
 
-    // 商品类型id
+    // 商品类型id 电脑：computer，手机：mobile_phone
     private String goodTypeId;
 
     // 品牌id
