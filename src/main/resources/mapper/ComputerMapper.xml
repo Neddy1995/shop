@@ -172,7 +172,7 @@
   </insert>
 
   <select id="selectComputerGoodDetail" resultMap="BaseResultMap">
-    select <include refid="computer-base-column"> from computer
+    select <include refid="computer-base-column"/> from computer
     where good_id = #{goodId}
   </select>
 

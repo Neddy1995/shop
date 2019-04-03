@@ -172,7 +172,7 @@
   </insert>
 
   <select id="selectMobilePhoneGoodDetail" resultMap="BaseResultMap">
-    select <include refid="mobil-phone-base-column"> from mobile_phone
+    select <include refid="mobil-phone-base-column"/> from mobile_phone
   </select>
 
 </mapper>
