@@ -1,6 +1,7 @@
 package com.xc.shop.controller;
 
 import com.xc.shop.bean.Computer;
+import com.xc.shop.bean.GoodBaseInfo;
 import com.xc.shop.bean.MobilePhone;
 import com.xc.shop.service.GoodService;
 import com.xc.shop.util.ControllerResult;
@@ -97,7 +98,7 @@ public class GoodController {
 
     /**
      * 111  商品列表接口
-     * @param
+     * @param goodVo
      * @return
      */
     @GetMapping(value = "/selectGoodList.do")
@@ -123,7 +124,7 @@ public class GoodController {
 
     /**
      * 111 查询电脑详情
-     * @param
+     * @param goodId
      * @return
      */
     @GetMapping(value = "/selectComputerGoodDetail.do")
@@ -148,7 +149,7 @@ public class GoodController {
 
     /**
      * 111 查询手机详情
-     * @param
+     * @param goodId
      * @return
      */
     @GetMapping(value = "/selectMobilePhoneGoodDetail.do")
@@ -171,6 +172,33 @@ public class GoodController {
         }
         return result;
     }
+
+
+    /**
+     * 111 查询库存
+     * @param goodId
+     * @return
+     */
+    @GetMapping(value = "/selectStock.do")
+    public Result selectStock(@RequestParam("goodId") String goodId) {
+
+        Result result = new Result();
+        GoodBaseInfo goodBaseInfo;
+
+        try {
+            goodBaseInfo = goodService.selectStock(goodId);
+
+            result.setResultCode(ControllerResult.RESULT_CODE_SUCCESS);
+            result.setMessage("查询成功！");
+            result.setData(goodBaseInfo);
+        } catch (Exception e) {
+            result.setResultCode(ControllerResult.RESULT_CODE_SUCCESS);
+            result.setMessage("查询报错：" + e);
+            e.printStackTrace();
+        }
+        return result;
+    }
+
 
 }
 

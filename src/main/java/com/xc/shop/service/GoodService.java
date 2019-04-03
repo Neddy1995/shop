@@ -2,6 +2,7 @@ package com.xc.shop.service;
 
 import com.github.pagehelper.PageHelper;
 import com.xc.shop.bean.Computer;
+import com.xc.shop.bean.GoodBaseInfo;
 import com.xc.shop.bean.MobilePhone;
 import com.xc.shop.dao.ComputerMapper;
 import com.xc.shop.dao.GoodBaseInfoMapper;
@@ -109,6 +110,15 @@ public class GoodService {
      */
     public MobilePhone selectMobilePhoneGoodDetail(String goodId) {
         return mobilePhoneMapper.selectMobilePhoneGoodDetail(goodId);
+    }
+
+    /**
+     * 查询库存
+     * @param goodId
+     * @return
+     */
+    public GoodBaseInfo selectStock(String goodId) {
+        return goodBaseInfoMapper.selectStock(goodId);
     }
 }
 

@@ -251,6 +251,14 @@
     </where>
   </select>
 
+  <!-- 根据商品id，查询库存 -->
+  <select id="selectStock" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from good_base_info
+    where good_id = #{goodId,jdbcType=VARCHAR}
+  </select>
+
 </mapper>
 
 

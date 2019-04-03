@@ -23,4 +23,6 @@ public interface GoodBaseInfoMapper {
     List<Map<String, Object>> selectGoodList(GoodVo goodVo);
 
     int selectGoodListCount(GoodVo goodVo);
+
+    GoodBaseInfo selectStock(@Param("goodId") String goodId);
 }
