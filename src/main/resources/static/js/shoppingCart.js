@@ -9,7 +9,15 @@ $(document).ready(function () {
     // 加载底部代码
     $('.bottom-html').load('./static/html/bottomhtml.html');
 
-    //自动加载购物车数据
+    //查询所有记录
+    selectAll();
+
+});
+
+/**
+ * 查询所有记录
+ */
+function selectAll() {
     $.ajax({
         type:"get",
         url:"selectAllCart.do",
@@ -30,6 +38,7 @@ $(document).ready(function () {
                 var html = '';
                 console.log(list);
                 for(var i=0;i<list.length;i++){
+                    var cartId = list[i].cartId;
                     var computerImgUrl = list[i].computerImgUrl;
                     var computerName = list[i].computerName;
                     var number = list[i].number;
@@ -40,15 +49,14 @@ $(document).ready(function () {
                     html +='<td><input type="radio" onclick="" value="1"/></td>';
                     html +='<td><img id="image" class="logo" src="' + computerImgUrl + '" /><p id="name">' + computerName +'</p></td>';
                     html +='<td id="price">￥'+ price +'</td>';
-                    html +='<td><div><button id="jian" class="layui-btn"><i class="layui-icon">－</i></button>';
+                    html +='<td><div><button id="jian" class="layui-btn" cartId="' + cartId + '" number="' + number + '" onclick="jian(this)"><i class="layui-icon">－</i></button>';
                     html +='<space id="number">' + number + '</space>';
-                    html +='<button id="jia" class="layui-btn"><i class="layui-icon">＋</i></button></div></td>';
+                    html +='<button id="jia" class="layui-btn" cartId="' + cartId + '" number="' + number + '" onclick="jia(this)"><i class="layui-icon">＋</i></button></div></td>';
                     html +='<td id="result">￥' + money + '</td>';
-                    html +='<td><button id="deleteGoodForShoppingCart" class="layui-btn">';
+                    html +='<td><button id="deleteGoodForShoppingCart" class="layui-btn" cartId="' + cartId + '" onclick="deleteCart(this)">';
                     html +='<i class="layui-icon">&#xe640;</i></button></td></tr>';
-                    }
+                }
                 $("#table-tbody").append(html);
-
             }
             else if(resultCode == "fail"){
                 alert(message);
@@ -61,26 +69,19 @@ $(document).ready(function () {
             alert("报错了！");
         }
     });
+}
 
-    //增加一个物品
-    $("#jia").click(function () {
-        alert("增加一个");
-    });
-    //减少一个物品
-    $("#jian").click(function () {
-        alert("减少一个");
-    });
-
-});
-
-
-
-function deleteAll(list) {
+/**
+ * 删除选中的内容
+ * @param list
+ */
+function deleteCart(pom) {
+    var cartId = pom.getAttribute("cartId");
     $.ajax({
         type:"post",
         url:"deleteCart.do",
         data:{
-            "list":list
+            "list":cartId
         },
         success:function (data) {
             var result = data.resultCode;
@@ -88,15 +89,50 @@ function deleteAll(list) {
             console.log(result + message);
             if(result == "success"){
                 alert(message);
+                window.location.href='shoppingCart.h';
             }
-            alert(message);
         }
     })
 }
 
 /**
- * 查询所有记录
+ * 增加一个物品
  */
-function selectAll() {
+function jia(pom) {
+    var cartId = pom.getAttribute("cartId");
+    var number = parseInt(pom.getAttribute("number"));
+    number = number +1;
+    $.ajax({
+        type:"post",
+        url:"updateCart.do",
+        data:{
+            "cartId":cartId,
+            "number":number
+        },
+        success:function (data) {
+            window.location.href='shoppingCart.h';
+        }
+    });
+}
 
+/**
+ * 减少一个物品
+ */
+function jian(pom) {
+    var cartId = pom.getAttribute("cartId");
+    var number = parseInt(pom.getAttribute("number"));
+    if (number != 1){
+        number = number - 1;
+        $.ajax({
+            type:"post",
+            url:"updateCart.do",
+            data:{
+                "cartId":cartId,
+                "number":number
+            },
+            success:function (data) {
+                window.location.href='shoppingCart.h';
+            }
+        });
+    }
 }

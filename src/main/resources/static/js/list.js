@@ -43,7 +43,7 @@ $(document).ready(function () {
                             "minGoodPrice": "",
                             "maxGoodPrice": "",
                             "pageSize": pageSize,
-                            "currentPage": page,
+                            "currentPage": page
                         },
                         success: function (data) {
                             console.log(data);
@@ -125,7 +125,7 @@ function getListData() {
             "minGoodPrice": "",
             "maxGoodPrice": "",
             "pageSize": pageSize,
-            "currentPage": currentPage,
+            "currentPage": currentPage
         },
         success: function (data) {
             console.log(data);

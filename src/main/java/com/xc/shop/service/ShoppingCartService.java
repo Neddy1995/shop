@@ -60,4 +60,12 @@ public class ShoppingCartService {
         System.out.printf("1111111111");
         shoppingCartMapper.deleteByListKey(list);
     }
+
+    /**
+     * 修改购物车信息
+     * @param shoppingCart
+     */
+    public void updateByPrimaryKeySelective(ShoppingCart shoppingCart){
+        shoppingCartMapper.updateByPrimaryKeySelective(shoppingCart);
+    }
 }

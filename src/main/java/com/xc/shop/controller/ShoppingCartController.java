@@ -1,11 +1,13 @@
 package com.xc.shop.controller;
 
+import com.xc.shop.bean.ShoppingCart;
 import com.xc.shop.bean.User;
 import com.xc.shop.vo.ShoppingCartPo;
 import com.xc.shop.service.ShoppingCartService;
 import com.xc.shop.util.ControllerResult;
 import com.xc.shop.util.SessionKeyValue;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
@@ -15,10 +17,6 @@ import java.util.List;
 public class ShoppingCartController {
     @Autowired
     private ShoppingCartService  shoppingCartService;
-
-    @Autowired
-    private ControllerResult controllerResult;
-
 
     /**
      * 添加购物车
@@ -36,6 +34,7 @@ public class ShoppingCartController {
 //        添加操作
         shoppingCartService.addCartGoodByUser(user.getUserId(),number,goodId);
 
+        ControllerResult controllerResult = new ControllerResult();
         controllerResult.setResultCode(ControllerResult.RESULT_CODE_SUCCESS);
         controllerResult.setMessage("添加成功！");
         return controllerResult;
@@ -51,6 +50,7 @@ public class ShoppingCartController {
 
         User user = (User) session.getAttribute(SessionKeyValue.USER_KEY);
 
+        ControllerResult controllerResult = new ControllerResult();
 //        查询购物车
         List<ShoppingCartPo> list = shoppingCartService.selectAllCart(user.getUserId());
 
@@ -77,6 +77,7 @@ public class ShoppingCartController {
     public ControllerResult DeleteCart(HttpSession session,
                              @RequestParam List list){
 
+        ControllerResult controllerResult = new ControllerResult();
 //        批量删除购物车的商品
         shoppingCartService.deleteCart(list);
         controllerResult.setResultCode(ControllerResult.RESULT_CODE_SUCCESS);
@@ -84,6 +85,21 @@ public class ShoppingCartController {
         return controllerResult;
     }
 
+    @PostMapping(value="/updateCart.do")
+    public ControllerResult UpdateCart(HttpSession httpSession,
+                                       @RequestParam String cartId,
+                                       @RequestParam String number){
+        ShoppingCart shoppingCart = new ShoppingCart();
+        shoppingCart.setCartId(cartId);
+        shoppingCart.setNumber(number);
+//        修改数据
+        shoppingCartService.updateByPrimaryKeySelective(shoppingCart);
+
+        ControllerResult controllerResult = new ControllerResult();
+        controllerResult.setResultCode(ControllerResult.RESULT_CODE_SUCCESS);
+        controllerResult.setMessage("修改成功");
+        return controllerResult;
+    }
 
 
 }
