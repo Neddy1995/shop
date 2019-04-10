@@ -5,9 +5,9 @@ public class ShoppingCart {
 
     private String userId;
 
-    private Integer number;
+    private String number;
 
-    private Integer goodId;
+    private String goodId;
 
     public String getCartId() {
         return cartId;
@@ -25,19 +25,19 @@ public class ShoppingCart {
         this.userId = userId == null ? null : userId.trim();
     }
 
-    public Integer getNumber() {
+    public String getNumber() {
         return number;
     }
 
-    public void setNumber(Integer number) {
+    public void setNumber(String number) {
         this.number = number;
     }
 
-    public Integer getGoodId() {
+    public String getGoodId() {
         return goodId;
     }
 
-    public void setGoodId(Integer goodId) {
+    public void setGoodId(String goodId) {
         this.goodId = goodId;
     }
 }

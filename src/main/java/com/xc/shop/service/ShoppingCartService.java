@@ -3,7 +3,7 @@ package com.xc.shop.service;
 
 import com.xc.shop.bean.ShoppingCart;
 import com.xc.shop.dao.ShoppingCartMapper;
-import com.xc.shop.pojo.ShoppingCartPo;
+import com.xc.shop.vo.ShoppingCartPo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,7 +23,7 @@ public class ShoppingCartService {
      * @param number
      * @param goodId
      */
-    public void addCartGoodByUser(String userId,int number,int goodId){
+    public void addCartGoodByUser(String userId,String number,String goodId){
         ShoppingCart shoppingCart = new ShoppingCart();
         shoppingCart.setGoodId(goodId);
         shoppingCart.setNumber(number);

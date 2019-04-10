@@ -1,7 +1,7 @@
 package com.xc.shop.dao;
 
 import com.xc.shop.bean.Favorite;
-import com.xc.shop.pojo.FavoritePo;
+import com.xc.shop.vo.FavoritePo;
 
 import java.util.List;
 

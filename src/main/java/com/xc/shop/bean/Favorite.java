@@ -7,7 +7,7 @@ public class Favorite {
 
     private String userId;
 
-    private Date time;
+    private String time;
 
     private String goodId;
 
@@ -27,11 +27,11 @@ public class Favorite {
         this.userId = userId == null ? null : userId.trim();
     }
 
-    public Date getTime() {
+    public String getTime() {
         return time;
     }
 
-    public void setTime(Date time) {
+    public void setTime(String time) {
         this.time = time;
     }
 

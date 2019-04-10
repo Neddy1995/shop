@@ -9,9 +9,9 @@ public class User {
 
     private String password;
 
-    private Integer age;
+    private String age;
 
-    private Integer sex;
+    private String sex;
 
     private String profession;
 
@@ -19,7 +19,7 @@ public class User {
 
     private Integer power;
 
-    public User(String userName, String password, Integer age, Integer sex, String profession) {
+    public User(String userName, String password, String age, String sex, String profession) {
         this.userName = userName;
         this.password = password;
         this.age = age;
@@ -56,19 +56,19 @@ public class User {
         this.password = password == null ? null : password.trim();
     }
 
-    public Integer getAge() {
+    public String getAge() {
         return age;
     }
 
-    public void setAge(Integer age) {
+    public void setAge(String age) {
         this.age = age;
     }
 
-    public Integer getSex() {
+    public String getSex() {
         return sex;
     }
 
-    public void setSex(Integer sex) {
+    public void setSex(String sex) {
         this.sex = sex;
     }
 

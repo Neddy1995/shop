@@ -42,12 +42,14 @@ function selectAll() {
                     html+='</div>';
                     html+='</div>';
                 }
-                $(".favorite-div").html(html);
+                $("#favorite-div").html(html);
             }
             else{alert(message);}
 
+        },
+        error:function () {
+            alert("报错了！");
         }
-
     });
 }
 

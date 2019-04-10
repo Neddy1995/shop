@@ -2,8 +2,8 @@ package com.xc.shop.service;
 
 import com.xc.shop.bean.Favorite;
 import com.xc.shop.dao.FavoriteMapper;
-import com.xc.shop.pojo.FavoritePo;
 import com.xc.shop.util.TimeUtil;
+import com.xc.shop.vo.FavoritePo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -41,7 +41,8 @@ public class FavoriteService {
         favorite.setGoodId(goodId);
         Favorite haveFavorite = favoriteMapper.selectByUserAndGood(favorite);
         if(haveFavorite==null){
-            favorite.setTime(new Date());
+            TimeUtil timeUtil = new TimeUtil();
+            favorite.setTime(timeUtil.toString());
             favoriteMapper.insert(favorite);
             return true;
         }

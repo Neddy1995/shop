@@ -1,6 +1,6 @@
 package com.xc.shop.service;
 
-import com.xc.shop.pojo.FavoritePo;
+import com.xc.shop.vo.FavoritePo;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

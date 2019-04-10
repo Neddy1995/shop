@@ -4,8 +4,8 @@
   <resultMap id="BaseResultMap" type="com.xc.shop.bean.ShoppingCart" >
     <id column="cart_id" property="cartId" jdbcType="VARCHAR" />
     <result column="user_id" property="userId" jdbcType="VARCHAR" />
-    <result column="number" property="number" jdbcType="INTEGER" />
-    <result column="good_id" property="goodId" jdbcType="INTEGER" />
+    <result column="number" property="number" jdbcType="VARCHAR" />
+    <result column="good_id" property="goodId" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
     cart_id, user_id, number, good_id
@@ -26,8 +26,8 @@
     </selectKey>
     insert into shopping_cart (cart_id, user_id, number, 
       good_id)
-    values (#{cartId,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, #{number,jdbcType=INTEGER}, 
-      #{goodId,jdbcType=INTEGER})
+    values (#{cartId,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, #{number,jdbcType=VARCHAR},
+      #{goodId,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.xc.shop.bean.ShoppingCart" >
     <selectKey resultType="java.lang.String" keyProperty="cartId" order="BEFORE" >
@@ -52,10 +52,10 @@
         #{userId,jdbcType=VARCHAR},
       </if>
       <if test="number != null" >
-        #{number,jdbcType=INTEGER},
+        #{number,jdbcType=VARCHAR},
       </if>
       <if test="goodId != null" >
-        #{goodId,jdbcType=INTEGER},
+        #{goodId,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -66,10 +66,10 @@
         user_id = #{userId,jdbcType=VARCHAR},
       </if>
       <if test="number != null" >
-        number = #{number,jdbcType=INTEGER},
+        number = #{number,jdbcType=VARCHAR},
       </if>
       <if test="goodId != null" >
-        good_id = #{goodId,jdbcType=INTEGER},
+        good_id = #{goodId,jdbcType=VARCHAR},
       </if>
     </set>
     where cart_id = #{cartId,jdbcType=VARCHAR}
@@ -77,8 +77,8 @@
   <update id="updateByPrimaryKey" parameterType="com.xc.shop.bean.ShoppingCart" >
     update shopping_cart
     set user_id = #{userId,jdbcType=VARCHAR},
-      number = #{number,jdbcType=INTEGER},
-      good_id = #{goodId,jdbcType=INTEGER}
+      number = #{number,jdbcType=VARCHAR},
+      good_id = #{goodId,jdbcType=VARCHAR}
     where cart_id = #{cartId,jdbcType=VARCHAR}
   </update>
 
@@ -86,10 +86,10 @@
     select
     <include refid="Base_Column_List"/>
     from shopping_cart
-    where user_id = #{userId,jdbcType=VARCHAR} and good_id = #{goodId,jdbcType=INTEGER}
+    where user_id = #{userId,jdbcType=VARCHAR} and good_id = #{goodId,jdbcType=VARCHAR}
   </select>
 
-  <select id="selectGoodByUser" parameterType="java.lang.String" resultType="com.xc.shop.pojo.ShoppingCartPo">
+  <select id="selectGoodByUser" parameterType="java.lang.String" resultType="com.xc.shop.vo.ShoppingCartPo">
     select
       b.cart_id as cartId,b.user_id as userId,b.number,b.good_id as goodId,a.computer_name as computerName,a.price,a.computer_img_url as computerImgUrl
     from computer a inner join shopping_cart b on a.computer_id = b.good_id

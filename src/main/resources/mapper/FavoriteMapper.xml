@@ -4,7 +4,7 @@
   <resultMap id="BaseResultMap" type="com.xc.shop.bean.Favorite">
     <id column="favorite_id" jdbcType="VARCHAR" property="favoriteId" />
     <result column="user_id" jdbcType="VARCHAR" property="userId" />
-    <result column="time" jdbcType="TIMESTAMP" property="time" />
+    <result column="time" jdbcType="VARCHAR" property="time" />
     <result column="good_id" jdbcType="VARCHAR" property="goodId" />
   </resultMap>
   <sql id="Base_Column_List">
@@ -26,7 +26,7 @@
     </selectKey>
     insert into favorite (favorite_id, user_id, time, 
       good_id)
-    values (#{favoriteId,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, #{time,jdbcType=TIMESTAMP}, 
+    values (#{favoriteId,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, #{time,jdbcType=VARCHAR},
       #{goodId,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.xc.shop.bean.Favorite">
@@ -53,7 +53,7 @@
         #{userId,jdbcType=VARCHAR},
       </if>
       <if test="time != null">
-        #{time,jdbcType=TIMESTAMP},
+        #{time,jdbcType=VARCHAR},
       </if>
       <if test="goodId != null">
         #{goodId,jdbcType=VARCHAR},
@@ -67,7 +67,7 @@
         user_id = #{userId,jdbcType=VARCHAR},
       </if>
       <if test="time != null">
-        time = #{time,jdbcType=TIMESTAMP},
+        time = #{time,jdbcType=VARCHAR},
       </if>
       <if test="goodId != null">
         good_id = #{goodId,jdbcType=VARCHAR},
@@ -78,12 +78,12 @@
   <update id="updateByPrimaryKey" parameterType="com.xc.shop.bean.Favorite">
     update favorite
     set user_id = #{userId,jdbcType=VARCHAR},
-      time = #{time,jdbcType=TIMESTAMP},
+      time = #{time,jdbcType=VARCHAR},
       good_id = #{goodId,jdbcType=VARCHAR}
     where favorite_id = #{favoriteId,jdbcType=VARCHAR}
   </update>
 
-  <select id="selectByUser" parameterType="java.lang.String" resultType="com.xc.shop.pojo.FavoritePo">
+  <select id="selectByUser" parameterType="java.lang.String" resultType="com.xc.shop.vo.FavoritePo">
     select a.favorite_id as favoriteId,a.user_id as userId,a.time,b.computer_name as computerName,b.price
     from favorite a inner join computer b on a.good_id = b.computer_id
     where user_id = #{userId,jdbcType=VARCHAR}

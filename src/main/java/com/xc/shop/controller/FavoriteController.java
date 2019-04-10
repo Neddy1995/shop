@@ -1,7 +1,7 @@
 package com.xc.shop.controller;
 
 import com.xc.shop.bean.User;
-import com.xc.shop.pojo.FavoritePo;
+import com.xc.shop.vo.FavoritePo;
 import com.xc.shop.service.FavoriteService;
 import com.xc.shop.util.ControllerResult;
 import com.xc.shop.util.SessionKeyValue;

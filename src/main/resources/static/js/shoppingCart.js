@@ -47,7 +47,7 @@ $(document).ready(function () {
                     html +='<td><button id="deleteGoodForShoppingCart" class="layui-btn">';
                     html +='<i class="layui-icon">&#xe640;</i></button></td></tr>';
                     }
-                $(".table-tbody").append(html);
+                $("#table-tbody").append(html);
 
             }
             else if(resultCode == "fail"){

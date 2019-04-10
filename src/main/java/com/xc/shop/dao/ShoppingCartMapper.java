@@ -1,7 +1,7 @@
 package com.xc.shop.dao;
 
 import com.xc.shop.bean.ShoppingCart;
-import com.xc.shop.pojo.ShoppingCartPo;
+import com.xc.shop.vo.ShoppingCartPo;
 
 import java.util.List;
 

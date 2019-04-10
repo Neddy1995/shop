@@ -5,8 +5,8 @@
     <id column="user_id" property="userId" jdbcType="VARCHAR" />
     <result column="user_name" property="userName" jdbcType="VARCHAR" />
     <result column="password" property="password" jdbcType="VARCHAR" />
-    <result column="age" property="age" jdbcType="INTEGER" />
-    <result column="sex" property="sex" jdbcType="INTEGER" />
+    <result column="age" property="age" jdbcType="VARCHAR" />
+    <result column="sex" property="sex" jdbcType="VARCHAR" />
     <result column="profession" property="profession" jdbcType="VARCHAR" />
     <result column="regtime" property="regtime" jdbcType="TIMESTAMP" />
     <result column="power" property="power" jdbcType="INTEGER" />
@@ -32,7 +32,7 @@
       age, sex, profession, 
       regtime, power)
     values (#{userId,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
-      #{age,jdbcType=INTEGER}, #{sex,jdbcType=INTEGER}, #{profession,jdbcType=VARCHAR}, 
+      #{age,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, #{profession,jdbcType=VARCHAR},
       #{regtime,jdbcType=TIMESTAMP}, #{power,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.xc.shop.bean.User" >
@@ -73,10 +73,10 @@
         #{password,jdbcType=VARCHAR},
       </if>
       <if test="age != null" >
-        #{age,jdbcType=INTEGER},
+        #{age,jdbcType=VARCHAR},
       </if>
       <if test="sex != null" >
-        #{sex,jdbcType=INTEGER},
+        #{sex,jdbcType=VARCHAR},
       </if>
       <if test="profession != null" >
         #{profession,jdbcType=VARCHAR},
@@ -99,10 +99,10 @@
         password = #{password,jdbcType=VARCHAR},
       </if>
       <if test="age != null" >
-        age = #{age,jdbcType=INTEGER},
+        age = #{age,jdbcType=VARCHAR},
       </if>
       <if test="sex != null" >
-        sex = #{sex,jdbcType=INTEGER},
+        sex = #{sex,jdbcType=VARCHAR},
       </if>
       <if test="profession != null" >
         profession = #{profession,jdbcType=VARCHAR},
@@ -120,8 +120,8 @@
     update user
     set user_name = #{userName,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR},
-      age = #{age,jdbcType=INTEGER},
-      sex = #{sex,jdbcType=INTEGER},
+      age = #{age,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=VARCHAR},
       profession = #{profession,jdbcType=VARCHAR},
       regtime = #{regtime,jdbcType=TIMESTAMP},
       power = #{power,jdbcType=INTEGER}

@@ -1,10 +1,10 @@
-package com.xc.shop.pojo;
+package com.xc.shop.vo;
 
-import com.xc.shop.bean.Favorite;
+import com.xc.shop.bean.ShoppingCart;
 
 import java.math.BigDecimal;
 
-public class FavoritePo extends Favorite {
+public class ShoppingCartPo extends ShoppingCart {
     private String computerName;
     private BigDecimal price;
 

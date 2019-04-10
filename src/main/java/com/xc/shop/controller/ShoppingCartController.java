@@ -1,15 +1,13 @@
 package com.xc.shop.controller;
 
 import com.xc.shop.bean.User;
-import com.xc.shop.pojo.ShoppingCartPo;
+import com.xc.shop.vo.ShoppingCartPo;
 import com.xc.shop.service.ShoppingCartService;
 import com.xc.shop.util.ControllerResult;
 import com.xc.shop.util.SessionKeyValue;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
@@ -31,8 +29,8 @@ public class ShoppingCartController {
      */
     @PostMapping(value = "/addCart.do")
     public ControllerResult addCartGoodByUser(HttpSession session,
-                                              @RequestParam int number,
-                                              @RequestParam int goodId){
+                                              @RequestParam String number,
+                                              @RequestParam String goodId){
         User user = (User) session.getAttribute("user");
 
 //        添加操作

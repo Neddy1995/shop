@@ -8,8 +8,6 @@ import com.xc.shop.util.SessionKeyValue;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 @RestController
@@ -39,8 +37,8 @@ public class UserController {
     @PostMapping(value = "/register.do")
     public ControllerResult userRegister(@RequestParam("userName") String userName,
                                @RequestParam("password") String password,
-                               @RequestParam("sex") int sex,
-                               @RequestParam("age") int age,
+                               @RequestParam("sex") String sex,
+                               @RequestParam("age") String age,
                                @RequestParam("profession") String profession){
 
         User user = new User(userName,password,sex,age,profession);
