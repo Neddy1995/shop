@@ -5,15 +5,16 @@ import com.xc.shop.bean.Favorite;
 import java.math.BigDecimal;
 
 public class FavoritePo extends Favorite {
-    private String computerName;
+    private String goodName;
     private BigDecimal price;
+    private String goodTypeId;
 
-    public String getComputerName() {
-        return computerName;
+    public String getGoodName() {
+        return goodName;
     }
 
-    public void setComputerName(String computerName) {
-        this.computerName = computerName;
+    public void setGoodName(String goodName) {
+        this.goodName = goodName;
     }
 
     public BigDecimal getPrice() {
@@ -22,5 +23,13 @@ public class FavoritePo extends Favorite {
 
     public void setPrice(BigDecimal price) {
         this.price = price;
+    }
+
+    public String getGoodTypeId() {
+        return goodTypeId;
+    }
+
+    public void setGoodTypeId(String goodTypeId) {
+        this.goodTypeId = goodTypeId;
     }
 }

@@ -39,13 +39,15 @@ function selectAll() {
                 console.log(list);
                 for(var i=0;i<list.length;i++){
                     var cartId = list[i].cartId;
-                    var computerImgUrl = list[i].computerImgUrl;
-                    var computerName = list[i].computerName;
+                    var goodId = list[i].goodId;
+                    var computerImgUrl = list[i].goodImg;
+                    var computerName = list[i].goodName;
                     var number = list[i].number;
                     var price = list[i].price;
                     var money=number * price;
+                    var type = list[i].type;
                     console.log("computerImgUrl:"+computerImgUrl+"computerName:"+computerName+"number:"+number+"price:"+price+"money:"+money);
-                    html +='<tr class="layui-table-body">';
+                    html +='<tr class="layui-table-body" type="'+ type +'" goodId="'+ goodId+'" onclick="toDetail(this)">';
                     html +='<td><input type="radio" onclick="" value="1"/></td>';
                     html +='<td><img id="image" class="logo" src="' + computerImgUrl + '" /><p id="name">' + computerName +'</p></td>';
                     html +='<td id="price">￥'+ price +'</td>';
@@ -133,5 +135,21 @@ function jian(pom) {
                 window.location.href='shoppingCart.h';
             }
         });
+    }
+}
+
+/**
+ * 购物车跳转
+ * @param pom
+ */
+function toDetail(pom) {
+    var favoriteId = pom.getAttribute("favoriteId");
+    var type = pom.getAttribute("type");
+    if (type == "computer") {
+        var url = "diannao_detail.html?goodId=" + favoriteId;
+        window.open(encodeURI(url));
+    } else if (type == "mobile_phone") {
+        var url = "shouji_detail.html?goodId=" + favoriteId;
+        window.open(encodeURI(url));
     }
 }

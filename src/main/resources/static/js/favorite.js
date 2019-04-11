@@ -30,8 +30,9 @@ function selectAll() {
                     var favoriteId = list[i].favoriteId;
                     var computerName = list[i].computerName;
                     var price = list[i].price;
+                    var type = list[i].goodTypeId;
                     var time = list[i].time;
-                    html+='<div class="good_content" favoriteId="favoriteId" onclick="toDetail(this)">';
+                    html+='<div class="good_content" type="'+ type +'" favoriteId="'+favoriteId+'" onclick="toDetail(this)">';
                     html+='<div class="good-top">';
                     html+='<div class="good-time">收藏时间：'+time+'</div>';
                     html+='<p class="good-p">已收藏</p></div>';
@@ -84,15 +85,15 @@ function deleteOne(pom){
 }
 
 /**
- *
+ * 收藏夹跳转
  */
 function toDetail(pom){
     var favoriteId = pom.getAttribute("favoriteId");
     var type = pom.getAttribute("type");
-    if (type == "电脑") {
+    if (type == "computer") {
         var url = "diannao_detail.html?goodId=" + favoriteId;
         window.open(encodeURI(url));
-    } else if (type == "手机") {
+    } else if (type == "mobile_phone") {
         var url = "shouji_detail.html?goodId=" + favoriteId;
         window.open(encodeURI(url));
     }
