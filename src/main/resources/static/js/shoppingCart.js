@@ -62,7 +62,6 @@ function selectAll() {
                 alert(message);
                 $(".cart-table").hide();
                 $(".cart-div").show();
-
             }
         },
         error:function () {

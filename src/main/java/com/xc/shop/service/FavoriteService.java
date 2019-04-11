@@ -42,7 +42,7 @@ public class FavoriteService {
         Favorite haveFavorite = favoriteMapper.selectByUserAndGood(favorite);
         if(haveFavorite==null){
             TimeUtil timeUtil = new TimeUtil();
-            favorite.setTime(timeUtil.toString());
+            favorite.setTime(timeUtil.toString(new Date()));
             favoriteMapper.insert(favorite);
             return true;
         }
