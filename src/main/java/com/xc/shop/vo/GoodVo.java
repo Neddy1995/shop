@@ -47,11 +47,11 @@ public class GoodVo extends PageVo{
         this.brandId = brandId;
     }
 
-    public String getScreen_size() {
+    public String getScreenSize() {
         return screenSize;
     }
 
-    public void setScreen_size(String screenSize) {
+    public void setScreenSize(String screenSize) {
         this.screenSize = screenSize;
     }
 

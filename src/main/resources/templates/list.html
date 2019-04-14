@@ -31,118 +31,91 @@
             <img class="index-logo" src="./images/logo.jpg">
             <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
                 <button class="layui-btn layui-btn-sm search-btn">搜索</button>
-                <input type="text" placeholder="搜索" class="layui-input search-input">
+                <input type="text" placeholder="搜索" class="layui-input search-input search-content">
             </div>
         </div>
 
         <!--电脑分类的div-->
-        <div class="compter-type-div" style="display: none;">
-            <div class="type-div">
+        <div class="compter-type-div" style="display: none;height: auto;">
+            <div class="type-div" style="height: auto;">
                 <div class="pinpai-title">品牌：</div>
-                <div class="pinpai-item-content">
+                <div class="pinpai-item-content" style="height: auto;margin-bottom: 10px;">
                     <!--<div class="pinpai-item-div" title="联想">-->
                         <!--<img class="pinpai-img-item hover-img" src="/static/images/lenovo.jpg">-->
                     <!--</div>-->
                 </div>
             </div>
 
-            <div style="width: 100%;height: 40px;border-bottom: 1px solid #f2f2f2;">
+            <div style="width: 100%;height: 40px;border-bottom: 1px solid #f2f2f2;clear: both;border-top: 1px solid #f2f2f2;">
                 <div class="pinpai-title">价格：</div>
                 <div class="pinpai-price-content">
-                    <div class="pinpai-price-item">1000以下</div>
-                    <div class="pinpai-price-item">10000-1999</div>
-                    <div class="pinpai-price-item">2000-2999</div>
-                    <div class="pinpai-price-item">3000-3999</div>
-                    <div class="pinpai-price-item">4000-4999</div>
-                    <div class="pinpai-price-item">5000-5999</div>
-                    <div class="pinpai-price-item">6000-6999</div>
-                    <div class="pinpai-price-item">7000-9999</div>
-                    <div class="pinpai-price-item">9999以上</div>
+                    <div class="pinpai-price-item" min="" max="3999">4000以下</div>
+                    <div class="pinpai-price-item" min="4000" max="4999">4000-4999</div>
+                    <div class="pinpai-price-item" min="5000" max="5999">5000-5999</div>
+                    <div class="pinpai-price-item" min="6000" max="6999">6000-6999</div>
+                    <div class="pinpai-price-item" min="7000" max="7999">7000-7999</div>
+                    <div class="pinpai-price-item" min="8000" max="8999">8000-8999</div>
+                    <div class="pinpai-price-item" min="9000" max="9999">9000-9999</div>
+                    <div class="pinpai-price-item" min="10000" max="">100000以上</div>
                 </div>
             </div>
 
             <div style="width: 100%;height: 40px;border-bottom: 1px solid #f2f2f2;">
                 <div class="pinpai-title">屏幕尺寸：</div>
                 <div class="pinpai-size-content">
-                    <div class="pinpai-size-item">11.6英寸</div>
-                    <div class="pinpai-size-item">12.5英寸</div>
-                    <div class="pinpai-size-item">13.5英寸</div>
-                    <div class="pinpai-size-item">14.5英寸</div>
-                    <div class="pinpai-size-item">4000-4999</div>
-                    <div class="pinpai-size-item">15.6英寸</div>
-                    <div class="pinpai-size-item">17英寸</div>
+                    <div class="pinpai-size-item" screenSize="11">11英寸</div>
+                    <div class="pinpai-size-item" screenSize="12.0">12.0英寸</div>
+                    <div class="pinpai-size-item" screenSize="13.3">13.3英寸</div>
+                    <div class="pinpai-size-item" screenSize="13.5">13.5英寸</div>
+                    <div class="pinpai-size-item" screenSize="13.9">13.9英寸</div>
+                    <div class="pinpai-size-item" screenSize="14.0">14.0英寸</div>
+                    <div class="pinpai-size-item" screenSize="15.0">15.0英寸</div>
+                    <div class="pinpai-size-item" screenSize="15.6">15.6英寸</div>
+                    <div class="pinpai-size-item" screenSize="17.3">17.3英寸</div>
                 </div>
             </div>
         </div>
 
         <!--手机分类的div-->
-        <div class="mobile-type-div" style="display: none;">
-            <div class="type-div" style="height: 100px;">
+        <div class="mobile-type-div" style="display: none;height: auto;">
+            <div class="type-div" style="height: auto;">
                 <div class="pinpai-title">品牌：</div>
-                <div class="pinpai-item-content" style="height: 100px;">
-                    <div class="pinpai-item-div" title="索尼">
-                        <img class="pinpai-img-item hover-img" src="/static/images/sony.jpg">
-                    </div>
-                    <div class="pinpai-item-div" title="中兴">
-                        <img class="pinpai-img-item hover-img" src="/static/images/zte.png">
-                    </div>
-                    <div class="pinpai-item-div" title="360">
-                        <img class="pinpai-img-item hover-img" src="/static/images/360.png">
-                    </div>
-                    <div class="pinpai-item-div" title="联想">
-                        <img class="pinpai-img-item hover-img" src="/static/images/lenovo.jpg">
-                    </div>
-                    <div class="pinpai-item-div" title="魅族">
-                        <img class="pinpai-img-item hover-img" src="/static/images/meizu.jpg">
-                    </div>
-                    <div class="pinpai-item-div" title="三星">
-                        <img class="pinpai-img-item hover-img" src="/static/images/sumsung.jpg">
-                    </div>
-                    <div class="pinpai-item-div" title="VIVO">
-                        <img class="pinpai-img-item hover-img" src="/static/images/vivo.jpg">
-                    </div>
-                    <div class="pinpai-item-div" title="苹果">
-                        <img class="pinpai-img-item hover-img" src="/static/images/ipone.jpg">
-                    </div>
-                    <div class="pinpai-item-div" title="小米">
-                        <img class="pinpai-img-item hover-img" src="/static/images/xiaomi.jpg">
-                    </div>
-                    <div class="pinpai-item-div" title="华为">
-                        <img class="pinpai-img-item hover-img" src="/static/images/huawei.jpg">
-                    </div>
-                    <div class="pinpai-item-div" title="OPPO">
-                        <img class="pinpai-img-item hover-img" src="/static/images/oppo.jpg">
-                    </div>
+                <div class="pinpai-item-content" style="height: auto;margin-bottom: 10px;">
+                    <!--<div class="pinpai-item-div" title="联想">-->
+                    <!--<img class="pinpai-img-item hover-img" src="/static/images/lenovo.jpg">-->
+                    <!--</div>-->
                 </div>
             </div>
 
-            <div style="width: 100%;height: 40px;border-bottom: 1px solid #f2f2f2;">
+            <div style="width: 100%;height: 40px;border-bottom: 1px solid #f2f2f2;clear: both;border-top: 1px solid #f2f2f2;">
                 <div class="pinpai-title">价格：</div>
                 <div class="pinpai-price-content">
-                    <div class="pinpai-price-item">1000以下</div>
-                    <div class="pinpai-price-item">10000-1999</div>
-                    <div class="pinpai-price-item">2000-2999</div>
-                    <div class="pinpai-price-item">3000-3999</div>
-                    <div class="pinpai-price-item">4000-4999</div>
-                    <div class="pinpai-price-item">5000-5999</div>
-                    <div class="pinpai-price-item">6000-6999</div>
-                    <div class="pinpai-price-item">7000-9999</div>
-                    <div class="pinpai-price-item">9999以上</div>
+                    <div class="pinpai-price-item" min="" max="3999">4000以下</div>
+                    <div class="pinpai-price-item" min="4000" max="4999">4000-4999</div>
+                    <div class="pinpai-price-item" min="5000" max="5999">5000-5999</div>
+                    <div class="pinpai-price-item" min="6000" max="6999">6000-6999</div>
+                    <div class="pinpai-price-item" min="7000" max="7999">7000-7999</div>
+                    <div class="pinpai-price-item" min="8000" max="8999">8000-8999</div>
+                    <div class="pinpai-price-item" min="9000" max="9999">9000-9999</div>
+                    <div class="pinpai-price-item" min="10000" max="">100000以上</div>
                 </div>
             </div>
 
             <div style="width: 100%;height: 40px;border-bottom: 1px solid #f2f2f2;">
                 <div class="pinpai-title">屏幕尺寸：</div>
                 <div class="pinpai-size-content">
-                    <div class="pinpai-size-item">11.6英寸</div>
-                    <div class="pinpai-size-item">12.5英寸</div>
-                    <div class="pinpai-size-item">13.5英寸</div>
-                    <div class="pinpai-size-item">14.5英寸</div>
-                    <div class="pinpai-size-item">4000-4999</div>
-                    <div class="pinpai-size-item">15.6英寸</div>
-                    <div class="pinpai-size-item">17英寸</div>
+                    <div class="pinpai-size-item">3.0英寸及以下</div>
+                    <div class="pinpai-size-item">3.1-4.5英寸</div>
+                    <div class="pinpai-size-item">4.6-5.0英寸</div>
+                    <div class="pinpai-size-item">5.1-5.5英寸</div>
+                    <div class="pinpai-size-item">5.6-6.0</div>
+                    <div class="pinpai-size-item">6.1英寸及以上</div>
                 </div>
             </div>
+        </div>
+
+        <div style="font-size: 12px; background-color: #fff; padding-left: 20px; padding-bottom: 20px;color: #999;">
+            当前查询条件：<span class="path-brand path-item"></span><span class="path-price path-item"></span><span class="path-size path-item"></span>
         </div>
 
         <div id="goods-list" style="width: 100%;padding: 20px 0px;padding-bottom: 200px;">
@@ -155,7 +128,7 @@
         </div>
 
         <!--底部内容-->
-        <div class="bottom-html" style="height: 50px;width: 100%;background-color: #eeeeee;position: absolute;bottom: 0px;"></div>
+        <div class="bottom-html" style="height: 50px;width: 100%;background-color: #eeeeee;bottom: 0px;clear: both;"></div>
     </div>
 
 </div>
