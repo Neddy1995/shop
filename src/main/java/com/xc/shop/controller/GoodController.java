@@ -2,7 +2,9 @@ package com.xc.shop.controller;
 
 import com.xc.shop.bean.Computer;
 import com.xc.shop.bean.GoodBaseInfo;
+import com.xc.shop.bean.GoodImageInfo;
 import com.xc.shop.bean.MobilePhone;
+import com.xc.shop.dao.GoodImageInfoMapper;
 import com.xc.shop.service.GoodService;
 import com.xc.shop.util.ControllerResult;
 import com.xc.shop.util.PageBean;
@@ -23,6 +25,9 @@ public class GoodController {
 
     @Autowired
     private ControllerResult controllerResult;
+
+    @Autowired
+    private GoodImageInfoMapper goodImageInfoMapper;
 
     /**
      * 根据关键字查询商品信息
@@ -199,6 +204,26 @@ public class GoodController {
         return result;
     }
 
+    @GetMapping(value = "/selectImagesByGoodId.do")
+    public Result selectImagesByGoodId(@RequestParam("goodId") String goodId) {
+        Result result = new Result();
+
+        List<GoodImageInfo> resultList = new ArrayList<GoodImageInfo>();
+
+        try {
+
+            resultList = goodImageInfoMapper.selectImagesByGoodId(goodId);
+
+            result.setResultCode(ControllerResult.RESULT_CODE_SUCCESS);
+            result.setMessage("查询成功！");
+            result.setData(resultList);
+        } catch (Exception e) {
+            result.setResultCode(ControllerResult.RESULT_CODE_SUCCESS);
+            result.setMessage("查询报错：" + e);
+            e.printStackTrace();
+        }
+        return result;
+    }
 
 }
 
