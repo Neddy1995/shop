@@ -20,13 +20,11 @@ public class ShoppingCartService {
      * 不存在则直接插入
      * 存在则数量加一
      * @param userId
-     * @param number
      * @param goodId
      */
-    public void addCartGoodByUser(String userId,String number,String goodId){
+    public void addCartGoodByUser(String userId,String goodId){
         ShoppingCart shoppingCart = new ShoppingCart();
         shoppingCart.setGoodId(goodId);
-        shoppingCart.setNumber(number);
         shoppingCart.setUserId(userId);
         ShoppingCart haveCartGood = shoppingCartMapper.selectByUserAndGood(shoppingCart);
         //不存在时
@@ -35,7 +33,7 @@ public class ShoppingCartService {
         }
         //存在时
         else{
-            haveCartGood.setNumber(haveCartGood.getNumber()+number);
+            haveCartGood.setNumber(haveCartGood.getNumber()+1);
             shoppingCartMapper.updateByPrimaryKey(haveCartGood);
         }
     }

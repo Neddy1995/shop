@@ -21,18 +21,16 @@ public class ShoppingCartController {
     /**
      * 添加购物车
      * @param session
-     * @param number
      * @param goodId
      * @return
      */
     @PostMapping(value = "/addCart.do")
     public ControllerResult addCartGoodByUser(HttpSession session,
-                                              @RequestParam String number,
                                               @RequestParam String goodId){
         User user = (User) session.getAttribute("user");
 
 //        添加操作
-        shoppingCartService.addCartGoodByUser(user.getUserId(),number,goodId);
+        shoppingCartService.addCartGoodByUser(user.getUserId(),goodId);
 
         ControllerResult controllerResult = new ControllerResult();
         controllerResult.setResultCode(ControllerResult.RESULT_CODE_SUCCESS);
