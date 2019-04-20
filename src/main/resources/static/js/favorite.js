@@ -28,7 +28,8 @@ function selectAll() {
                 var html='';
                 for(var i=0 ;i<list.length ; i++){
                     var favoriteId = list[i].favoriteId;
-                    var computerName = list[i].computerName;
+                    var goodName = list[i].goodName;
+                    var computerImg = list[i].goodImg;
                     var price = list[i].price;
                     var type = list[i].goodTypeId;
                     var time = list[i].time;
@@ -37,8 +38,8 @@ function selectAll() {
                     html+='<div class="good-time">收藏时间：'+time+'</div>';
                     html+='<p class="good-p">已收藏</p></div>';
                     html+='<div class="good-body">';
-                    html+='<img class="good-picture good" src="./images/logo.jpg"/>';
-                    html+='<div class="good-name good">'+ computerName +'</div>';
+                    html+='<img class="good-picture good" src="'+ getGoodListImagePath() + computerImg +'"/>';
+                    html+='<div class="good-name good">'+ goodName +'</div>';
                     html+='<div class="good-price good">'+price+'</div>';
                     html+='<div class="good-btn good">';
                     html+='<button class="layui-btn" favoriteId="'+ favoriteId +'" onclick="deleteOne(this)"><i class="layui-icon">&#xe640;</i></button>';

@@ -8,7 +8,6 @@ import com.xc.shop.dao.GoodImageInfoMapper;
 import com.xc.shop.service.GoodService;
 import com.xc.shop.util.ControllerResult;
 import com.xc.shop.util.PageBean;
-import com.xc.shop.util.Result;
 import com.xc.shop.vo.GoodVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -24,9 +23,6 @@ public class GoodController {
     private GoodService goodService;
 
     @Autowired
-    private ControllerResult controllerResult;
-
-    @Autowired
     private GoodImageInfoMapper goodImageInfoMapper;
 
     /**
@@ -39,6 +35,7 @@ public class GoodController {
     public ControllerResult selectGoodLikeKeyWord(@RequestParam("keyWord") String keyWord){
 
         List<Computer> list = goodService.selectGoodsLikeKeyWord(keyWord);
+        ControllerResult controllerResult = new ControllerResult();
         controllerResult.setResultCode(ControllerResult.RESULT_CODE_SUCCESS);
         controllerResult.setMessage("查询成功！");
         controllerResult.setData(list);
@@ -54,6 +51,7 @@ public class GoodController {
     @PostMapping(value = "/selectByType.do")
     public ControllerResult selectGoodsByType(@RequestParam("typeId") String typeId){
         List<Computer> list = goodService.selectGoodsByType(typeId);
+        ControllerResult controllerResult = new ControllerResult();
         controllerResult.setResultCode(ControllerResult.RESULT_CODE_SUCCESS);
         controllerResult.setMessage("查询成功！");
         controllerResult.setData(list);
@@ -68,6 +66,7 @@ public class GoodController {
     @PostMapping(value = "/selectGoodByKey.do")
     public ControllerResult selectGoodByKey(@RequestParam("goodId") String goodId){
         Computer computer = goodService.selectGoodByKey(goodId);
+        ControllerResult controllerResult = new ControllerResult();
         controllerResult.setResultCode(ControllerResult.RESULT_CODE_SUCCESS);
         controllerResult.setMessage("查询成功！");
         controllerResult.setData(computer);
@@ -81,9 +80,9 @@ public class GoodController {
      * @return
      */
     @GetMapping(value = "/selectAllBrandByType.do")
-    public Result selectAllBrandByType(@RequestParam("goodTypeId") String goodTypeId) {
+    public ControllerResult selectAllBrandByType(@RequestParam("goodTypeId") String goodTypeId) {
 
-        Result result = new Result();
+        ControllerResult result = new ControllerResult();
         List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
 
         try {
@@ -107,9 +106,9 @@ public class GoodController {
      * @return
      */
     @GetMapping(value = "/selectGoodList.do")
-    public Result selectGoodList(GoodVo goodVo) {
+    public ControllerResult selectGoodList(GoodVo goodVo) {
 
-        Result result = new Result();
+        ControllerResult result = new ControllerResult();
         PageBean<Map<String, Object>> list = new PageBean<Map<String, Object>>();
 
         try {
@@ -133,9 +132,9 @@ public class GoodController {
      * @return
      */
     @GetMapping(value = "/selectComputerGoodDetail.do")
-    public Result selectComputerGoodDetail(@RequestParam("goodId") String goodId) {
+    public ControllerResult selectComputerGoodDetail(@RequestParam("goodId") String goodId) {
 
-        Result result = new Result();
+        ControllerResult result = new ControllerResult();
         Computer computer;
 
         try {
@@ -158,9 +157,9 @@ public class GoodController {
      * @return
      */
     @GetMapping(value = "/selectMobilePhoneGoodDetail.do")
-    public Result selectMobilePhoneGoodDetail(@RequestParam("goodId") String goodId) {
+    public ControllerResult selectMobilePhoneGoodDetail(@RequestParam("goodId") String goodId) {
 
-        Result result = new Result();
+        ControllerResult result = new ControllerResult();
 
         MobilePhone mobilePhone;
 
@@ -185,9 +184,9 @@ public class GoodController {
      * @return
      */
     @GetMapping(value = "/selectStock.do")
-    public Result selectStock(@RequestParam("goodId") String goodId) {
+    public ControllerResult selectStock(@RequestParam("goodId") String goodId) {
 
-        Result result = new Result();
+        ControllerResult result = new ControllerResult();
         GoodBaseInfo goodBaseInfo;
 
         try {
@@ -205,8 +204,8 @@ public class GoodController {
     }
 
     @GetMapping(value = "/selectImagesByGoodId.do")
-    public Result selectImagesByGoodId(@RequestParam("goodId") String goodId) {
-        Result result = new Result();
+    public ControllerResult selectImagesByGoodId(@RequestParam("goodId") String goodId) {
+        ControllerResult result = new ControllerResult();
 
         List<GoodImageInfo> resultList = new ArrayList<GoodImageInfo>();
 

@@ -32,6 +32,7 @@ function selectAll() {
                 notSession(message);
             }
             else if (resultCode == "success"){
+                console.log(data);
                 $(".cart-table").show();
                 $(".cart-div").hide();
                 // 加载中间商品
@@ -46,7 +47,6 @@ function selectAll() {
                     var price = list[i].price;
                     var money=number * price;
                     var type = list[i].type;
-                    console.log("computerImgUrl:"+computerImgUrl+"computerName:"+computerName+"number:"+number+"price:"+price+"money:"+money);
                     html +='<tr class="layui-table-body" type="'+ type +'" goodId="'+ goodId+'" onclick="toDetail(this)">';
                     html +='<td><input type="radio" onclick="" value="1"/></td>';
                     html +='<td><img id="image" class="logo" src="' + computerImgUrl + '" /><p id="name">' + computerName +'</p></td>';

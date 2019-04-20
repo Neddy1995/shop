@@ -1,5 +1,9 @@
 server:
   port: 8181
+  servlet:
+    session:
+      timeout: 86400s
+
  
 spring:
   http:

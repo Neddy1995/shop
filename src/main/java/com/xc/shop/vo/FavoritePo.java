@@ -6,6 +6,7 @@ import java.math.BigDecimal;
 
 public class FavoritePo extends Favorite {
     private String goodName;
+    private String goodImg;
     private BigDecimal price;
     private String goodTypeId;
 
@@ -31,5 +32,13 @@ public class FavoritePo extends Favorite {
 
     public void setGoodTypeId(String goodTypeId) {
         this.goodTypeId = goodTypeId;
+    }
+
+    public String getGoodImg() {
+        return goodImg;
+    }
+
+    public void setGoodImg(String goodImg) {
+        this.goodImg = goodImg;
     }
 }
