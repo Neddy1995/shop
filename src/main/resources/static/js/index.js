@@ -43,14 +43,10 @@ function initRollContentLeftData(text) {
         html += '<div class="tool-bar-item" type="电脑" param="台式电脑">台式电脑</div>';
         html += '<div class="tool-bar-item" type="电脑" param="笔记本">笔记本</div>';
         html += '<div class="tool-bar-item" type="电脑" param="二手电脑">二手电脑</div>';
-        html += '<div class="tool-bar-item" type="电脑" param="外设">外设</div>';
-        html += '<div class="tool-bar-item" type="电脑" param="配件">配件</div>';
     } else if (text == "手机") {
         html += '<div class="tool-bar-item" type="手机" param="发烧友">发烧友</div>';
         html += '<div class="tool-bar-item" type="手机" param="性价比">性价比</div>';
         html += '<div class="tool-bar-item" type="手机" param="二手机">二手机</div>';
-        html += '<div class="tool-bar-item" type="手机" param="外设">外设</div>';
-        html += '<div class="tool-bar-item" type="手机" param="配件">配件</div>';
     } else if (text == "评测") {
         html += '<div class="tool-bar-item" type="" param="台式电脑测评">台式电脑测评</div>';
         html += '<div class="tool-bar-item" type="" param="笔记本测评">笔记本测评</div>';
