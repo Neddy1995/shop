@@ -3,29 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
+    <style>
+        .user-info-body{
+            width: 100%;
+            height: auto;
+        }
+
+        /*每行数据*/
+        .user-info-one{
+            margin: 20px;
+            align-content: center;
+
+        }
+        /*标题*/
+        .user-info-head{
+            font-size: 18px;
+        }
+        /*显示内容*/
+        .user-info-input{
+
+        }
+    </style>
 </head>
 <body>
     <div class="user-info-body">
-        <div class="user-name">
-            <div>用户名：</div>
-            <div></div>
+        <div  class="user-info-one">
+            <div class="user-info-head">用户名：</div>
+            <input id="user-name" type="text" placeholder="" class="layui-input user-info-input"/>
         </div>
-        <div class="user-age">
-            <div>年龄：</div>
-            <div></div>
+        <div  class="user-info-one">
+            <div class="user-info-head">年龄：</div>
+            <input id="user-age" type="text" placeholder="" class="layui-input user-info-input"/>
         </div>
-        <div class="user-sex">
-            <div>性别：</div>
-            <div></div>
+        <div  class="user-info-one">
+            <div class="user-info-head">性别：</div>
+            <input id="user-sex" type="text" placeholder="" class="layui-input user-info-input"/>
         </div>
-        <div class="profession">
-            <div>职业:</div>
-            <div></div>
+        <div  class="user-info-one">
+            <div class="user-info-head">职业:</div>
+            <input id="user-profession" type="text" placeholder="" class="layui-input user-info-input"/>
         </div>
-        <div class="regTime">
-            <div>注册时间：</div>
-            <div></div>
+        <div  class="user-info-one">
+            <div class="user-info-head">注册时间：</div>
+            <input id="regTime" type="text" placeholder="" class="layui-input user-info-input"/>
+        </div>
+        <div>
+            <button id="user-info-update" style="float: right;margin-right:20px" class="layui-btn">修改</button>
         </div>
     </div>
+
+    <script type="text/javascript" src="./static/js/user_info.js"></script>
 </body>
 </html>

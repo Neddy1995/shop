@@ -64,4 +64,11 @@ public class UserService {
         return user;
     }
 
+    /**
+     * 修改用户信息
+     * @param user
+     */
+    public void update(User user) {
+        userMapper.updateByPrimaryKeySelective(user);
+    }
 }

@@ -69,11 +69,30 @@ public class UserController {
     @GetMapping(value = "/userInfo.do")
     public ControllerResult userInfo(HttpSession session){
         User user = (User)session.getAttribute(SessionKeyValue.USER_KEY);
+        session.setAttribute(SessionKeyValue.USER_KEY,user);
         ControllerResult controllerResult = new ControllerResult();
         controllerResult.setResultCode(ControllerResult.RESULT_CODE_SUCCESS);
         controllerResult.setMessage("查询成功");
         controllerResult.setData(user);
         return controllerResult;
 
+    }
+
+    @PostMapping(value = "/userUpdate.do")
+    public ControllerResult userUpdate(HttpSession session,
+                                       @RequestParam("userName")String userName,
+                                       @RequestParam("userSex")String userSex,
+                                       @RequestParam("userAge")String userAge,
+                                       @RequestParam("userPro")String userPro){
+        ControllerResult controllerResult = new ControllerResult();
+        User user = (User)session.getAttribute(SessionKeyValue.USER_KEY);
+        user.setUserName(userName);
+        user.setSex(userSex);
+        user.setAge(userAge);
+        user.setProfession(userPro);
+        userService.update(user);
+        controllerResult.setResultCode(ControllerResult.RESULT_CODE_SUCCESS);
+        controllerResult.setMessage("修改成功！");
+        return controllerResult;
     }
 }
