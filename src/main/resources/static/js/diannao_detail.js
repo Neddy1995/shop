@@ -62,7 +62,7 @@ function selectComputerGoodDetail() {
         },
         success: function (data) {
             var computer = data.data;
-
+            console.log(data);
             var brandId = computer.brandId;
             var computerColour = computer.computerColour;
             var computerCpu = computer.computerCpu;

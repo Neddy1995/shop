@@ -38,7 +38,7 @@ public class LoginController {
         response.setHeader("Cache-Control", "no-cache");
         response.setDateHeader("Expires", 0);
         HttpSession session = request.getSession();
-        ImageUtil imageUtil = new ImageUtil(80, 30, 4,0);
+        ImageUtil imageUtil = new ImageUtil(80, 30, 4,50);
         session.setAttribute("code", imageUtil.getCode());
         imageUtil.write(response.getOutputStream());
         return null;

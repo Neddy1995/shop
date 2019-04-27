@@ -5,12 +5,12 @@ import com.xc.shop.bean.User;
 import com.xc.shop.service.AddressService;
 import com.xc.shop.util.ControllerResult;
 import com.xc.shop.util.SessionKeyValue;
-import org.hibernate.validator.constraints.pl.REGON;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
@@ -36,7 +36,7 @@ public class AddressController {
      * @return
      */
     @PostMapping(value = "/addAddress.do")
-    public ControllerResult addAddress(HttpSession session,
+    public ControllerResult addaddress(HttpSession session,
                              @RequestParam("name") String name,
                              @RequestParam("phone") String phone,
                              @RequestParam("prov") String prov,

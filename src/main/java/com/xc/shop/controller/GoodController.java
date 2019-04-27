@@ -135,10 +135,9 @@ public class GoodController {
     public ControllerResult selectComputerGoodDetail(@RequestParam("goodId") String goodId) {
 
         ControllerResult result = new ControllerResult();
-        Computer computer;
 
         try {
-            computer = goodService.selectComputerGoodDetail(goodId);
+            Computer computer = goodService.selectComputerGoodDetail(goodId);
 
             result.setResultCode(ControllerResult.RESULT_CODE_SUCCESS);
             result.setMessage("查询成功！");

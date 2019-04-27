@@ -8,7 +8,7 @@ var pageSize = 8;  //每页数量
 var brandId = ""; // 当前品牌ID
 var goodName = ""; // 当前搜索内容
 var screenSize = ""; //当前屏幕大小
-var minGoodPrice = "" // 价格区间-小
+var minGoodPrice = ""; // 价格区间-小
 var maxGoodPrice = ""; // 价格区间-大
 
 
@@ -29,7 +29,7 @@ $(document).ready(function () {
         // 还原参数
         brandId = ""; // 当前品牌ID
         screenSize = ""; //当前屏幕大小
-        minGoodPrice = "" // 价格区间-小
+        minGoodPrice = ""; // 价格区间-小
         maxGoodPrice = ""; // 价格区间-大
 
         goodName = $(".search-content").val();
@@ -192,6 +192,7 @@ function selectAllBrandByType() {
             // 显示品牌数据信息
             var html = '';
             var result = data.data;
+            console.log(data);
             for (var i = 0 ;i < result.length; i++) {
                 var brand_id = result[i].brand_id;
                 var brand_name = result[i].brand_name;

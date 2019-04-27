@@ -4,7 +4,7 @@ package com.xc.shop.vo;
  * @Description:
  * @Param:
  * @return
- * @Author: zhanghuajian
+ * @Author: xc
  * @CreateDate: 2019/3/29 15:58
  */
 public class PageVo {

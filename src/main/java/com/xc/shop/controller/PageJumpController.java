@@ -55,4 +55,9 @@ public class PageJumpController {
     public String favorite(){
         return "favorite";
     }
+
+    @RequestMapping("/user.h")
+    public String user(){
+        return "user";
+    }
 }

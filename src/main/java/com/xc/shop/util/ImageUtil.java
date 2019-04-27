@@ -65,6 +65,7 @@ public class ImageUtil {
         Font font = new Font("Fixedays",Font.PLAIN,fontHeight);
         graphics2D.setFont(font);
 
+//        产生干扰线
         for (int i = 0; i < lineCount; i++) {
             //x轴第一个点的位置
             int x1 = random.nextInt(width);
@@ -83,6 +84,7 @@ public class ImageUtil {
             graphics2D.drawLine(x1, y1, x2, y2);
         }
 
+//        产生随机字符
         StringBuffer randomCode = new StringBuffer(codeCount);
         for (int i = 0; i < codeCount; i++) {
             String strRand = String.valueOf(codeSequence[random.nextInt(codeSequence.length)]);

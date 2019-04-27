@@ -8,7 +8,7 @@
     <result column="age" property="age" jdbcType="VARCHAR" />
     <result column="sex" property="sex" jdbcType="VARCHAR" />
     <result column="profession" property="profession" jdbcType="VARCHAR" />
-    <result column="regtime" property="regtime" jdbcType="TIMESTAMP" />
+    <result column="regtime" property="regtime" jdbcType="VARCHAR" />
     <result column="power" property="power" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Base_Column_List" >
@@ -33,7 +33,7 @@
       regtime, power)
     values (#{userId,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
       #{age,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, #{profession,jdbcType=VARCHAR},
-      #{regtime,jdbcType=TIMESTAMP}, #{power,jdbcType=INTEGER})
+      #{regtime,jdbcType=VARCHAR}, #{power,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.xc.shop.bean.User" >
     <selectKey resultType="java.lang.String" keyProperty="userId" order="BEFORE" >
@@ -82,7 +82,7 @@
         #{profession,jdbcType=VARCHAR},
       </if>
       <if test="regtime != null" >
-        #{regtime,jdbcType=TIMESTAMP},
+        #{regtime,jdbcType=VARCHAR},
       </if>
       <if test="power != null" >
         #{power,jdbcType=INTEGER},
@@ -108,7 +108,7 @@
         profession = #{profession,jdbcType=VARCHAR},
       </if>
       <if test="regtime != null" >
-        regtime = #{regtime,jdbcType=TIMESTAMP},
+        regtime = #{regtime,jdbcType=VARCHAR},
       </if>
       <if test="power != null" >
         power = #{power,jdbcType=INTEGER},
@@ -123,7 +123,7 @@
       age = #{age,jdbcType=VARCHAR},
       sex = #{sex,jdbcType=VARCHAR},
       profession = #{profession,jdbcType=VARCHAR},
-      regtime = #{regtime,jdbcType=TIMESTAMP},
+      regtime = #{regtime,jdbcType=VARCHAR},
       power = #{power,jdbcType=INTEGER}
     where user_id = #{userId,jdbcType=VARCHAR}
   </update>

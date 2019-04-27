@@ -2,6 +2,7 @@ package com.xc.shop.service;
 
 import com.xc.shop.bean.User;
 import com.xc.shop.dao.UserMapper;
+import com.xc.shop.util.TimeUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -44,7 +45,7 @@ public class UserService {
         if(haveUser == null){
 //            自动生成注册时间，权限
             System.out.printf(user.getUserName());
-            user.setRegtime(new Date());
+            user.setRegtime(new TimeUtil().toString(new Date()));
             user.setPower(1);
 //            插入用户
             userMapper.insert(user);

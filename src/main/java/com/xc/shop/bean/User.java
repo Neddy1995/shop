@@ -15,7 +15,7 @@ public class User {
 
     private String profession;
 
-    private Date regtime;
+    private String regtime;
 
     private Integer power;
 
@@ -80,11 +80,11 @@ public class User {
         this.profession = profession == null ? null : profession.trim();
     }
 
-    public Date getRegtime() {
+    public String getRegtime() {
         return regtime;
     }
 
-    public void setRegtime(Date regtime) {
+    public void setRegtime(String regtime) {
         this.regtime = regtime;
     }
 
