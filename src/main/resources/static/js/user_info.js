@@ -10,7 +10,7 @@ $(document).ready(function () {
         console.log(userName+":"+userAge+":"+userSex+":"+userPro);
         $.ajax({
             type:"post",
-            url:"",
+            url:"userUpdate.do",
             data:{
                 "userName":userName,
                 "userAge":userAge,
@@ -51,7 +51,11 @@ function loadData() {
             var regtime=user.regtime;
             console.log(user);
             if(resultCode=="success"){
-
+                $("#user-name").attr("value",userName);
+                $("#user-age").attr("value",age);
+                $("#user-sex").attr("value",sex);
+                $("#user-profession").attr("value",profession);
+                $("#regTime").attr("value",regtime);
             }
             else if(resultCode=="fail"){
                 alert("报错了！"+message);

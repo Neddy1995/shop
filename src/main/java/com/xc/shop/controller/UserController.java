@@ -68,7 +68,7 @@ public class UserController {
      */
     @GetMapping(value = "/userInfo.do")
     public ControllerResult userInfo(HttpSession session){
-        User user = (User)session.getAttribute(SessionKeyValue.USER_KEY);
+        User user = userService.selectUserByKey((String) session.getAttribute(SessionKeyValue.USER_ID));
         session.setAttribute(SessionKeyValue.USER_KEY,user);
         ControllerResult controllerResult = new ControllerResult();
         controllerResult.setResultCode(ControllerResult.RESULT_CODE_SUCCESS);
