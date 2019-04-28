@@ -1,24 +1,26 @@
 $(document).ready(function () {
     $("#test").click(function () {
-        test1(1,3);
+        test1(1,10);
     });
 });
 
 function test1(pageNum, pageSize) {
     var json = {
-        "objectId": "fgq_001",
+        "objectId": "1356590401",
         "layerMarkId": 7,
-        "maxLongitude": "104.06896786651129",
-        "minLongitude": "104.06687905348872",
-        "maxLatitude": "30.680841071914987",
-        "minLatitude": "30.679044628085016",
+        "maxLongitude": "200",
+        "minLongitude": "30",
+        "maxLatitude": "200",
+        "minLatitude": "30",
         "pageNum": pageNum,
         "pageSize": pageSize,
-        "layerMarkIdArray": [1,2,3,4,5,6,7]
+        "layerMarkIdArray": [1,2,3,4,5,7],
+        "customerCode": "SCM6QYUQ",
+        "intId": "245486951"
 
     };
     $.ajax({
-        url: "http://localhost:8081/recapping/queryLayers.do",
+        url: "http://localhost:8081/recapping/queryPortList.do",
         contentType : 'application/json',
         type: "post",
         data: JSON.stringify(json),
@@ -33,14 +35,14 @@ function test1(pageNum, pageSize) {
 
 function test2() {
     $.ajax({
-        url: "http://localhost:8081/recapping/queryLocation.do",
+        url: "http://localhost:8082/recapping/queryLocation.do",
         type: "post",
         data: {
-            "conText": "朝阳区新源西里",
+            "conText": "昌平区八仙",
             "longitude": "104.06896786",
             "latitude": "30.68084107",
             "pageNum": 1,
-            "pageSize": 2
+            "pageSize": 10
         },
         success: function (data) {
             console.log(data);
