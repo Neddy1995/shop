@@ -56,8 +56,17 @@ public class PageJumpController {
         return "favorite";
     }
 
+    /**
+     * 跳转到用户界面
+     * @return
+     */
     @RequestMapping("/user.h")
     public String user(){
         return "user";
+    }
+
+    @RequestMapping("/analysis.h")
+    public String analysis(){
+        return "analysis";
     }
 }

@@ -49,7 +49,8 @@ function loadData() {
             var sex=user.sex;
             var profession=user.profession;
             var regtime=user.regtime;
-            console.log(user);
+            var time=regtime.substring(1,4)+"-"+regtime.substring(5,6)+"-"+regtime.substring(7,8)+" "+regtime.substring(9,10)+":"+regtime.substring(11,12)+":"+regtime.substring(13,1);
+            console.log(time);
             if(resultCode=="success"){
                 $("#user-name").attr("value",userName);
                 $("#user-age").attr("value",age);

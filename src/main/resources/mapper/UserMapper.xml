@@ -12,7 +12,7 @@
     <result column="power" property="power" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Base_Column_List" >
-    user_id, user_name, age, sex, profession,concat(substring(regtime,1,4),'-',substring(regtime,5,2),'-',substring(regtime,7,2),' ',substring(regtime,9,2),':',substring(regtime,11,2),':',substring(regtime,13,2)) as  regtime, power
+    user_id, user_name, age, sex, profession,regtime, power
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 

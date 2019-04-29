@@ -14,16 +14,28 @@ $(document).ready(function () {
             var message = data.message;
             var user = data.data;
             console.log(message);
+            var power = user.power;
             if (resultCode == "success"){
-                $("#login").hide();
-                $("#register").hide();
-                $("#user").show();
-                $("#logout").show();
-                $("#user").text(user.userName);
+                if(power == "1"){
+                    $("#login").hide();
+                    $("#register").hide();
+                    $("#admin").hide();
+                    $("#user").show();
+                    $("#logout").show();
+                    $("#user").text(user.userName);
+                }
+                else if(power == "2" || power == "3"){
+                    $("#admin").show();
+                    $("#logout").show();
+                    $("#login").hide();
+                    $("#register").hide();
+                    $("#user").hide();
+                }
             }
             else{
                 $("#user").hide();
                 $("#logout").hide();
+                $("#admin").hide();
                 $("#login").show();
                 $("#register").show();
             }
