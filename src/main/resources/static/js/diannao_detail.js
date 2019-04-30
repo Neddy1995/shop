@@ -33,12 +33,12 @@ $(document).ready(function () {
 
     // 加入购物车
     $(".add-to-shopping").click(function () {
-        showAlertMsg("加入购物车成功");
+        addCart(goodId);
     });
 
     // 收藏
     $(".collect-btn").click(function () {
-        showAlertMsg("收藏成功");
+        insertFavorite(goodId);
     });
 
     // 请求电脑详情数据

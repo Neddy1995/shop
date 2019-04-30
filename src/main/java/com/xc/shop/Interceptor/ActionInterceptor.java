@@ -27,9 +27,17 @@ public class ActionInterceptor extends HandlerInterceptorAdapter {
 
     private static final List<String> UN_NEED_LOGIN_ACTION = new ArrayList<String>();
 
+    private static List<String> NEED_LOGIN_ACTION = new ArrayList<String>();
+
 //    添加不用过滤的请求
+//    static {
+//        UN_NEED_LOGIN_ACTION.add("login.do");
+//    }
+
+    // 添加要过滤的请求：添加购物车、添加收藏
     static {
-        UN_NEED_LOGIN_ACTION.add("login.do");
+        NEED_LOGIN_ACTION.add("addCart.do"); // 添加购物车
+        NEED_LOGIN_ACTION.add("insertFavorite.do"); // 收藏
     }
 
     @Override
@@ -44,7 +52,7 @@ public class ActionInterceptor extends HandlerInterceptorAdapter {
         }
 
         // 未登录，直接返回：认证失败
-        if (StringUtils.isEmpty(account)) {
+        if (StringUtils.isEmpty(account) && FilterMatchUtil.isEndWithListStr(url, NEED_LOGIN_ACTION)) {
             ControllerResult controllerResult = new ControllerResult();
             controllerResult.setResultCode(ControllerResult.RESULT_CODE_SESSION);
             controllerResult.setMessage("未登陆！");

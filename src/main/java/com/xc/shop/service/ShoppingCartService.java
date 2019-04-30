@@ -33,7 +33,7 @@ public class ShoppingCartService {
         }
         //存在时
         else{
-            haveCartGood.setNumber(haveCartGood.getNumber()+1);
+            haveCartGood.setNumber(Integer.parseInt(haveCartGood.getNumber()) + 1 + "");
             shoppingCartMapper.updateByPrimaryKey(haveCartGood);
         }
     }

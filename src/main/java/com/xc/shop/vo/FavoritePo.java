@@ -9,6 +9,7 @@ public class FavoritePo extends Favorite {
     private String goodImg;
     private BigDecimal price;
     private String goodTypeId;
+    private String goodId;
 
     public String getGoodName() {
         return goodName;
@@ -40,5 +41,15 @@ public class FavoritePo extends Favorite {
 
     public void setGoodImg(String goodImg) {
         this.goodImg = goodImg;
+    }
+
+    @Override
+    public String getGoodId() {
+        return goodId;
+    }
+
+    @Override
+    public void setGoodId(String goodId) {
+        this.goodId = goodId;
     }
 }

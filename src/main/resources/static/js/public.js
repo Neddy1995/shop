@@ -25,3 +25,73 @@ function notSession(message) {
     alert(message + "前往登录！");
     window.location.href='login.h';
 }
+
+// 加入购物车
+function addCart(goodId) {
+    $.ajax({
+        url: "/addCart.do",
+        type: "post",
+        data: {
+            "goodId": goodId
+        },
+        success: function (data) {
+            console.log(data);
+            var resultCode = data.resultCode;
+            if (resultCode == "success") {
+                showAlertMsg("添加购物车成功");
+            } else if (resultCode == "fail" || resultCode == "error") {
+                showAlertMsg("未登录，请登陆");
+            }
+        },
+        error: function (data) {
+            console.log(data);
+        }
+    });
+}
+
+// 添加收藏
+function  insertFavorite(goodId) {
+    $.ajax({
+        url: "/insertFavorite.do",
+        type: "post",
+        data: {
+            "goodId": goodId
+        },
+        success: function (data) {
+            console.log(data);
+            var resultCode = data.resultCode;
+            if (resultCode == "success") {
+                showAlertMsg("收藏成功");
+            } else if (resultCode == "error") {
+                showAlertMsg("未登录，请登陆");
+            } else if (resultCode == "fail") {
+                showAlertMsg("收藏成功");
+            }
+        },
+        error: function (data) {
+            console.log(data);
+        }
+    });
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

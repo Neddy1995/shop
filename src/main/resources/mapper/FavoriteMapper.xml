@@ -86,7 +86,7 @@
   <select id="selectByUser" parameterType="java.lang.String" resultType="com.xc.shop.vo.FavoritePo">
     select a.favorite_id as favoriteId,a.user_id as userId,
     concat(substring(a.time,1,4),'-',substring(a.time,5,2),'-',substring(a.time,7,2),' ',substring(a.time,9,2),':',substring(a.time,11,2),':',substring(a.time,13,2)) as time,
-    b.good_name as goodName,b.good_img as goodImg,b.good_price as price,b.good_type_id as goodTypeId
+    b.good_name as goodName,b.good_img as goodImg,b.good_price as price,b.good_type_id as goodTypeId, a.good_id as goodId
     from favorite a inner join good_base_info b on a.good_id = b.good_id
     where user_id = #{userId,jdbcType=VARCHAR}
     order by a.time desc

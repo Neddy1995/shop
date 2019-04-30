@@ -20,11 +20,11 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
         return new ActionInterceptor();
     }
 
-//    @Override
-//    public void addInterceptors(InterceptorRegistry registry) {
-//        registry.addInterceptor(loginInterceptor()).addPathPatterns("/**/*.do");
-//        super.addInterceptors(registry);
-//    }
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(loginInterceptor()).addPathPatterns("/**/*.do");
+        super.addInterceptors(registry);
+    }
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
