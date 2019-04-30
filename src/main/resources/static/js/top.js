@@ -12,10 +12,10 @@ $(document).ready(function () {
         success:function (data) {
             var resultCode = data.resultCode;
             var message = data.message;
-            var user = data.data;
             console.log(message);
-            var power = user.power;
             if (resultCode == "success"){
+                var user = data.data;
+                var power = user.power;
                 if(power == "1"){
                     $("#login").hide();
                     $("#register").hide();
@@ -24,7 +24,7 @@ $(document).ready(function () {
                     $("#logout").show();
                     $("#user").text(user.userName);
                 }
-                else if(power == "2" || power == "3"){
+                else{
                     $("#admin").show();
                     $("#logout").show();
                     $("#login").hide();
