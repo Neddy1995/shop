@@ -47,9 +47,9 @@ function selectAll() {
                     var price = list[i].price;
                     var money=number * price;
                     var type = list[i].type;
-                    html +='<tr class="layui-table-body" type="'+ type +'" goodId="'+ goodId+'" onclick="toDetail(this)">';
-                    html +='<td><input type="radio" onclick="" value="1"/></td>';
-                    html +='<td><img id="image" class="logo" src="' + getGoodListImagePath() + computerImgUrl + '" /><p id="name">' + computerName +'</p></td>';
+                    html +='<tr class="layui-table-body">';
+                    html +='<td><input type="radio" value="'+ cartId+'"/></td>';
+                    html +='<td  type="'+ type +'" goodId="'+ goodId+'" onclick="toDetail(this)"><img id="image" class="logo" src="' + getGoodListImagePath() + computerImgUrl + '" /><p id="name">' + computerName +'</p></td>';
                     html +='<td id="price">￥'+ price +'</td>';
                     html +='<td><div><button id="jian" class="layui-btn" cartId="' + cartId + '" number="' + number + '" onclick="jian(this)"><i class="layui-icon">－</i></button>';
                     html +='<space id="number">' + number + '</space>';
