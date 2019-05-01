@@ -3,26 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        .order-info-body{
+            margin: 20px;
+        }
+        /*头*/
+        .order-head{
+            height: 17px;width: 100%
+        }
+        .begin-time{
+            float: left;
+        }
+        .state{
+            float: right;
+        }
+        /*身体*/
+        .order-good{
+            margin: 20px;
+            width: 580px;
+            height: auto;
+        }
+        .order-img{
+            float: left;
+        }
+        .img-img{
+            width: 100px;
+            height: 60px;
+        }
+        /*按钮*/
+        .order-delete{
+            float: right;
+            margin: 20px;
+        }
+        /*其他的还未加*/
+    </style>
 </head>
 <body>
 <div id="order-list">
-    <div class="order-info-body" style="margin: 20px">
-        <!--模拟数据-->
-        <div style="height: 17px;width: 100%">
-        <div id="begin-time" style="float: left" class="">2019-04-28 16:04:00</div>
-        <div id="state" style="float: right" class="">交易成功</div>
+<!--    <div class="order-info-body">
+        &lt;!&ndash;模拟数据&ndash;&gt;
+        <div class="order-head">
+        <div id="begin-time" style="float: left" class="begin-time">2019-04-28 16:04:00</div>
+        <div id="state" style="float: right" class="state">交易成功</div>
         </div>
-        <!--一个订单的数据-->
-        <div class="order-good" style="margin: 20px;width: 580px;height: auto">
-            <div id="order-img" style="float: left;" class=""><img src="./images/logo.jpg" style="width: 100px;height: 60px;"/></div>
+        &lt;!&ndash;一个订单的数据&ndash;&gt;
+        <div class="order-good">
+            <div id="order-img" class="order-img"><img src="./images/logo.jpg" class="img-img" style="width: 100px;height: 60px;"/></div>
             <div id="goodName">机械革命</div>
             <div id="price">￥5999</div>
             <div id="number">×1</div>
             <div id="color">银白色</div>
         </div>
-
-            <div id="order-delete" style="float: right;margin: 20px"><button class="layui-btn">删除</button></div>
-    </div>
+            <div id="order-delete" class="order-delete"><button class="layui-btn">删除</button></div>
+    </div>-->
 </div>
+<script type="text/javascript" src="./static/js/order_info.js"></script>
 </body>
 </html>

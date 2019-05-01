@@ -2,6 +2,8 @@ package com.xc.shop.dao;
 
 import com.xc.shop.bean.OrderGoods;
 
+import java.util.List;
+
 public interface OrderGoodsMapper {
     int deleteByPrimaryKey(String orderId);
 
@@ -14,4 +16,6 @@ public interface OrderGoodsMapper {
     int updateByPrimaryKeySelective(OrderGoods record);
 
     int updateByPrimaryKey(OrderGoods record);
+
+    List selectAllOrderByUser(String userId);
 }
