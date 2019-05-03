@@ -1,0 +1,85 @@
+.content{
+    height: 100%;
+    width: 900px;
+    position: relative;
+    margin: auto;
+}
+
+/*logo*/
+.logo{
+    width: 100px;
+    height: 60px;
+    float: left;
+    margin-top: -10px;
+    background-color: #f0f3ef;
+    margin-left: 30px;
+}
+
+/*顶部跳转*/
+.layui-tab-title{
+    width: 300px;
+    float: left;
+    margin-left: 20px;
+    border: 0px;
+}
+
+.search-btn{
+    height: 30px;
+    float: right;
+    margin-top: 5px;
+    margin-right: 10px;
+}
+
+.search-input{
+    width: 230px;
+    height: 30px;
+    margin-top: 5px;
+    float: right;
+    margin-right: 10px;
+}
+
+/*内容*/
+.create-order-body{
+    margin-top: 20px;
+}
+
+/*地址信息*/
+.create-order-address{
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+.create-order-address-username{
+    padding: 10px;
+    float: left;
+    margin-right: 30px;
+}
+
+.create-order-address-phone{
+    padding: 10px;
+}
+
+.create-order-address-area{
+    float: left;
+    padding-top: 10px;
+    padding-right: 5px;
+}
+.create-order-address-info{
+    padding-top: 10px;
+}
+
+/*商品信息*/
+.create-order-good{
+    margin: 20px;
+}
+.create-order-good-one{
+    padding: 20px;
+}
+
+.create-order-good-img{
+    float: left;
+}
+.create-order-img{
+    width: 100px;
+    height: 60px;
+}
