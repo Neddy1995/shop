@@ -104,5 +104,14 @@
     where order_id = #{orderId,jdbcType=VARCHAR}
   </update>
 
+  <select id="selectGoodByCart" parameterType="java.util.List" resultType="com.xc.shop.vo.GoodByCartVo">
+    select b.good_id as goodId,b.good_name as goodName,b.good_price as goodPrice,b.good_img as goodImg,a.number
+    from shopping_cart a inner join good_base_info b on a.good_id=b.good_id
+    where a.cart_id in
+    <foreach collection="list" item="item" open="(" separator="," close=")">
+      #{item,jdbcType=VARCHAR}
+    </foreach>
+  </select>
+
 
 </mapper>

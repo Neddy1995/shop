@@ -67,12 +67,11 @@ public class AddressController {
      * 查询一条记录
      * @return
      */
-    @PostMapping(value = "/selectOneAddress.do")
-    public ControllerResult selectAddress(HttpSession session,
-                                 @RequestParam("addressId") String addressId){
+    @GetMapping(value = "/selectOneAddress.do")
+    public ControllerResult selectAddress(HttpSession session){
         User user =(User) session.getAttribute(SessionKeyValue.USER_KEY);
 //        查询一条记录
-        Address address = addressService.selectOneAddress(addressId);
+        Address address = addressService.selectOneAddress(user.getUserId());
         controllerResult.setResultCode(ControllerResult.RESULT_CODE_SUCCESS);
         controllerResult.setMessage("查询成功！");
         controllerResult.setData(address);

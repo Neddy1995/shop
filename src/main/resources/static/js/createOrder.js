@@ -1,6 +1,10 @@
+//获取缓存中的值
+var list = localStorage.getItem("goodIdList");
+
 $(document).ready(function () {
     $('.top-html').load('./static/html/tophtml.html');
     loadAddress();
+    loadGood();
 });
 
 /**
@@ -25,6 +29,7 @@ function loadAddress() {
         },
         error:function () {
             alert("查询地址出错了！");
+            window.location.href='index.h';
 
         }
     })
@@ -37,24 +42,34 @@ function loadGood() {
 
     $.ajax({
         type:"post",
-        url:"",
+        url:"selectGoodByCart.do",
         data:{
-
+            "list":list
         },
         success:function (data) {
             resultCode = data.resultCode;
             message = data.message;
-            address = data.data;
-            var html = '';
+            console.log(resultCode+message);
             if (resultCode == "success"){
-                html +='<div class="create-order-good-one">';
-                html +='<div class="create-order-good-img"><img src="./images/logo.jpg" class="create-order-img"></div>';
-                html +='<div class="create-order-good-name">机械革命</div>';
-                html +='<div class="create-order-good-price">￥5999</div>';
-                html +='<div class="create-order-good-number">×1</div>';
-                html +='<div class="create-order-good-result">共1件小计：￥5999</div>';
-                html +='</div>';
+                list = data.data;
+                var resultNumber=0;
+                var money =0;
+                var html = '';
+                for (var i=0;i<list.length;i++){
+                    resultNumber += Number(list[i].number);
+                    money +=list[i].goodPrice * list[i].number;
+                    console.log(money+":"+money);
+                    html +='<div class="create-order-good-one">';
+                    html +='<div class="create-order-good-img"><img src="'+ getGoodListImagePath() + list[i].goodImg +'" class="create-order-img"></div>';
+                    html +='<div class="create-order-good-name">'+ list[i].goodName+'</div>';
+                    html +='<div class="create-order-good-price">￥'+list[i].goodPrice+'</div>';
+                    html +='<div class="create-order-good-number">×'+list[i].number+'</div>';
+                    html +='<div class="create-order-good-result">共'+list[i].number+'件小计：￥'+list[i].goodPrice*list[i].number+'</div>';
+                    html +='</div>';
+                }
                 $(".create-order-good").html(html);
+                $("#result-number").append("共"+resultNumber+"件");
+                $("#result-price").append("合计：￥"+money);
             }
         }
     })

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Random;
 
 @Service
 public class AddressService {
@@ -23,13 +24,15 @@ public class AddressService {
 
 
     /**
-     * 查询一个收货地址
-     * @param addressId
+     * 随机产生一条收货地址
+     * @param userId
      * @return
      */
-    public Address selectOneAddress(String addressId) {
-
-        Address address = addressMapper.selectByPrimaryKey(addressId);
+    public Address selectOneAddress(String userId) {
+        List<Address> list = addressMapper.selectAllAddress(userId);
+        Random random = new Random();
+        int i = random.nextInt(list.size());
+        Address address =list.get(i);
         return address;
     }
 

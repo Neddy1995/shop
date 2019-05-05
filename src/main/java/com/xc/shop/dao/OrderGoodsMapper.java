@@ -1,6 +1,7 @@
 package com.xc.shop.dao;
 
 import com.xc.shop.bean.OrderGoods;
+import com.xc.shop.vo.GoodByCartVo;
 
 import java.util.List;
 
@@ -18,4 +19,6 @@ public interface OrderGoodsMapper {
     int updateByPrimaryKey(OrderGoods record);
 
     List selectAllOrderByUser(String userId);
+
+    List<GoodByCartVo> selectGoodByCart(List list);
 }

@@ -153,3 +153,14 @@ function toDetail(pom) {
         window.open(encodeURI(url));
     }
 }
+
+/**
+ * 跳转到结算界面
+ * @param pom
+ */
+function toOverDetail(pom) {
+    var list ='';
+    //Web Storage的缓存对象
+    localStorage.setItem("goodIdList",list);
+    window.location.href="createOrder.html";
+}

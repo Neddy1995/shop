@@ -13,10 +13,9 @@ function loadAddress() {
         success:function (data) {
             var resultCode = data.resultCode;
             var message = data.message;
-            var list = data.data;
             console.log(resultCode+message);
-            console.log(list.length);
             if(resultCode == "success"){
+                var list = data.data;
                 var html = '';
                 for(var i=0 ;i<list.length ; i++){
                     var addressId = list[i].addressId;
