@@ -17,14 +17,16 @@ function loadAddress() {
         success:function (data) {
             resultCode = data.resultCode;
             message = data.message;
-            address = data.data;
             var html = '';
             if (resultCode == "success"){
+                address = data.data;
                 html +='<h2 style="float: left;padding-top:15px">地址</h2>';
-                html +='<div class="create-order-address-username">谢超</div>';
-                html +='<div class="create-order-address-phone">123456</div>';
-                html +='<div class="create-order-address-area">四川省成都市龙泉驿区十陵镇</div>';
+                html +='<div class="create-order-address-username">'+ address.addressName +'</div>';
+                html +='<div class="create-order-address-phone">'+ address.addressPhone +'</div>';
+                html +='<div class="create-order-address-area">'+ address.addressProv + address.addressCity + address.addressArea + address.addressStreet +'</div>';
+                html +='<div class="create-order-address-info">' + address.addressInfo + '</div>';
                 $(".create-order-address").html(html);
+                $("#result-button").attr("addressId",address.addressId);
             }
         },
         error:function () {
@@ -47,11 +49,11 @@ function loadGood() {
             "list":list
         },
         success:function (data) {
-            resultCode = data.resultCode;
-            message = data.message;
+            var resultCode = data.resultCode;
+            var message = data.message;
             console.log(resultCode+message);
             if (resultCode == "success"){
-                list = data.data;
+                var list = data.data;
                 var resultNumber=0;
                 var money =0;
                 var html = '';
@@ -75,6 +77,28 @@ function loadGood() {
     })
 }
 
-function createOrder() {
-    
+/**
+ * 提交订单点击事件
+ */
+function createOrder(pom) {
+    var addressId = pom.getAttribute("addressId");
+    $.ajax({
+        type:"post",
+        url:"",
+        data:{
+            "addressId":addressId,
+            "list":list
+        },
+        success:function (data) {
+            var resultCode = data.resultCode;
+            var message = data.message;
+            if(resultCode == "success"){
+                alert(message);
+                window.location.href='index.h';
+            }
+        },
+        error:function () {
+            alert("创建失败!");
+        }
+    })
 }

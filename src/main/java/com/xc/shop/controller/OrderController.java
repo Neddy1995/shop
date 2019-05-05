@@ -63,4 +63,25 @@ public class OrderController {
         }
     }
 
+    /**
+     * 创建订单
+     * @param httpSession
+     * @param addressId
+     * @param list
+     * @return
+     */
+    @PostMapping(value = "createOrder.do")
+    public ControllerResult createOrder(HttpSession httpSession,
+                                        @RequestParam("addressId")String addressId,
+                                        @RequestParam("list")List list){
+        ControllerResult controllerResult = new ControllerResult();
+
+        String userId = (String) httpSession.getAttribute(SessionKeyValue.USER_ID);
+        orderService.insertOrder(userId,addressId,list);
+
+        controllerResult.setResultCode(ControllerResult.RESULT_CODE_SUCCESS);
+        controllerResult.setMessage("创建成功！");
+        return controllerResult;
+    }
+
 }
