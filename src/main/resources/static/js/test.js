@@ -1,21 +1,20 @@
 $(document).ready(function () {
     $("#test").click(function () {
-        test1(1,10);
-        //test2();
+        test1(0, 0);
     });
 });
 
 function test1(pageNum, pageSize) {
     var json = {
-        "objectId": "F1916162235047BAAB491948ED68C49D",
-        "layerMarkId": 1,
-        "maxLongitude": "116.28798258314056",
-        "minLongitude": "116.27628525942858",
-        "maxLatitude": "39.83999859182575",
-        "minLatitude": "39.831016372675904",
+        "objectId": "9737B6C8413F4343B920DC09E10F6A8E",
+        "layerMarkId": 2,
+        "maxLatitude": "39.96790810957493",
+        "maxLongitude": "116.31316858902962",
+        "minLatitude": "39.95892589042508",
+        "minLongitude": "116.3014494109704",
         "pageNum": pageNum,
         "pageSize": pageSize,
-        "layerMarkIdArray": [1,2,3,4,5,7],
+        "layerMarkIdArray": [1],
         "customerCode": "SCM6QYUQ",
         "intId": "245486951",
         "conText": "昌平区八仙",
@@ -24,7 +23,7 @@ function test1(pageNum, pageSize) {
 
     };
     $.ajax({
-        url: "http://localhost:8081/recapping/queryNetworkResource.do",
+        url: "http://localhost:8081/recapping/queryLayers.do",
         contentType : 'application/json',
         type: "post",
         data: JSON.stringify(json),

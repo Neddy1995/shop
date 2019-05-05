@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xc.shop.dao.RecommendMapper" >
+  <resultMap id="BaseResultMap" type="com.xc.shop.bean.Recommend" >
+    <id column="good_id" property="goodId" jdbcType="VARCHAR" />
+    <result column="good_result_id" property="goodResultId" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <resultMap id="GoodBaseInfo" type="com.xc.shop.bean.GoodBaseInfo" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="good_id" property="goodId" jdbcType="VARCHAR" />
+    <result column="good_name" property="goodName" jdbcType="VARCHAR" />
+    <result column="good_type_id" property="goodTypeId" jdbcType="VARCHAR" />
+    <result column="brand_id" property="brandId" jdbcType="VARCHAR" />
+    <result column="good_price" property="goodPrice" jdbcType="INTEGER" />
+    <result column="screen_size" property="screenSize" jdbcType="VARCHAR" />
+    <result column="good_desc" property="goodDesc" jdbcType="VARCHAR" />
+    <result column="seller_id" property="sellerId" jdbcType="VARCHAR" />
+    <result column="stock" property="stock" jdbcType="INTEGER" />
+    <result column="sold" property="sold" jdbcType="INTEGER" />
+    <result column="up_time" property="upTime" jdbcType="VARCHAR" />
+    <result column="detail_table" property="detailTable" jdbcType="VARCHAR" />
+    <result column="good_img" property="goodImg" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <sql id="Base_Column_List" >
+    good_id, good_result_id
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from recommend
+    where good_id = #{goodId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from recommend
+    where good_id = #{goodId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.xc.shop.bean.Recommend" >
+    insert into recommend (good_id, good_result_id)
+    values (#{goodId,jdbcType=VARCHAR}, #{goodResultId,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xc.shop.bean.Recommend" >
+    insert into recommend
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="goodId != null" >
+        good_id,
+      </if>
+      <if test="goodResultId != null" >
+        good_result_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="goodId != null" >
+        #{goodId,jdbcType=VARCHAR},
+      </if>
+      <if test="goodResultId != null" >
+        #{goodResultId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xc.shop.bean.Recommend" >
+    update recommend
+    <set >
+      <if test="goodResultId != null" >
+        good_result_id = #{goodResultId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where good_id = #{goodId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xc.shop.bean.Recommend" >
+    update recommend
+    set good_result_id = #{goodResultId,jdbcType=VARCHAR}
+    where good_id = #{goodId,jdbcType=VARCHAR}
+  </update>
+
+  <select id="selectRecommendList" resultMap="GoodBaseInfo">
+    select
+    a.*
+    from recommend t
+    left join good_base_info a on a.good_id = t.good_id
+    where t.good_id = #{goodId,jdbcType=VARCHAR}
+  </select>
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

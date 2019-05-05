@@ -1,9 +1,6 @@
 package com.xc.shop.controller;
 
-import com.xc.shop.bean.Computer;
-import com.xc.shop.bean.GoodBaseInfo;
-import com.xc.shop.bean.GoodImageInfo;
-import com.xc.shop.bean.MobilePhone;
+import com.xc.shop.bean.*;
 import com.xc.shop.dao.GoodImageInfoMapper;
 import com.xc.shop.service.GoodService;
 import com.xc.shop.util.ControllerResult;
@@ -202,6 +199,11 @@ public class GoodController {
         return result;
     }
 
+    /**
+     * 111 查询图片集合
+     * @param goodId
+     * @return
+     */
     @GetMapping(value = "/selectImagesByGoodId.do")
     public ControllerResult selectImagesByGoodId(@RequestParam("goodId") String goodId) {
         ControllerResult result = new ControllerResult();
@@ -222,6 +224,33 @@ public class GoodController {
         }
         return result;
     }
+
+    /**
+     * 查询商品推荐
+     * @param goodId
+     * @return
+     */
+    @GetMapping(value = "/selectRecommendList.do")
+    public ControllerResult selectRecommendList(@RequestParam("goodId") String goodId) {
+        ControllerResult result = new ControllerResult();
+
+        List<GoodBaseInfo> resultList = new ArrayList<GoodBaseInfo>();
+
+        try {
+
+            resultList = goodService.selectRecommendList(goodId);
+
+            result.setResultCode(ControllerResult.RESULT_CODE_SUCCESS);
+            result.setMessage("查询成功！");
+            result.setData(resultList);
+        } catch (Exception e) {
+            result.setResultCode(ControllerResult.RESULT_CODE_SUCCESS);
+            result.setMessage("查询报错：" + e);
+            e.printStackTrace();
+        }
+        return result;
+    }
+
 
 }
 

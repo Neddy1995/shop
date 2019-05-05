@@ -4,10 +4,8 @@ import com.github.pagehelper.PageHelper;
 import com.xc.shop.bean.Computer;
 import com.xc.shop.bean.GoodBaseInfo;
 import com.xc.shop.bean.MobilePhone;
-import com.xc.shop.dao.ComputerMapper;
-import com.xc.shop.dao.GoodBaseInfoMapper;
-import com.xc.shop.dao.GoodBrandInfoMapper;
-import com.xc.shop.dao.MobilePhoneMapper;
+import com.xc.shop.bean.Recommend;
+import com.xc.shop.dao.*;
 import com.xc.shop.util.PageBean;
 import com.xc.shop.vo.GoodVo;
 import org.apache.ibatis.annotations.Param;
@@ -32,6 +30,9 @@ public class GoodService {
 
     @Autowired
     MobilePhoneMapper mobilePhoneMapper;
+
+    @Autowired
+    RecommendMapper recommendMapper;
 
     /**
      * 根据关键字查询商品信息
@@ -118,6 +119,15 @@ public class GoodService {
      */
     public GoodBaseInfo selectStock(String goodId) {
         return goodBaseInfoMapper.selectStock(goodId);
+    }
+
+    /**
+     * 询商品推荐
+     * @param goodId
+     * @return
+     */
+    public List<GoodBaseInfo> selectRecommendList(String goodId) {
+        return recommendMapper.selectRecommendList(goodId);
     }
 }
 
