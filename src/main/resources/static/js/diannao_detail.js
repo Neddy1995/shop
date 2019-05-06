@@ -50,6 +50,9 @@ $(document).ready(function () {
 
     // 查询库存
     selectStock();
+
+    // 添加历史记录
+    addBrowseHistory(goodId);
 });
 
 // 请求电脑详情数据

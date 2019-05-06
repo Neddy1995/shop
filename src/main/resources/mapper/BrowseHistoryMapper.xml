@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xc.shop.dao.BrowseHistoryMapper">
+  <resultMap id="BaseResultMap" type="com.xc.shop.bean.BrowseHistory">
+    <id column="browse_id" jdbcType="INTEGER" property="browseId" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="good_id" jdbcType="VARCHAR" property="goodId" />
+    <result column="time" jdbcType="VARCHAR" property="time" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    browse_id, user_id, good_id, time
+  </sql>
+
+  <insert id="addData" parameterType="com.xc.shop.bean.BrowseHistory">
+    insert into browse_history (user_id, good_id, time)
+    values (#{userId,jdbcType=VARCHAR}, #{goodId,jdbcType=VARCHAR}, now())
+  </insert>
+
+</mapper>

@@ -75,6 +75,21 @@ function  insertFavorite(goodId) {
 }
 
 
+// 添加历史记录
+function  addBrowseHistory(goodId) {
+    $.ajax({
+        url: "/addBrowseHistory.do",
+        type: "get",
+        data: {
+            "goodId": goodId
+        },
+        success: function (data) {
+        },
+        error: function (data) {
+        }
+    });
+}
+
 
 
 
