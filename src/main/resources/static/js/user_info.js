@@ -43,20 +43,21 @@ function loadData() {
             var message=data.message;
             var resultCode=data.resultCode;
             console.log(message+resultCode);
-            var user=data.data;
-            var userName=user.userName;
-            var age=user.age;
-            var sex=user.sex;
-            var profession=user.profession;
-            var regtime=user.regtime;
-            var time=regtime.substring(1,4)+"-"+regtime.substring(5,6)+"-"+regtime.substring(7,8)+" "+regtime.substring(9,10)+":"+regtime.substring(11,12)+":"+regtime.substring(13,1);
-            console.log(time);
             if(resultCode=="success"){
                 $("#user-name").attr("value",userName);
                 $("#user-age").attr("value",age);
                 $("#user-sex").attr("value",sex);
                 $("#user-profession").attr("value",profession);
                 $("#regTime").attr("value",regtime);
+
+                var user=data.data;
+                var userName=user.userName;
+                var age=user.age;
+                var sex=user.sex;
+                var profession=user.profession;
+                var regtime=user.regtime;
+                var time=regtime.substring(1,4)+"-"+regtime.substring(5,6)+"-"+regtime.substring(7,8)+" "+regtime.substring(9,10)+":"+regtime.substring(11,12)+":"+regtime.substring(13,1);
+                console.log(time);
             }
             else if(resultCode=="fail"){
                 alert("报错了！"+message);
