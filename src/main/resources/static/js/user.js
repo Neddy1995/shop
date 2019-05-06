@@ -3,7 +3,7 @@ $(document).ready(function () {
     $('.top-html').load('./static/html/tophtml.html');
 
     //加载内容界面
-    $('.user-page').load('./static/html/address_info.html');
+    $('.user-page').load('./static/html/user_info.html');
 });
 
 

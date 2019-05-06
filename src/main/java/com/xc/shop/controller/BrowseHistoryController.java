@@ -31,10 +31,14 @@ public class BrowseHistoryController {
 
         try {
             String userId = session.getAttribute(SessionKeyValue.USER_ID).toString();
-
-            record.setGoodId(goodId);
-            record.setUserId(userId);
-
+            if(userId.equals("")){
+                record.setGoodId(goodId);
+                record.setUserId("0");
+            }
+            else {
+                record.setGoodId(goodId);
+                record.setUserId(userId);
+            }
             browseHistoryService.addData(record);
 
         } catch (Exception e) {

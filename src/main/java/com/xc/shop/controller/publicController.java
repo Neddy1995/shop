@@ -50,6 +50,7 @@ public class publicController {
     public void closeSession(HttpServletRequest request,
                              HttpServletResponse response){
         HttpSession session = request.getSession();
-        session.setAttribute(SessionKeyValue.USER_KEY,null);
+        session.removeAttribute(SessionKeyValue.USER_KEY);
+        session.removeAttribute(SessionKeyValue.USER_ID);
     }
 }
