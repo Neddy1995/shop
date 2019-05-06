@@ -73,7 +73,7 @@ public class OrderController {
     @PostMapping(value = "createOrder.do")
     public ControllerResult createOrder(HttpSession httpSession,
                                         @RequestParam("addressId")String addressId,
-                                        @RequestParam("list")List list){
+                                        @RequestParam("list")List<String> list){
         ControllerResult controllerResult = new ControllerResult();
 
         String userId = (String) httpSession.getAttribute(SessionKeyValue.USER_ID);

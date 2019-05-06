@@ -2,42 +2,16 @@ package com.xc.shop.vo;
 
 import com.xc.shop.bean.OrderDetails;
 
+import java.util.List;
+
 public class OrderDetailVo extends OrderDetails {
+    private List<String> list;
 
-    private String goodName;
-    private String goodPrice;
-    private String goodImg;
-    private String price;
-
-    public String getGoodName() {
-        return goodName;
+    public List<String> getList() {
+        return list;
     }
 
-    public void setGoodName(String goodName) {
-        this.goodName = goodName;
-    }
-
-    public String getGoodPrice() {
-        return goodPrice;
-    }
-
-    public void setGoodPrice(String goodPrice) {
-        this.goodPrice = goodPrice;
-    }
-
-    public String getGoodImg() {
-        return goodImg;
-    }
-
-    public void setGoodImg(String goodImg) {
-        this.goodImg = goodImg;
-    }
-
-    public String getPrice() {
-        return price;
-    }
-
-    public void setPrice(String price) {
-        this.price = price;
+    public void setList(List<String> list) {
+        this.list = list;
     }
 }

@@ -3,7 +3,7 @@ package com.xc.shop.bean;
 public class OrderDetails {
     private String detailId;
 
-    private Integer number;
+    private String number;
 
     private String orderId;
 
@@ -17,11 +17,11 @@ public class OrderDetails {
         this.detailId = detailId == null ? null : detailId.trim();
     }
 
-    public Integer getNumber() {
+    public String getNumber() {
         return number;
     }
 
-    public void setNumber(Integer number) {
+    public void setNumber(String number) {
         this.number = number;
     }
 
