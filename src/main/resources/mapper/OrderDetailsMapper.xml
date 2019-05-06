@@ -21,6 +21,9 @@
     where detail_id = #{detailId,jdbcType=VARCHAR}
   </delete>
   <insert id="insert" parameterType="com.xc.shop.bean.OrderDetails" >
+    <selectKey resultType="java.lang.String" keyProperty="detailId" order="BEFORE" >
+      select uuid_short()
+    </selectKey>
     insert into order_details (detail_id, number, order_id, 
       good_id)
     values (#{detailId,jdbcType=VARCHAR}, #{number,jdbcType=INTEGER}, #{orderId,jdbcType=VARCHAR}, 
@@ -79,4 +82,5 @@
       good_id = #{goodId,jdbcType=VARCHAR}
     where detail_id = #{detailId,jdbcType=VARCHAR}
   </update>
+
 </mapper>

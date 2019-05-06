@@ -84,7 +84,7 @@ function createOrder(pom) {
     var addressId = pom.getAttribute("addressId");
     $.ajax({
         type:"post",
-        url:"",
+        url:"createOrder.do",
         data:{
             "addressId":addressId,
             "list":list
