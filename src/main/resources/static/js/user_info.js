@@ -61,9 +61,13 @@ function loadData() {
             }
             else if(resultCode=="fail"){
                 alert("报错了！"+message);
+                var url = "login.html";
+                window.open(encodeURI(url));
             }
             else{
                 alert("报错了!"+message);
+                var url = "login.html";
+                window.open(encodeURI(url));
             }
         },
         error:function (data) {
