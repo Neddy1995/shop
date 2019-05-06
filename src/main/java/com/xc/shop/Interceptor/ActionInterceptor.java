@@ -38,6 +38,7 @@ public class ActionInterceptor extends HandlerInterceptorAdapter {
     static {
         NEED_LOGIN_ACTION.add("addCart.do"); // 添加购物车
         NEED_LOGIN_ACTION.add("insertFavorite.do"); // 收藏
+        NEED_LOGIN_ACTION.add("selectAllFavorite.do"); // 查询收藏列表
     }
 
     @Override
