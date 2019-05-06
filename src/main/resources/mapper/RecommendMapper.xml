@@ -76,10 +76,11 @@
 
   <select id="selectRecommendList" resultMap="GoodBaseInfo">
     select
-    a.*
-    from recommend t
-    left join good_base_info a on a.good_id = t.good_id
-    where t.good_id = #{goodId,jdbcType=VARCHAR}
+    t.*
+    from good_base_info t
+    left join recommend a on a.good_result_id = t.good_id
+    where a.good_id = #{goodId,jdbcType=VARCHAR}
+    limit 5
   </select>
 
 </mapper>

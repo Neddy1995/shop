@@ -173,6 +173,7 @@
 
   <select id="selectMobilePhoneGoodDetail" resultMap="BaseResultMap">
     select <include refid="mobil-phone-base-column"/> from mobile_phone
+    where good_id = #{goodId}
   </select>
 
 </mapper>

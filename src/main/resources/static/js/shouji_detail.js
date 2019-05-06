@@ -41,24 +41,26 @@ $(document).ready(function () {
         insertFavorite(goodId);
     });
 
-    // 请求电脑详情数据
-    selectComputerGoodDetail();
+    // 请求手机详情数据
+    selectMobilePhoneGoodDetail();
 
     // 获取地理位置
     getPosition();
-
 
     // 查询库存
     selectStock();
 
     // 添加历史记录
     addBrowseHistory(goodId);
+
+    // 查询推荐
+    selectRecommendList(goodId);
 });
 
-// 请求电脑详情数据
-function selectComputerGoodDetail() {
+// 请求手机详情数据
+function selectMobilePhoneGoodDetail() {
     $.ajax({
-        url: "/selectComputerGoodDetail.do",
+        url: "/selectMobilePhoneGoodDetail.do",
         type: "get",
         data: {
             "goodId": goodId
@@ -143,6 +145,39 @@ function getUrlParam(name) {
     var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
     var r = decodeURI(window.location.search).substr(1).match(reg);  //匹配目标参数
     if (r != null) return unescape(r[2]); return null; //返回参数值
+}
+
+
+// 查询推荐商品
+function  selectRecommendList(goodId) {
+    $.ajax({
+        url: "/selectRecommendList.do",
+        type: "get",
+        data: {
+            "goodId": goodId
+        },
+        success: function (data) {
+            var resultData = data.data;
+            var html = '';
+            for (var i = 0; i < resultData.length; i++) {
+                var goodImg = getGoodListImagePath() + resultData[i].goodImg;
+                var goodName = resultData[i].goodName;
+                var goodPrice = resultData[i].goodPrice;
+                var goodId = resultData[i].goodId;
+
+                html += '<div class="recommend-item">';
+                html += '<a href="/diannao_detail.html?goodId='+ goodId +'" target="_blank">';
+                html += '<img class="recommend-item-img" src="'+ goodImg +'"/>';
+                html += '</a>';
+                html += '<div class="recommend-item-div">' + goodName + '</div>';
+                html += '<div class="recommend-item-div">￥' + goodPrice + '</div>';
+                html += '</div>';
+            }
+            $(".recommend-list").html(html);
+        },
+        error: function (data) {
+        }
+    });
 }
 
 

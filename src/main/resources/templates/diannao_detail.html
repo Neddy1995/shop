@@ -21,9 +21,9 @@
     </style>
 
 </headx>
-<body>
+<body id="body">
 <div class="top-html" style="width: 100%;"></div>
-<div class="content-div" style="height: auto;">
+<div class="content-div" id="content-div" style="height: auto;">
     <div class="content">
         <div style="height: 450px; width: 100%; clear: both;background-color: #fff; box-shadow: 0 2px 5px 0 rgba(0,0,0,.1);">
             <div style="float: left; width: 50%; height: 100%;text-align: center; border: 1px solid #f2f2f2;padding-top: 20px;">
@@ -72,12 +72,12 @@
         <div style="height: auto; width: 100%; margin-top: 10px;background-color: #fff;clear: both;">
             <div class="layui-tab layui-tab-card">
                 <ul class="layui-tab-title" style="width: 100%;margin-left: 0px;">
-                    <li class="layui-this">商品介绍</li>
-                    <li>规格与包装</li>
-                    <li>售后保障</li>
+                    <a href="#spjs"><li class="layui-this">商品介绍</li></a>
+                    <a href="#ggybz"><li>规格与包装</li></a>
+                    <a href="#shbz"><li>售后保障</li></a>
                 </ul>
                 <div class="layui-tab-content" style="padding-bottom: 50px;">
-                    <div class="layui-tab-item layui-show">
+                    <div class="layui-tab-item2 layui-show2" id="spjs">
                         <!--商品介绍-->
                         <div style="width: 100%;margin-top: 10px;">
                             <div class="layui-row" style="height: auto;width: 100%;padding: 30px;">
@@ -121,10 +121,19 @@
                                     重量：<span class="detail-item-weight"></span>
                                 </div>
                             </div>
+                            <div class="recommend-list">
+                                <div class="recommend-item">
+                                    <a href="/diannao_detail.html?goodId=7e26729051eb11e9b5e4d9c75c74329c" target="_blank">
+                                        <img class="recommend-item-img" src="/static/images/icon_jianpan.jpg"/>
+                                    </a>
+                                    <div class="recommend-item-div">我是名字</div>
+                                    <div class="recommend-item-div">￥1233</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="layui-tab-item">
-                        <div class="Ptable">
+                    <div class="layui-tab-item2" id="ggybz">
+                        <div class="Ptable" style="margin-top: 10px; border-top: 1px solid #f2f2f2;">
                             <div class="Ptable-item">
                                 <h3>主体</h3>
                                 <dl>
@@ -359,7 +368,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="layui-tab-item">
+                    <div class="layui-tab-item2" id="shbz">
                         <div class="mc">
                             <div class="item-detail item-detail-copyright">
                                 <div class="serve-agree-bd">
@@ -377,41 +386,41 @@
 
                                         <dt>
                                             <i class="goods"></i>
-                                            <strong>京东承诺</strong>
+                                            <strong>我们承诺</strong>
                                         </dt>
                                         <dd>
-                                            京东平台卖家销售并发货的商品，由平台卖家提供发票和相应的售后服务。请您放心购买！<br>
+                                            平台卖家销售并发货的商品，由平台卖家提供发票和相应的售后服务。请您放心购买！<br>
                                             注：因厂家会在没有任何提前通知的情况下更改产品包装、产地或者一些附件，本司不能确保客户收到的货物与商城图片、产地、附件说明完全一致。只能确保为原厂正货！并且保证与当时市场上同样主流新品一致。若本商城没有及时更新，请大家谅解！
                                         </dd>
                                         <dt>
                                             <i class="goods"></i><strong>
                                             正品行货             </strong>
                                         </dt>
-                                        <dd>京东商城向您保证所售商品均为正品行货，京东自营商品开具机打发票或电子发票。</dd>
+                                        <dd>商城向您保证所售商品均为正品行货，商品开具机打发票或电子发票。</dd>
                                         <dt><i class="unprofor"></i><strong>全国联保</strong></dt>
                                         <dd>
-                                            凭质保证书及京东商城发票，可享受全国联保服务（奢侈品、钟表除外；奢侈品、钟表由京东联系保修，享受法定三包售后服务），与您亲临商场选购的商品享受相同的质量保证。京东商城还为您提供具有竞争力的商品价格和<a href="//help.jd.com/help/question-892.html" target="_blank">运费政策</a>，请您放心购买！
+                                            凭质保证书及商城发票，可享受全国联保服务（奢侈品、钟表除外；奢侈品、钟表由联系保修，享受法定三包售后服务），与您亲临商场选购的商品享受相同的质量保证。商城还为您提供具有竞争力的商品价格和<a href="//help.jd.com/help/question-892.html" target="_blank">运费政策</a>，请您放心购买！
                                             <br><br>注：因厂家会在没有任何提前通知的情况下更改产品包装、产地或者一些附件，本司不能确保客户收到的货物与商城图片、产地、附件说明完全一致。只能确保为原厂正货！并且保证与当时市场上同样主流新品一致。若本商城没有及时更新，请大家谅解！
                                         </dd>
                                         <dt><i class="no-worries"></i><strong>无忧退货</strong></dt>
                                         <dd class="no-worries-text">
-                                            客户购买京东自营商品7日内（含7日，自客户收到商品之日起计算），在保证商品完好的前提下，可无理由退货。（部分商品除外，详情请见各商品细则）
+                                            客户购买商品7日内（含7日，自客户收到商品之日起计算），在保证商品完好的前提下，可无理由退货。（部分商品除外，详情请见各商品细则）
                                         </dd>
                                     </dl>
                                 </div>
                                 <div id="state">
-                                    <strong>权利声明：</strong><br>京东上的所有商品信息、客户评价、商品咨询、网友讨论等内容，是京东重要的经营资源，未经许可，禁止非法转载使用。
+                                    <strong>权利声明：</strong><br>所有商品信息、客户评价、商品咨询、网友讨论等内容，是重要的经营资源，未经许可，禁止非法转载使用。
                                     <p><b>注：</b>本站商品信息均来自于合作方，其真实性、准确性和合法性由信息拥有者（合作方）负责。本站不提供任何保证，并不承担任何法律责任。</p>
                                     <br>
                                     <strong>价格说明：</strong><br>
-                                    <p><b>京东价：</b>京东价为商品的销售价，是您最终决定是否购买商品的依据。</p>
-                                    <p><b>划线价：</b>商品展示的划横线价格为参考价，并非原价，该价格可能是品牌专柜标价、商品吊牌价或由品牌供应商提供的正品零售价（如厂商指导价、建议零售价等）或该商品在京东平台上曾经展示过的销售价；由于地区、时间的差异性和市场行情波动，品牌专柜标价、商品吊牌价等可能会与您购物时展示的不一致，该价格仅供您参考。</p>
+                                    <p><b>商城价：</b>商城价为商品的销售价，是您最终决定是否购买商品的依据。</p>
+                                    <p><b>划线价：</b>商品展示的划横线价格为参考价，并非原价，该价格可能是品牌专柜标价、商品吊牌价或由品牌供应商提供的正品零售价（如厂商指导价、建议零售价等）或该商品在平台上曾经展示过的销售价；由于地区、时间的差异性和市场行情波动，品牌专柜标价、商品吊牌价等可能会与您购物时展示的不一致，该价格仅供您参考。</p>
                                     <p><b>折扣：</b>如无特殊说明，折扣指销售商在原价、或划线价（如品牌专柜标价、商品吊牌价、厂商指导价、厂商建议零售价）等某一价格基础上计算出的优惠比例或优惠金额；如有疑问，您可在购买前联系销售商进行咨询。</p>
                                     <p><b>异常问题：</b>商品促销信息以商品详情页“促销”栏中的信息为准；商品的具体售价以订单结算页价格为准；如您发现活动商品售价或促销信息有异常，建议购买前先联系销售商咨询。</p>
 
                                     <br>
                                     <strong>能效标识说明：</strong><br>
-                                    <p>根据国家相关能效标识法规和标准的要求，京东自营在售商品的能效标识图样，将会逐步替换为新版能源效率标识贴；受能效标识标准变化影响，部分产品的新版和旧版能效标识，在能效等级、测试值等方面会有差异，但产品实际性能完全一样，并不影响购买和使用，加贴新版或旧版能效标识的商品会随机发放，请您放心购买；如有疑问，请在购买前通过咚咚或来电咨询。</p>
+                                    <p>根据国家相关能效标识法规和标准的要求，售商品的能效标识图样，将会逐步替换为新版能源效率标识贴；受能效标识标准变化影响，部分产品的新版和旧版能效标识，在能效等级、测试值等方面会有差异，但产品实际性能完全一样，并不影响购买和使用，加贴新版或旧版能效标识的商品会随机发放，请您放心购买；如有疑问，请在购买前通过咚咚或来电咨询。</p>
                                 </div>
                             </div>
                         </div>
@@ -422,8 +431,12 @@
         <!--底部内容-->
         <div class="bottom-html" style="height: 50px;width: 100%;background-color: #eeeeee;bottom: 0px;"></div>
     </div>
-
 </div>
+<a href="#body">
+    <div class="go-top" title="回到顶部">
+        <i class="layui-icon layui-icon-up" style="font-size: 25px; color: #fff;"></i>
+    </div>
+</a>
 
 <script type="text/javascript" src="./static/plugins/jquery/jquery-2.0.3.min.js  "></script>
 <script type="text/javascript" src="./static/plugins/layui/layui.js"></script>

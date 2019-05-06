@@ -127,6 +127,7 @@ function getListData() {
                             "currentPage": page
                         },
                         success: function (data) {
+                            console.log(data);
                             var result = data.data;
                             var totalNum = result.totalNum;  //总数量
                             totalPage = result.totalPage; //总页数

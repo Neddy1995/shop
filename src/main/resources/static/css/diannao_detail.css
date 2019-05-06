@@ -142,6 +142,43 @@
     color: #666;
     padding-top: 30px;
 }
+.recommend-list{
+    width: 100%;
+    height: 180px;
+    clear: both;
+}
+.recommend-item{
+    width: 150px;
+    height: 180px;
+    float: left;
+    margin: 0px 10px;
+    border: 1px solid #f2f2f2;
+    border-radius: 3px;
+    font-size: 12px;
+    color: #666;
+    text-align: center;
+}
+.recommend-item-img {
+    height: 120px;
+    width: 146px;
+    padding: 2px 2px;
+}
+.recommend-item-div{
+    text-align: center;
+    margin: 5px;
+}
+.go-top{
+    height: 40px;
+    width: 40px;
+    background-color: #01AAED;
+    position:fixed;
+    right: 50px;
+    bottom: 100px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    line-height: 40px;
+    text-align: center;
+}
 
 
 
