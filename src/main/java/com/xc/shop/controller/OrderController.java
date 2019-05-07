@@ -47,7 +47,6 @@ public class OrderController {
     @PostMapping(value = "selectGoodByCart.do")
     public ControllerResult selectGoodByCart(HttpSession httpSession,
                                              @RequestParam("list")List list){
-        list.add("1");
         List<GoodByCartVo> list1 = orderService.selectGoodByCart(list);
         ControllerResult controllerResult = new ControllerResult();
 

@@ -48,7 +48,7 @@ function selectAll() {
                     var money=number * price;
                     var type = list[i].type;
                     html +='<tr class="layui-table-body">';
-                    html +='<td><input type="radio" value="'+ cartId+'"/></td>';
+                    html +='<td><input id="radio'+ cartId +'" class="radio" type="radio" value="'+ cartId+'" onclick="changeChecked(this)"/></td>';
                     html +='<td  type="'+ type +'" goodId="'+ goodId+'" onclick="toDetail(this)"><img id="image" class="logo" src="' + getGoodListImagePath() + computerImgUrl + '" /><p id="name">' + computerName +'</p></td>';
                     html +='<td id="price">￥'+ price +'</td>';
                     html +='<td><div><button id="jian" class="layui-btn" cartId="' + cartId + '" number="' + number + '" onclick="jian(this)"><i class="layui-icon">－</i></button>';
@@ -159,8 +159,40 @@ function toDetail(pom) {
  * @param pom
  */
 function toOverDetail(pom) {
-    var list ='';
+    var list =getRadio();
     //Web Storage的缓存对象
     localStorage.setItem("goodIdList",list);
     window.location.href="createOrder.html";
 }
+
+
+/**
+ * 获取选中的值
+ */
+function getRadio() {
+    var list=new Array();
+    var radio = document.getElementsByClassName("radio");
+    for (var i=0;i<radio.length;i++){
+        if (radio[i].checked == true){
+            list.push(radio[i].value);
+        }
+    }
+    console.log(list);
+    return list;
+
+}
+
+function changeChecked(pom) {
+    var checked = pom.getAttribute("checked");
+    var id=pom.getAttribute("id");
+    console.log(checked);
+    if(checked==true){
+        $("#id").attr("checked",false);
+        console.log("取消");
+    }
+    if(checked==null||checked==false){
+        $("#id").attr("checked",true);
+        console.log("选中");
+    }
+}
+
