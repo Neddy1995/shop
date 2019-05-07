@@ -6,12 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta charset="UTF-8">
     <title>diannao</title>
+
+    <link rel="stylesheet" type="text/css" href="./static/plugins/layui/css/layui.css"/>
+
 </headx>
 <body>
 
-<button id="test">分析页面</button>
-<!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
-<div id="main" style="width: 1000px;height:400px;"></div>
+<form class="layui-form" action="" style="margin-top: 30px; width: 100%;">
+    <div class="layui-inline" style="width: 250px;">
+        <label class="layui-form-label">选择框</label>
+        <div class="layui-input-block">
+            <select name="city" lay-verify="required">
+                <option value="computer">电脑</option>
+                <option value="mobile_phone">手机</option>
+            </select>
+        </div>
+    </div>
+    <div class="layui-inline" style="width: 250px;margin-left: 20px;">
+        <input type="text" class="layui-input" id="test1" placeholder="时间：yyyy-MM-dd">
+    </div>
+</form>
+
+<!-- 浏览折线图 -->
+<div id="main1" style="width: 700px;height:330px;margin-left: 30px;float: left;"></div>
+
+<!-- 购买折现图 -->
+<div id="main2" style="width: 700px;height:330px;float: left;"></div>
+
+<!-- 浏览排行榜 -->
+<div id="main3" style="width: 700px;height:330px;margin-left: 30px;float: left;"></div>
+
+<!-- 购买排行榜 -->
+<div id="main4" style="width: 700px;height:330px;float: left;"></div>
 
 <script type="text/javascript" src="./static/plugins/jquery/jquery-2.0.3.min.js  "></script>
 <script type="text/javascript" src="./static/plugins/layui/layui.js"></script>
@@ -21,3 +47,26 @@
 
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
