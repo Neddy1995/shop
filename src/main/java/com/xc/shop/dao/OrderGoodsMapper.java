@@ -18,7 +18,7 @@ public interface OrderGoodsMapper {
 
     int updateByPrimaryKey(OrderGoods record);
 
-    List selectAllOrderByUser(String userId);
+    List<OrderGoods> selectAllOrderByUser(String userId);
 
     List<GoodByCartVo> selectGoodByCart(List list);
 }

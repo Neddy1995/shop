@@ -8,9 +8,12 @@ import com.xc.shop.dao.OrderGoodsMapper;
 import com.xc.shop.dao.ShoppingCartMapper;
 import com.xc.shop.util.TimeUtil;
 import com.xc.shop.vo.GoodByCartVo;
+import com.xc.shop.vo.OrderDetailsPo;
+import com.xc.shop.vo.OrderGoodVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -26,8 +29,26 @@ public class OrderService {
     @Autowired
     private OrderDetailsMapper orderDetailsMapper;
 
-    public void selectAllOrder(String userId){
-//        List list = orderGoodsMapper.selectAllOrderByUser(userId);
+    public List<OrderGoodVo> selectAllOrder(String userId){
+//        查询订单
+        List<OrderGoods> list = orderGoodsMapper.selectAllOrderByUser(userId);
+        List<OrderGoodVo> list1=new ArrayList<>();
+//        循环查询订单详情
+        for (OrderGoods orderGoods: list) {
+//            先将订单信息插入到Vo对象中
+            OrderGoodVo orderGoodVo = new OrderGoodVo();
+            orderGoodVo.setBeginTime(orderGoods.getBeginTime());
+            orderGoodVo.setState(orderGoods.getState());
+            orderGoodVo.setAddressId(orderGoods.getAddressId());
+            orderGoodVo.setUserId(orderGoods.getUserId());
+            orderGoodVo.setOrderId(orderGoods.getOrderId());
+            orderGoodVo.setEndTime(orderGoods.getEndTime());
+//            查询订单详情作为list放入Vo对象
+            List<OrderDetailsPo> list2 = orderDetailsMapper.selectDetailsByOrder(orderGoods.getOrderId());
+            orderGoodVo.setList(list2);
+            list1.add(orderGoodVo);
+        }
+        return list1;
     }
 
     /**

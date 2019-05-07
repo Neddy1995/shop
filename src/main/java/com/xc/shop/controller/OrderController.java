@@ -4,6 +4,7 @@ import com.xc.shop.service.OrderService;
 import com.xc.shop.util.ControllerResult;
 import com.xc.shop.util.SessionKeyValue;
 import com.xc.shop.vo.GoodByCartVo;
+import com.xc.shop.vo.OrderGoodVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -30,10 +31,10 @@ public class OrderController {
 
         String userId =(String) httpSession.getAttribute(SessionKeyValue.USER_ID);
 //        查询订单
-        orderService.selectAllOrder(userId);
+        List<OrderGoodVo> list = orderService.selectAllOrder(userId);
         controllerResult.setResultCode(ControllerResult.RESULT_CODE_SUCCESS);
         controllerResult.setMessage("查询成功！");
-
+        controllerResult.setData(list);
         return controllerResult;
 
     }
