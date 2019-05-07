@@ -55,7 +55,7 @@ function loadOrder() {
                         // html+='<div class="color">银白色</div>';
                         html+='</div>';
                     }
-                    html+='<div id="order-delete" class="order-delete"><button class="layui-btn">删除</button></div>';
+                    html+='<div id="order-delete" class="order-delete"><button class="layui-btn" orderId="'+list[i].orderId+'" onclick="deleteOrder(this)">删除</button></div>';
                     html+='</div>';
                 }
                 $("#order-list").html(html);
@@ -68,4 +68,25 @@ function loadOrder() {
             
         }
     })
+}
+
+function deleteOrder(pom) {
+    var orderId = pom.getAttribute("orderId");
+    $.ajax({
+        type:"post",
+        url:"",
+        data:{
+            "orderId":orderId
+        },
+        success:function (data) {
+            var resultCode =data.resultCode;
+            var message = data.message;
+            if(resultCode == "success"){
+                alert(message);
+                window.location.href='user.h';
+            }
+            
+        }
+    })
+    
 }

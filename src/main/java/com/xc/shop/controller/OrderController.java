@@ -84,4 +84,20 @@ public class OrderController {
         return controllerResult;
     }
 
+    /**
+     * 删除订单信息
+     * @param httpSession
+     * @param orderId
+     * @return
+     */
+    @PostMapping(value = "deleteOrder.do")
+    public ControllerResult deleteOrder(HttpSession httpSession,
+                                        @RequestParam("orderId")String orderId){
+        ControllerResult controllerResult = new ControllerResult();
+        orderService.deleteOrder(orderId);
+        controllerResult.setResultCode(ControllerResult.RESULT_CODE_SUCCESS);
+        controllerResult.setMessage("删除成功");
+        return controllerResult;
+    }
+
 }

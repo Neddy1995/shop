@@ -89,4 +89,13 @@ public class OrderService {
 //        删除购物车中的商品
         shoppingCartMapper.deleteByListKey(list);
     }
+
+    /**
+     * 删除订单信息
+     * @param orderId
+     */
+    public void deleteOrder(String orderId) {
+        orderGoodsMapper.deleteByPrimaryKey(orderId);
+        orderDetailsMapper.deleteByPrimaryKey(orderId);
+    }
 }
