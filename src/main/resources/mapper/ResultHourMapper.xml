@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xc.shop.dao.ResultHourMapper" >
+  <resultMap id="BaseResultMap" type="com.xc.shop.bean.ResultHour" >
+    <result column="type_id" property="typeId" jdbcType="VARCHAR" />
+    <result column="good_id" property="goodId" jdbcType="VARCHAR" />
+    <result column="number" property="number" jdbcType="VARCHAR" />
+    <result column="result_type" property="resultType" jdbcType="VARCHAR" />
+    <result column="day_id" property="dayId" jdbcType="VARCHAR" />
+    <result column="hour_id" property="hourId" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <sql id="baseColumn">
+    type_id, good_id, number, result_type, day_id, hour_id
+  </sql>
+
+  <insert id="insert" parameterType="com.xc.shop.bean.ResultHour" >
+    insert into result_hour (type_id, good_id, number, 
+      result_type, day_id, hour_id
+      )
+    values (#{typeId,jdbcType=VARCHAR}, #{goodId,jdbcType=VARCHAR}, #{number,jdbcType=VARCHAR}, 
+      #{resultType,jdbcType=VARCHAR}, #{dayId,jdbcType=VARCHAR}, #{hourId,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.xc.shop.bean.ResultHour" >
+    insert into result_hour
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="typeId != null" >
+        type_id,
+      </if>
+      <if test="goodId != null" >
+        good_id,
+      </if>
+      <if test="number != null" >
+        number,
+      </if>
+      <if test="resultType != null" >
+        result_type,
+      </if>
+      <if test="dayId != null" >
+        day_id,
+      </if>
+      <if test="hourId != null" >
+        hour_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="typeId != null" >
+        #{typeId,jdbcType=VARCHAR},
+      </if>
+      <if test="goodId != null" >
+        #{goodId,jdbcType=VARCHAR},
+      </if>
+      <if test="number != null" >
+        #{number,jdbcType=VARCHAR},
+      </if>
+      <if test="resultType != null" >
+        #{resultType,jdbcType=VARCHAR},
+      </if>
+      <if test="dayId != null" >
+        #{dayId,jdbcType=VARCHAR},
+      </if>
+      <if test="hourId != null" >
+        #{hourId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+
+  <!--浏览折线图-->
+  <select id="query1" resultMap="BaseResultMap">
+    select <include refid="baseColumn"/>
+    from result_hour
+    where result_type = '1'
+    and type_id = #{type} and day_id = #{time}
+  </select>
+
+  <!--浏览折线图-->
+  <select id="query2" resultMap="BaseResultMap">
+    select <include refid="baseColumn"/>
+    from result_hour
+    where result_type = '2'
+    and type_id = #{type} and day_id = #{time}
+  </select>
+
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

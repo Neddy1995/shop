@@ -1,13 +1,13 @@
 $(document).ready(function () {
     $("#test").click(function () {
-        test1(0, 0);
+        test3();
     });
 });
 
 function test1(pageNum, pageSize) {
     var json = {
-        "objectId": "9737B6C8413F4343B920DC09E10F6A8E",
-        "layerMarkId": 2,
+        "objectId": "2339269304",
+        "layerMarkId": 1,
         "maxLatitude": "39.96790810957493",
         "maxLongitude": "116.31316858902962",
         "minLatitude": "39.95892589042508",
@@ -23,7 +23,7 @@ function test1(pageNum, pageSize) {
 
     };
     $.ajax({
-        url: "http://localhost:8081/recapping/queryLayers.do",
+        url: "http://localhost:8081/recapping/queryBuildingDetail.do",
         contentType : 'application/json',
         type: "post",
         data: JSON.stringify(json),
@@ -41,7 +41,7 @@ function test2() {
         url: "http://localhost:8081/recapping/queryLocation.do",
         type: "post",
         data: {
-            "conText": "北京",
+            "conText": "菜市口地铁站",
             "longitude": "104.06896786",
             "latitude": "30.68084107",
             "pageNum": 1,
@@ -56,6 +56,25 @@ function test2() {
     });
 }
 
+function test3() {
+    var json = {
+        "password": "123456",
+        "desc": "123456"
+    };
+    $.ajax({
+        url: "http://localhost:8081/js/pboss/order/test",
+        contentType : 'application/json;charset=UTF-8',
+        type: "post",
+        dataType: 'json',
+        data: JSON.stringify(json),
+        success: function (data) {
+            console.log(data);
+        },
+        error: function (data) {
+            console.log(data);
+        }
+    });
+}
 
 
 

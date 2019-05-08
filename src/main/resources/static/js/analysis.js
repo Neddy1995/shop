@@ -3,10 +3,9 @@ $(document).ready(function () {
     layui.use('form', function(){
         var form = layui.form;
 
-        //监听提交
-        form.on('submit(formDemo)', function(data){
-            layer.msg(JSON.stringify(data.field));
-            return false;
+        //监听
+        form.on('select()', function(data){
+            queryData();
         });
     });
 
@@ -16,27 +15,65 @@ $(document).ready(function () {
         //执行一个laydate实例
         laydate.render({
             elem: '#test1' //指定元素
-            ,value: new Date(1534766888000)
+            ,format: 'yyyyMMdd'
+            ,done: function(value, date, endDate){
+                queryData();
+            }
         });
+
+        $("#test1").val('20190511');
     });
 
-    initBar1();
-    initBar2();
     initBar3();
     initBar4();
+
+    queryData();
 });
 
+
+/*查询数据*/
+function queryData() {
+    // 获取参数
+    var type = $("#type").val();
+    var time = $("#test1").val();
+
+    $.ajax({
+        url: "/queryAnalysis.do",
+        type: "get",
+        data: {
+            "type": type,
+            "time": time
+        },
+        success: function (data) {
+            var data1 = data.data.data1;
+            var data2 = data.data.data2;
+
+            initBar1(data1);
+            initBar2(data2);
+
+        },
+        error: function (data) {
+            console.log(data);
+        }
+    });
+}
+
+
+
 <!-- 1 浏览折线图 -->
-function initBar1() {
+function initBar1(data1) {
     // 基于准备好的dom，初始化echarts实例
     var myChart = echarts.init(document.getElementById('main1'));
 
     // 模拟数据
     var xData = [];
     var yData = [];
-    for (var i = 0; i < 100; i++) {
-        xData.push(i);
-        yData.push(200 + Math.random() * 21 - 10);
+    for (var i = 0; i < data1.length; i++) {
+        var hourId = data1[i].hourId;
+        var number = data1[i].number;
+
+        xData.push(hourId);
+        yData.push(number);
     }
 
     // 指定图表的配置项和数据
@@ -59,16 +96,19 @@ function initBar1() {
 }
 
 <!-- 2 购买折现图 -->
-function initBar2() {
+function initBar2(data2) {
     // 基于准备好的dom，初始化echarts实例
     var myChart = echarts.init(document.getElementById('main2'));
 
     // 模拟数据
     var xData = [];
     var yData = [];
-    for (var i = 0; i < 100; i++) {
-        xData.push(i);
-        yData.push(200 + Math.random() * 21 - 10);
+    for (var i = 0; i < data2.length; i++) {
+        var hourId = data2[i].hourId;
+        var number = data2[i].number;
+
+        xData.push(hourId);
+        yData.push(number);
     }
 
     // 指定图表的配置项和数据
