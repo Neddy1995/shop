@@ -1,6 +1,7 @@
 package com.xc.shop.dao;
 
 import com.xc.shop.bean.ResultHour;
+import com.xc.shop.vo.ResultHourVo;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -17,8 +18,8 @@ public interface ResultHourMapper {
     List<ResultHour> query2(@Param("type") String type, @Param("time") String time);
 
     // 3 浏览排行榜
-    List<ResultHour> query3(@Param("type") String type, @Param("time") String time);
+    List<ResultHourVo> query3(@Param("type") String type, @Param("time") String time);
 
     // 4 购买排行榜
-    List<ResultHour> query4(@Param("type") String type, @Param("time") String time);
+    List<ResultHourVo> query4(@Param("type") String type, @Param("time") String time);
 }

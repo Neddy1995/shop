@@ -74,7 +74,7 @@
     and type_id = #{type} and day_id = #{time}
   </select>
 
-  <!--浏览折线图-->
+  <!--购买折线图-->
   <select id="query2" resultMap="BaseResultMap">
     select <include refid="baseColumn"/>
     from result_hour
@@ -82,6 +82,23 @@
     and type_id = #{type} and day_id = #{time}
   </select>
 
+  <!--浏览排行榜-->
+  <select id="query3" resultType="com.xc.shop.vo.ResultHourVo">
+    select a.good_id as goodId,b.good_img as goodImg,b.good_name as goodName,sum(a.number) as number
+    from result_hour a inner join good_base_info b on a.good_id=b.good_id
+    where a.type_id=#{type} and day_id=#{time}
+    group by a.good_id,b.good_img,b.good_name
+    order by sum(a.number) desc
+  </select>
+
+  <!--购买排行榜-->
+  <select id="query4" resultType="com.xc.shop.vo.ResultHourVo">
+    select a.good_id as goodId,b.good_img as goodImg,b.good_name as goodName,sum(a.number) as number
+    from result_hour a inner join good_base_info b on a.good_id=b.good_id
+    where a.type_id=#{type} and day_id=#{time}
+    group by a.good_id,b.good_img,b.good_name
+    order by sum(a.number) desc
+  </select>
 
 </mapper>
 
