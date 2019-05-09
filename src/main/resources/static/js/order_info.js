@@ -42,6 +42,7 @@ function loadOrder() {
                             break;
                     }
                     var list1 = list[i].list;
+                    html+='<div class="order-info-body">';
                     html+='<div class="order-head">';
                     html+='<div id="begin-time" class="begin-time">'+list[i].beginTime+'</div>';
                     html+='<div id="state" style="float: right" class="state">'+stateString+'</div>';
