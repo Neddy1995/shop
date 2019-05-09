@@ -12,6 +12,25 @@ $(document).ready(function () {
     //查询所有记录
     selectAll();
 
+    //给全选按钮添加事件
+    $(".all").click(function () {
+        var userIds = this.checked;
+        $("input[name=box]").each(function () {
+            this.checked=userIds;
+        })
+    });
+
+//    给box绑定单击事件
+    $("input[name=box]").click(function () {
+        var length=$("input[name=box]:checked").length;
+        var len = $("input[name=box]").length;
+        if(length==len){
+            $(".all").get(0).checked=true;
+        }else {
+            $(".all").get(0).checked=false;
+        }
+
+    });
 });
 
 /**
@@ -48,7 +67,7 @@ function selectAll() {
                     var money=number * price;
                     var type = list[i].type;
                     html +='<tr class="layui-table-body">';
-                    html +='<td><input id="radio'+ cartId +'" class="radio" type="radio" value="'+ cartId+'" onclick="changeChecked(this)"/></td>';
+                    html +='<td><input id="radio'+ cartId +'" name="box" type="checkbox" value="'+ cartId+'"/></td>';
                     html +='<td  type="'+ type +'" goodId="'+ goodId+'" onclick="toDetail(this)"><img id="image" class="logo" src="' + getGoodListImagePath() + computerImgUrl + '" /><p id="name">' + computerName +'</p></td>';
                     html +='<td id="price">￥'+ price +'</td>';
                     html +='<td><div><button id="jian" class="layui-btn" cartId="' + cartId + '" number="' + number + '" onclick="jian(this)"><i class="layui-icon">－</i></button>';
@@ -171,7 +190,7 @@ function toOverDetail(pom) {
  */
 function getRadio() {
     var list=new Array();
-    var radio = document.getElementsByClassName("radio");
+    var radio = document.getElementsByName("box");
     for (var i=0;i<radio.length;i++){
         if (radio[i].checked == true){
             list.push(radio[i].value);
@@ -179,20 +198,5 @@ function getRadio() {
     }
     console.log(list);
     return list;
-
-}
-
-function changeChecked(pom) {
-    var checked = pom.getAttribute("checked");
-    var id=pom.getAttribute("id");
-    console.log(checked);
-    if(checked==true){
-        $("#id").attr("checked",false);
-        console.log("取消");
-    }
-    if(checked==null||checked==false){
-        $("#id").attr("checked",true);
-        console.log("选中");
-    }
 }
 
