@@ -1,5 +1,4 @@
 
-var time = "20190510";  // 默认时间
 
 $(document).ready(function () {
 
@@ -25,9 +24,10 @@ $(document).ready(function () {
         });
 
         $("#test1").val('20190510');
+
+        queryData();
     });
 
-    queryData();
 });
 
 
@@ -35,6 +35,8 @@ $(document).ready(function () {
 function queryData() {
     // 获取参数
     var type = $("#type").val();
+    var time = $("#test1").val();
+
 
     $.ajax({
         url: "/queryAnalysis.do",
