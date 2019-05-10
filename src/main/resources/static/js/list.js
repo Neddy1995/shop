@@ -138,13 +138,14 @@ function getListData() {
                                 var goodImg = getGoodListImagePath() + items[i].good_img;
                                 var goodPrice = items[i].good_price;
                                 var goodDesc = items[i].good_desc;
-                                var userName = items[i].user_name;
+                                var userName = items[i].user_name + "专卖店";
+                                var goodName = items[i].good_name;
 
                                 var html = '';
                                 html += '<div class="list-item" type="' + type + '" goodId="' + goodId + '" onclick="toDetail(this)">';
                                 html += '<img class="hover-img" src="' + goodImg + '" style="width: 100%; height: 200px;">';
                                 html += '<div class="list-item-price">￥ ' + goodPrice + '</div>';
-                                html += '<div class="list-item-info">' + goodDesc + '</div>';
+                                html += '<div class="list-item-info">' + goodName + '</div>';
                                 html += '<div class="list-item-store-name"><span>' + userName + '</span><img class="list-item-chart-icon" src="/static/images/icon_chart.png"></div>';
                                 html += '</div>';
                                 lis.push(html)
@@ -202,7 +203,7 @@ function selectAllBrandByType() {
                 var imgSrc = getBrandImagePath() + img;
 
                 html += '<div class="pinpai-item-div" brand_id="' + brand_id + '" title="' + brand_name + '">';
-                    html += '<img class="pinpai-img-item hover-img" src="' + imgSrc + '">';
+                    html += '<div class="pinpai-img-item hover-img"> ' + brand_name + ' </div>';
                 html += '</div>';
             }
 
