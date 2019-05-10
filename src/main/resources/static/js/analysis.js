@@ -1,3 +1,6 @@
+
+var time = "20190510";  // 默认时间
+
 $(document).ready(function () {
 
     layui.use('form', function(){
@@ -21,11 +24,8 @@ $(document).ready(function () {
             }
         });
 
-        $("#test1").val('20190511');
+        $("#test1").val('20190510');
     });
-
-    initBar3();
-    initBar4();
 
     queryData();
 });
@@ -35,7 +35,6 @@ $(document).ready(function () {
 function queryData() {
     // 获取参数
     var type = $("#type").val();
-    var time = $("#test1").val();
 
     $.ajax({
         url: "/queryAnalysis.do",
@@ -47,9 +46,13 @@ function queryData() {
         success: function (data) {
             var data1 = data.data.data1;
             var data2 = data.data.data2;
+            var data3 = data.data.data3;
+            var data4 = data.data.data4;
 
             initBar1(data1);
             initBar2(data2);
+            initBar3(data3);
+            initBar4(data4);
 
         },
         error: function (data) {
@@ -78,6 +81,19 @@ function initBar1(data1) {
 
     // 指定图表的配置项和数据
     var option = {
+        title: {
+            text: '浏览趋势图',
+            textStyle: {
+                color: '#1E9FFF',
+                fontSize: 15
+            }
+        },
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'shadow'
+            }
+        },
         xAxis: {
             type: 'category',
             data: xData
@@ -113,6 +129,19 @@ function initBar2(data2) {
 
     // 指定图表的配置项和数据
     var option = {
+        title: {
+            text: '购买趋势图',
+            textStyle: {
+                color: '#1E9FFF',
+                fontSize: 15
+            }
+        },
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'shadow'
+            }
+        },
         xAxis: {
             type: 'category',
             data: xData
@@ -131,30 +160,52 @@ function initBar2(data2) {
 }
 
 <!-- 3 浏览排行榜 -->
-function initBar3() {
+function initBar3(data3) {
     // 基于准备好的dom，初始化echarts实例
     var myChart = echarts.init(document.getElementById('main3'));
 
     // 模拟数据
     var xData = [];
     var yData = [];
-    for (var i = 0; i < 20; i++) {
-        xData.push(i);
-        yData.push(200 + Math.random() * 21 - 10);
+    for (var i = 0; i < data3.length; i++) {
+        var goodName = data3[i].goodName;
+        var number = data3[i].number;
+
+        xData.push(number);
+        yData.push(goodName);
     }
+
 
     // 指定图表的配置项和数据
     var option = {
+        title: {
+            text: '浏览排行榜',
+            textStyle: {
+                color: '#1E9FFF',
+                fontSize: 15
+            }
+        },
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'shadow'
+            }
+        },
         xAxis: {
-            type: 'category',
-            data: xData
+            type: 'value',
+            boundaryGap: [0, 0.01]
         },
         yAxis: {
-            type: 'value'
+            type: 'category',
+            data: yData
         },
         series: [{
-            data: yData,
-            type: 'bar'
+            type: 'bar',
+            data: xData,
+            barWidth: '50%',
+            itemStyle: {
+                color: '#FF5722'
+            }
         }]
     };
 
@@ -163,30 +214,52 @@ function initBar3() {
 }
 
 <!-- 4 购买排行榜 -->
-function initBar4() {
+function initBar4(data4) {
     // 基于准备好的dom，初始化echarts实例
     var myChart = echarts.init(document.getElementById('main4'));
 
     // 模拟数据
     var xData = [];
     var yData = [];
-    for (var i = 0; i < 20; i++) {
-        xData.push(i);
-        yData.push(200 + Math.random() * 21 - 10);
+    for (var i = 0; i < data4.length; i++) {
+        var goodName = data4[i].goodName;
+        var number = data4[i].number;
+
+        xData.push(number);
+        yData.push(goodName);
     }
 
     // 指定图表的配置项和数据
     var option = {
+        title: {
+            text: '购买排行榜',
+            textStyle: {
+                color: '#1E9FFF',
+                fontSize: 15
+            }
+        },
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'shadow'
+            }
+        },
         xAxis: {
-            type: 'category',
-            data: xData
+            type: 'value',
+            boundaryGap: [0, 0.01]
         },
         yAxis: {
-            type: 'value'
+            type: 'category',
+            data: yData
         },
         series: [{
-            data: yData,
-            type: 'bar'
+            type: 'bar',
+            data: xData,
+            barWidth: '50%',
+            itemStyle: {
+                //color: ['#009688', '#5FB878', '#1E9FFF', '#FFB800', '#FF5722']
+                color: '#009688'
+            }
         }]
     };
 

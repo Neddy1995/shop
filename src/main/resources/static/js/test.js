@@ -21,11 +21,15 @@ function test1(pageNum, pageSize) {
         "longitude": "104.06896786",
         "latitude": "30.68084107",
 
+        "condition": 3,
+        "markId": 3,
+        "context": ""
+
     };
     $.ajax({
-        url: "http://localhost:8081/recapping/queryBuildingDetail.do",
+        url: "http://localhost:8081/recapping/queryNetworkResource.do",
         contentType : 'application/json',
-        type: "post",
+        type: "get",
         data: JSON.stringify(json),
         success: function (data) {
             console.log(data);
@@ -58,14 +62,40 @@ function test2() {
 
 function test3() {
     var json = {
-        "password": "123456",
-        "desc": "123456"
+        "username": "李四啊--",
+        "token": "token--",
+        "pageSize": "10",
+        "pageNum": "1",
+        "name": "李四啊",
+        "businessType": "勘察",
+        "orderStatus": "todo",
+        "specialType": "internet",
+        "taskName": "勘察预约",
+        "appointTime": "当天",
+        "orderId": "工单编号",
+        "customerNo": "客户编码",
+        "taskId": "流程任务id",
+        "technicalContact": "技术联系人",
+        "technicalContactPhone": "987654321",
+        "picList": [
+            {
+                "fileId": "啊呸",
+                "fileName": "啊呸",
+                "filePath": "啊呸",
+                "fileUse": "啊呸"
+            },{
+                "fileId": "啊呸",
+                "fileName": "啊呸",
+                "filePath": "啊呸",
+                "fileUse": "啊呸"
+            }
+        ],
     };
     $.ajax({
-        url: "http://localhost:8081/js/pboss/order/test",
-        contentType : 'application/json;charset=UTF-8',
+        url: "http://localhost:8081/js/pboss/sign/save",
+        contentType:"application/json;charset=utf-8",
         type: "post",
-        dataType: 'json',
+        dataType: "json",
         data: JSON.stringify(json),
         success: function (data) {
             console.log(data);

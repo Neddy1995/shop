@@ -86,7 +86,7 @@
   <select id="query3" resultType="com.xc.shop.vo.ResultHourVo">
     select a.good_id as goodId,b.good_img as goodImg,b.good_name as goodName,sum(a.number) as number
     from result_hour a inner join good_base_info b on a.good_id=b.good_id
-    where a.type_id=#{type} and day_id=#{time}
+    where a.type_id=#{type} and day_id=#{time} and a.result_type = '3'
     group by a.good_id,b.good_img,b.good_name
     order by sum(a.number) desc
   </select>
@@ -95,7 +95,7 @@
   <select id="query4" resultType="com.xc.shop.vo.ResultHourVo">
     select a.good_id as goodId,b.good_img as goodImg,b.good_name as goodName,sum(a.number) as number
     from result_hour a inner join good_base_info b on a.good_id=b.good_id
-    where a.type_id=#{type} and day_id=#{time}
+    where a.type_id=#{type} and day_id=#{time} and a.result_type = '4'
     group by a.good_id,b.good_img,b.good_name
     order by sum(a.number) desc
   </select>
