@@ -40,8 +40,25 @@ public class UserController {
                                @RequestParam("sex") String sex,
                                @RequestParam("age") String age,
                                @RequestParam("profession") String profession){
-
-        User user = new User(userName,password,sex,age,profession);
+        String pro="";
+        switch (profession){
+            case "1":
+                pro="程序员";
+                break;
+            case "2":
+                pro="工程师";
+                break;
+            case "3":
+                pro="销售员";
+                break;
+            case "4":
+                pro="游戏爱好者";
+                break;
+            case "5":
+                pro="绘图工作者";
+                break;
+        }
+        User user = new User(userName,password,sex,age,pro);
 
         ControllerResult controllerResult = new ControllerResult();
         try {

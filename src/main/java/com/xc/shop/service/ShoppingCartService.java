@@ -29,6 +29,7 @@ public class ShoppingCartService {
         ShoppingCart haveCartGood = shoppingCartMapper.selectByUserAndGood(shoppingCart);
         //不存在时
         if(haveCartGood==null) {
+            shoppingCart.setNumber("1");
             shoppingCartMapper.insert(shoppingCart);
         }
         //存在时

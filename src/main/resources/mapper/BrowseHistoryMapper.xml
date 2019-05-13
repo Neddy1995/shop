@@ -14,7 +14,7 @@
 
   <insert id="addData" parameterType="com.xc.shop.bean.BrowseHistory">
     insert into browse_history (user_id, good_id, time)
-    values (#{userId,jdbcType=VARCHAR}, #{goodId,jdbcType=VARCHAR}, now())
+    values (#{userId,jdbcType=VARCHAR}, #{goodId,jdbcType=VARCHAR}, #{time,jdbcType=VARCHAR})
   </insert>
 
 </mapper>

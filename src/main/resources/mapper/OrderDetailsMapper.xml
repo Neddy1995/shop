@@ -13,24 +13,24 @@
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
-    from order_details
+    from order_detail
     where detail_id = #{detailId,jdbcType=VARCHAR}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
-    delete from order_details
+    delete from order_detail
     where detail_id = #{detailId,jdbcType=VARCHAR}
   </delete>
   <insert id="insert" parameterType="com.xc.shop.bean.OrderDetails" >
     <selectKey resultType="java.lang.String" keyProperty="detailId" order="BEFORE" >
       select uuid_short()
     </selectKey>
-    insert into order_details (detail_id, number, order_id, 
+    insert into order_detail (detail_id, number, order_id, 
       good_id)
     values (#{detailId,jdbcType=VARCHAR}, #{number,jdbcType=INTEGER}, #{orderId,jdbcType=VARCHAR}, 
       #{goodId,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.xc.shop.bean.OrderDetails" >
-    insert into order_details
+    insert into order_detail
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="detailId != null" >
         detail_id,
@@ -61,7 +61,7 @@
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.xc.shop.bean.OrderDetails" >
-    update order_details
+    update order_detail
     <set >
       <if test="number != null" >
         number = #{number,jdbcType=INTEGER},
@@ -76,7 +76,7 @@
     where detail_id = #{detailId,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.xc.shop.bean.OrderDetails" >
-    update order_details
+    update order_detail
     set number = #{number,jdbcType=INTEGER},
       order_id = #{orderId,jdbcType=VARCHAR},
       good_id = #{goodId,jdbcType=VARCHAR}
@@ -85,7 +85,7 @@
 
   <select id="selectDetailsByOrder" parameterType="java.lang.String" resultType="com.xc.shop.vo.OrderDetailsPo">
     select b.good_img as goodImg,b.good_name as goodName,b.good_price as goodPrice,a.number,a.detail_id as detailId,a.order_id as orderId
-    from order_details a inner join good_base_info b
+    from order_detail a inner join good_base_info b
     on a.good_id=b.good_id
     where a.order_id=#{orderId,jdbcType=VARCHAR}
   </select>

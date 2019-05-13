@@ -3,6 +3,7 @@ package com.xc.shop.controller;
 import com.xc.shop.bean.BrowseHistory;
 import com.xc.shop.service.BrowseHistoryService;
 import com.xc.shop.util.SessionKeyValue;
+import com.xc.shop.util.TimeUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpSession;
+import java.util.Date;
 
 @RestController
 public class BrowseHistoryController {
@@ -39,6 +41,8 @@ public class BrowseHistoryController {
                 record.setGoodId(goodId);
                 record.setUserId(userId);
             }
+            TimeUtil timeUtil = new TimeUtil();
+            record.setTime(timeUtil.toString(new Date()));
             browseHistoryService.addData(record);
 
         } catch (Exception e) {

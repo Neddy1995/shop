@@ -75,7 +75,7 @@ function deleteOrder(pom) {
     var orderId = pom.getAttribute("orderId");
     $.ajax({
         type:"post",
-        url:"",
+        url:"deleteOrder.do",
         data:{
             "orderId":orderId
         },

@@ -158,6 +158,8 @@ function  selectRecommendList(goodId) {
         success: function (data) {
             var resultData = data.data;
             var html = '';
+            console.log(resultData);
+
             for (var i = 0; i < resultData.length; i++) {
                 var goodImg = getGoodListImagePath() + resultData[i].goodImg;
                 var goodName = resultData[i].goodName;
